@@ -1,0 +1,207 @@
+:root {
+--white:     #fff3ff;
+--white-rgb: 255, 243, 255;
+--black:     #010001;
+--black-rgb: 1, 0, 1;
+
+--d-blue:    #013588;
+--pink:      #F6B3FB;
+--pink2:     #E072BE;
+--coral:     #EB8494;
+--lilac:     #9596f7;
+--lilac-rgb: 149, 150, 247;
+--l-blue:    #557FFF;
+--blue:      #409cff;
+--blue-rgb:  64,156,255;
+--lightblue: #17BAFF;
+--green1:    #48AD9C;
+--green2:    #08A665;
+
+/* 
+--blue1:  #1A64D7;
+--blue2:  #3764D9;
+--blue3:  #00DAFF;
+--blue4:  #50A5F6;
+--blue5:  #5183E1;
+--blue6:  #729afa;
+--blue7:  #409CFF;
+--blue8:  #1E36AD;
+--blue9:  #012A8B; 
+*/
+
+--body-font: 'jetbrains_monoregular', mono;
+--head-font: '';
+--display-font: 'druzhokregular', display;
+}
+
+/* General */
+body {
+  color: var(--white);
+  background: var(--black);
+  font-family: var(--body-font);
+}
+
+.accent-font {
+  font-family: var(--display-font);
+}
+
+main .container-fluid {
+  max-width: 1920px;
+}
+
+/* Overrides */
+.bg-black, .bg-dark {
+  background-color: var(--black) !important;
+}
+
+/*=====================
+* NAV
+=====================*/
+nav {
+  background:rgba( var(--black-rgb), .9);
+}
+
+.nav-item a {
+  color: var(--lilac);
+}
+
+.nav-item a.active,
+.nav-item a:hover,
+.nav-item a:focus,
+.nav-item a:active {
+  color: var(--pink) !important;
+}
+
+.navbar-brand {
+  padding-left: .5rem; /* to align it with the .big-text-left */
+}
+
+.social-wrapper .navbar-nav i {
+  color: var(--blue);
+}
+
+
+/*=====================
+* HERO
+=====================*/
+.big-text-left {
+  position: fixed;
+  transform: translate(-45%, 100%) rotate(-90deg);
+  bottom: 50%;
+  white-space: nowrap;
+  background: var(--blue);
+  background: linear-gradient( -90deg, 
+    var(--pink), 
+    var(--pink2),
+    var(--coral), 
+    var(--lilac), 
+    var(--l-blue),
+    var(--blue),
+    var(--lightblue), 
+    var(--green1), 
+    var(--green2)
+  );
+  background-size: 200% auto;
+  background-position: bottom;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: var(--blue);
+  -webkit-text-fill-color: rgba(var(--blue-rgb), 0);
+  animation: gradient 10s ease infinite;
+}
+
+.masthead {
+  background: rgba(var(--black-rgb), .5);
+}
+
+.masthead video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+.masthead .hero-title {
+  color: var(--blue);
+  max-width: 400px;
+  font-size: 7rem;
+  line-height: .75;
+}
+
+.btn-cta {
+  width: 100%;
+  max-width: 400px;
+  border-color: var(--blue);
+  color: var(--blue);
+  font-size: 1rem;
+  text-transform: lowercase;
+  background: transparent;
+  box-shadow: 0 0 10px 1px var(--blue);
+  transition: all .35s ease-in-out;
+}
+
+.btn-cta:hover,
+.btn-cta:focus {
+  color: var(--white);
+  background: linear-gradient( 12deg, var(--blue), var(--lilac));
+  box-shadow: 0 0 10px 5px var(--blue);
+}
+
+.masthead .code-block {
+  min-width: 450px;
+  min-height: 500px; /* fixed width and height for better animation */
+}
+
+.masthead pre {
+  background: rgba( var(--black-rgb), .9);
+  position: relative;
+  transition: border .4 linear;
+}
+
+.masthead pre.done {
+  border-top: 2px solid rgba(var(--lilac-rgb), .25);
+  border-left: 2px solid rgba(var(--blue-rgb), .25);
+}
+
+/* 
+.masthead pre::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    var(--pink), 
+    var(--pink2),
+    var(--coral), 
+    var(--lilac), 
+    var(--l-blue),
+    var(--blue),
+    var(--lightblue), 
+    var(--green1), 
+    var(--green2)
+  );
+  filter: blur(5px);
+  z-index: -1;
+} */
+
+@keyframes gradient {
+  0% { background-position: center }
+  25% { background-position: left }
+  50% { background-position: 90% }
+  100% { background-position: center }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-expand-lg .navbar-collapse {
+    transform: translate(45%, 100%) rotate(90deg);
+    right: 1rem;
+    position: fixed;
+    bottom: 50%;
+  }
+
+  .social-wrapper .nav-item i {
+    transform: rotate(-90deg);  /* reset rotation from the navbar */
+  }
+}
