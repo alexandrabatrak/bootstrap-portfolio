@@ -1,29 +1,39 @@
 window.addEventListener("load", function () {
-  const code = document.getElementById("hero-code-block");
-  code.parentNode.classList.remove("done");
-  let str = code.innerHTML;
-  let i = 0;
-  code.innerHTML = "";
+  // Don't animate if user prefers reduced motion
+  // Credit  https://dev.to/natclark/checking-for-reduced-motion-preference-in-javascript-4lp9#:~:text=You%20can%20still%20disable%20those,%2Dmotion%3A%20reduce)%60).
+  const reducedMotion =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
-  let typing = setInterval(function () {
-    i++;
-    code.innerHTML = str.slice(0, i) + "|";
-    if (i == str.length) {
-      clearInterval(typing);
-      code.innerHTML = str;
+  // if (!!reducedMotion) {
+  //   return;
+  // } else {
+  // }
 
-      setInterval(function () {
-        code.parentNode.classList.add("done");
-      }, 1200);
-    }
-  }, 1);
+  if (reducedMotion === false) {
+    const typedText = document.getElementById("typed-text");
+    let str = typedText.innerHTML;
+    let i = 0;
+    typedText.innerHTML = "";
+
+    let typing = setInterval(function () {
+      i++;
+      typedText.innerHTML = str.slice(0, i) + "|";
+      if (i == str.length) {
+        clearInterval(typing);
+        typedText.innerHTML = str;
+      }
+    }, 1);
+  } else {
+    return;
+  }
 
   // NAV scroll behavior
   const nav = document.querySelector("nav");
   const startchange = document.querySelector("main").getBoundingClientRect();
   let didScroll = false;
-  var lastScrollTop = 0;
-  var delta = 5;
+  let lastScrollTop = 0;
+  const delta = 5;
   const navbarHeight = nav.getBoundingClientRect().height;
   var offset = startchange.top + window.scrollY;
 
@@ -39,7 +49,7 @@ window.addEventListener("load", function () {
   }, 250);
 
   function hasScrolled() {
-    var st = window.scrollY;
+    let st = window.scrollY;
     if (st > offset) {
       nav.classList.add("bg-black");
       nav.classList.remove("bg-transparent");
