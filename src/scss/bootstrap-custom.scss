@@ -1,0 +1,5 @@
+$enable-cssgrid: true;
+$enable-rounded: false;
+
+@import "var/variables.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";

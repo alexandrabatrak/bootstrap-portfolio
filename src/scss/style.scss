@@ -1,74 +1,9 @@
 /*
 * Bootstrap Portfolio
 *
-*
 */
 
-/* VARIABLES */
-$white: #fff3ff;
-$white-rgb: 255, 243, 255;
-$black: #010001;
-$black-rgb: 1, 0, 1;
-$dark: #17171a;
-$dark-rgb: 23, 23, 26;
-
-$d-blue: #013588;
-$d-blue-rgb: 1, 53, 136;
-$pink: #f6b3fb;
-$pink-rgb: 246, 179, 251;
-$pink2: #e072be;
-$coral: #eb8494;
-$lilac: #9596f7;
-$lilac-rgb: 149, 150, 247;
-$l-blue: #557fff;
-$blue: #409cff;
-$blue-rgb: 64, 156, 255;
-$lightblue: #17baff;
-$green1: #48ad9c;
-$green1-rgb: 72, 173, 156;
-$green2: #08a665;
-
-/* bootstrap override */
-// --bs-white: $white;
-// --bs-black: $black;
-// --bs-blue: $blue;
-// --bs-white-rgb: $white-rgb;
-// --bs-black-rgb: $black-rgb;
-// --bs-dark: $dark;
-// --bs-dark-rgb: $dark-rgb;
-
-$transition: all 0.35s ease-in-out;
-
-/* 
---blue1:  #1A64D7;
---blue2:  #3764D9;
---blue3:  #00DAFF;
---blue4:  #50A5F6;
---blue5:  #5183E1;
---blue6:  #729afa;
---blue7:  #409CFF;
---blue8:  #1E36AD;
---blue9:  #012A8B; 
-*/
-
-/* Beige portfolio palette */
-
-/* --white:    #F0F0F4;
---light:    rgb(225, 207, 207);
---beige:    rgb(128, 115, 116);
---medium:   rgb(95, 77, 81);
---dark:     rgb(38, 12, 12);
---accent:   rgb(161, 128, 131);
---accent-rgb: 161, 128, 131;
---dark-rgb:   38, 12, 12; */
-
-$body-font: "JetBrains", mono;
-/* --display-font: "Druzhok", display; */
-$display-font: "Gerbil", display;
-
-// This doesn't want to work???
-// $enable-grid-classes: false;
-// $enable-cssgrid: true;
+@import "var/variables.scss";
 
 /* General */
 body {
@@ -107,7 +42,7 @@ section {
   background-clip: text;
   -webkit-background-clip: text;
   color: $white;
-  -webkit-text-fill-color: rgba($white-rgb, 0);
+  -webkit-text-fill-color: rgba($white, 0);
   text-transform: uppercase;
   letter-spacing: 15px;
   animation: gradient 10s ease infinite;
@@ -123,7 +58,7 @@ section {
 * NAV
 =====================*/
 nav {
-  background: rgba($black-rgb, 0.9);
+  background: rgba($black, 0.9);
   transform: 0;
   transition: $transition;
 
@@ -144,7 +79,7 @@ nav {
   &:hover,
   &:focus,
   &:active {
-    color: $green1 !important;
+    color: $white !important;
   }
 }
 
@@ -180,7 +115,7 @@ nav {
 * HERO
 =====================*/
 .masthead {
-  background: linear-gradient(0deg, rgb(23, 23, 26), rgba($black-rgb, 0.78));
+  background: linear-gradient(0deg, rgb(23, 23, 26), rgba($black, 0.78));
 
   video {
     position: fixed;
@@ -193,7 +128,7 @@ nav {
 
   .title-wrapper {
     -webkit-box-reflect: below 1px
-      linear-gradient(transparent, rgba($black-rgb, 0.15));
+      linear-gradient(transparent, rgba($black, 0.15));
   }
 
   .hero-title {
@@ -212,9 +147,9 @@ nav {
     backdrop-filter: blur(5px);
     position: relative;
     border: 2px solid;
-    border-top-color: rgba($lilac-rgb, 0.15);
-    border-left-color: rgba($blue-rgb, 0.15);
-    border-bottom-color: rgba($blue-rgb, 0.05);
+    border-top-color: rgba($lilac, 0.15);
+    border-left-color: rgba($blue, 0.15);
+    border-bottom-color: rgba($blue, 0.05);
     border-right-color: transparent;
   }
 }
@@ -226,7 +161,7 @@ nav {
     padding: 1.5rem 0.45rem !important;
     border-radius: 0 !important;
     color: $blue;
-    background: rgba($blue-rgb, 0.5);
+    background: rgba($blue, 0.5);
     text-transform: lowercase;
     position: relative;
     overflow: hidden;
@@ -247,7 +182,7 @@ nav {
     &:hover,
     &:focus,
     &:active {
-      background: rgba($blue-rgb, 0.5); /* bs override */
+      background: rgba($blue, 0.5); /* bs override */
 
       span {
         color: $white;
@@ -273,9 +208,9 @@ nav {
 
 /* SECTIONS */
 .section-title {
-  .big-text {
+  &.big-text {
     -webkit-box-reflect: below 1px
-      linear-gradient(transparent, rgba($black-rgb, 0.35));
+      linear-gradient(transparent, rgba($black, 0.35));
 
     h2 {
       line-height: 1;
@@ -295,9 +230,9 @@ nav {
     min-height: 400px;
     background: $black;
     border: 2px solid;
-    border-top-color: rgba($lilac-rgb, 0.15);
-    border-left-color: rgba($blue-rgb, 0.15);
-    border-bottom-color: rgba($blue-rgb, 0.05);
+    border-top-color: rgba($lilac, 0.15);
+    border-left-color: rgba($blue, 0.15);
+    border-bottom-color: rgba($blue, 0.05);
     border-right-color: transparent;
     position: relative;
 
@@ -343,8 +278,8 @@ nav {
     }
 
     &:hover {
-      box-shadow: 0px 3px 6px rgba($green1-rgb, 0.5),
-        0px 8px 15px rgba($pink-rgb, 0.3), 0 0 0 1px rgba($blue-rgb, 0.3);
+      box-shadow: 0px 3px 6px rgba($green1, 0.5), 0px 8px 15px rgba($pink, 0.3),
+        0 0 0 1px rgba($blue, 0.3);
       color: $black !important;
 
       .bg-gradient {
@@ -365,7 +300,7 @@ nav {
 * ABOUT, SKILLS
 =====================*/
 .about {
-  background: linear-gradient(0deg, rgb(23, 23, 26), rgba(40, 40, 43));
+  background: linear-gradient(0deg, rgb(23, 23, 26), rgb(40, 40, 43));
 }
 
 /*=====================
