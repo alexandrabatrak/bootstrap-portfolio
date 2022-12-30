@@ -20,12 +20,14 @@
   "homepage": "https://github.com/alexandrabatrak/bootstrap-portfolio#readme",
   "devDependencies": {
     "autoprefixer": "^10.4.13",
+    "bootstrap": "^5.2.3",
+    "install": "^0.13.0",
+    "npm": "^9.2.0",
     "postcss": "^8.4.20",
     "postcss-advanced-variables": "^3.0.1",
     "postcss-cli": "^10.1.0",
     "postcss-nested": "^6.0.0",
-    "postcss-scss": "^4.0.6",
-    "sass": "^1.56.1"
+    "postcss-scss": "^4.0.6"
   },
   "scripts": {
     "preinstall": "npx npm-force-resolutions"
