@@ -1,5 +1,7 @@
 dump.html
+src/dist/css
 
-.npmrc
+.vscode
 node_modules
+.npmrc
 postcss.config.js
