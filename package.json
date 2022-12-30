@@ -1,0 +1,38 @@
+{
+  "name": "bootstrap-portfolio",
+  "version": "1.0.0",
+  "description": "Bootcamp challenge 3",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexandrabatrak/bootstrap-portfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "bootstrap",
+    "bootcamp"
+  ],
+  "author": "Alexandra Batrak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexandrabatrak/bootstrap-portfolio/issues"
+  },
+  "homepage": "https://github.com/alexandrabatrak/bootstrap-portfolio#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.20",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-cli": "^10.1.0",
+    "postcss-nested": "^6.0.0",
+    "postcss-scss": "^4.0.6",
+    "sass": "^1.56.1"
+  },
+  "scripts": {
+    "preinstall": "npx npm-force-resolutions",
+    "scss": "node-sass -w sass -o css",
+    "autoprefix": "postcss css/*.css --use autoprefixer -d dist/"
+  },
+  "browserslist": [
+    "> 2%"
+  ]
+}
