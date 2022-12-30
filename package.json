@@ -28,9 +28,7 @@
     "sass": "^1.56.1"
   },
   "scripts": {
-    "preinstall": "npx npm-force-resolutions",
-    "scss": "node-sass -w sass -o css",
-    "autoprefix": "postcss css/*.css --use autoprefixer -d dist/"
+    "preinstall": "npx npm-force-resolutions"
   },
   "browserslist": [
     "> 2%"
