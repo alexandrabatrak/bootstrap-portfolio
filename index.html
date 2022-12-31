@@ -12,13 +12,15 @@
   <link href="./dist/css/bootstrap-custom.css" rel="stylesheet">
   <link href="./dist/fonts/stylesheet.css" rel="stylesheet">
   <link href="./dist/css/style.css" rel="stylesheet">
-  <link href="./dist/vendor/prism.css" rel="stylesheet">
+  <link href="./dist/vendor/prism/prism.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f549d17040.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div id="loader">
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <h1>
@@ -30,7 +32,7 @@
           <span class="text-uppercase">Menu</span>
           <i class="fa-solid fa-circle"></i>
         </button>
-        <div class="collapse navbar-collapse bg-black p-5 p-lg-0 text-center" id="navbarText" >
+        <div class="collapse navbar-collapse p-5 p-lg-0" id="navbarText" >
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
               <li class="nav-item">
                 <a class="nav-link" href="#work">Work</a>
@@ -41,8 +43,9 @@
               <li class="nav-item">
                 <a class="nav-link" href="#testimonials">Reviews</a>
               </li>
+              <button type="button" id="nav-contact-btn" class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase" data-bs-toggle="modal" data-bs-target="#contact">Contact</button>
             </ul>
-            <div class="social-wrapper d-flex justify-content-center align-items-center">
+            <div class="social-wrapper d-flex justify-content-start align-items-center">
               <ul class="navbar-nav h4 flex-row">
                 <li class="nav-item px-2">
                   <a href="mailto:contact@alexandrabatrak.uk" >
@@ -74,27 +77,29 @@
 
   <main data-bs-spy="scroll" data-bs-target="#navbarText" tabindex="0">
     <!-- Hero section -->
-    <section class="masthead mt-lg-4" id="hero">
-      <video autoplay muted loop id="myVideo">
+    <section class="masthead position-relative" id="hero">
+      <video autoplay muted loop id="videoBg" class="position-fixed right-0 bottom-0 min-w-100 min-h-100">
         <source src="./dist/images/video-bg.mp4" type="video/mp4">
       </video>
       <div class="big-text big-text-left mx-3 my-3 my-lg-0 h4">Web Developer ~ Web designer</div>
-      <div class="container-fluid min-vh-100 my-auto">
+      <div class="container min-vh-100 my-auto">
         <div class="row min-vh-100 mx-auto">
           <div class="col-xl-5 col-lg-6 col-sm-12 d-flex flex-column justify-content-lg-end align-items-lg-end ps-lg-3 my-5 my-lg-auto">
-            <div class="title-wrapper pb-2">
-              <h2 class="hero-title accent-font text-uppercase">Look, I can code</h2>
+            <div class="title-wrapper pb-2 reveal reveal-from-left">
+              <h2 class="hero-title accent-font text-primary text-uppercase text-wrap">Look, I can code</h2>
               <p class="text-decoration-line-through">...maybe</p>
-              <button class="btn btn-cta btn-outline rounded-1 px-5 py-3 bar-anchor">
-                <span>Check it out</span>
-                <div class="btn-border"></div>
+              <button class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 py-4 px-2 position-relative text-lowercase">
+                <span class="w-100 position-relative bg-black py-3 px-4">
+                  <a href="#contact" class="text-decoration-none">Work with me</a>
+                </span>
+                <div class="btn-border position-absolute top-0"></div>
               </button>
             </div>
           </div>
 
           <div class="col-xl-7 col-lg-6 col-sm-12 d-flex justify-content-lg-center align-items-center">
             <div class="code-block">
-              <pre class="rounded-1 bg-dark" style="--bs-bg-opacity: .75;">
+              <pre class="rounded-1 bg-dark position-relative" style="--bs-bg-opacity: .75;">
                 <code id="typed-text" class="language-js">
 const coffee = require( 'coffee-machine' );
 const tired = sleepyEyes(e);
@@ -105,8 +110,7 @@ let code = new Array();
 class Coffee extends Energy {
   constructor(code) {
     try {
-      if (tired === true 
-          &amp;&amp; (hours &gt;= 09 && hours &lt; 22)) {
+      if (tired === true &amp;&amp; (hours &gt;= 09 && hours &lt; 22)) {
         let awake = tired.get(coffee);
         const moreCode = new Array();
         awake.code.push(...moreCode);
@@ -132,10 +136,37 @@ class Coffee extends Energy {
       </div>
     </section> <!-- end of .masthead -->
 
+    <div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content bg-dark">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="contactLabel">New message</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="name">
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label">Message:</label>
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="primary-content bg-black">
 
       <!-- Work section -->
-      <section id="work" class="work">
+      <section id="work" class="work position-relative pb-5">
         <div class="container py-5">
           <div class="section-title big-text">
             <h2 class="mb-5 pt-5">Work</h2>
@@ -144,103 +175,171 @@ class Coffee extends Energy {
           <div class="container section-content">
             <div class="grid">
 
-              <div class="g-col-lg-4 g-col-md-6 g-col-sm-12">
-                <div class="card bg-dark mb-4 p-4">
-                  <div class="card-body">
-                    <h3 class="h4 card-title mb-3 accent-font">Horiseon</h3>
-                    <h6 class="h5 card-subtitle mb-2">Bootcamp week 01 challenge</h6>
+              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
+                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                  <div class="card-body position-relative">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="category">
+                        <p class="badge">Challenge</p>
+                      </div>
+                      <div class="tools pb-2">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                      </div>
+                    </div>
+                    <h3 class="h3 card-title accent-font mb-3">Horiseon</h3>
+                    <h6 class="h5 card-subtitle text-primary mb-2">Bootcamp week 01 challenge</h6>
                     <p class="card-text">Task: Improve webpage source code for better accessibility.</p>
-                    <p>
-                      <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                      <span class="visually-hidden">HTML5</span>
-                      <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                      <span class="visually-hidden">CSS3</span>
-                    </p>
-                    <div class="card-links-wrapper">
-                      <a class="btn btn-outline-secondary" href="https://alexandrabatrak.github.io/horiseon/" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-secondary" href="https://github.com/alexandrabatrak/horiseon" target="_blank" class="card-link">Repo</a>
+                    <div class="card-links-wrapper position-absolute bottom-0">
+                      <a class="btn btn-outline-light" href="https://alexandrabatrak.github.io/horiseon/" target="_blank" class="card-link">Deployement</a>
+                      <a class="btn btn-outline-light" href="https://github.com/alexandrabatrak/horiseon" target="_blank" class="card-link">Repo</a>
                     </div>
                   </div>
-                  <div class="bg-gradient"></div>
+                  <div class="hover-gradient position-absolute position-absolute"></div>
                 </div>
               </div>
 
-              <div class="g-col-lg-4 g-col-md-6 g-col-sm-12">
-                <div class="card bg-dark mb-4 p-4">
-                  <div class="card-body">
-                    <h3 class="h4 card-title mb-3 accent-font">Portfolio Concept</h3>
-                    <h6 class="h5 card-subtitle mb-2">Bootcamp week 02 challenge</h6>
+              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
+                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                  <div class="card-body position-relative">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="category">
+                        <p class="badge">Challenge</p>
+                      </div>
+                      <div class="tools pb-2">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                      </div>
+                    </div>
+                    <h3 class="h3 card-title accent-font mb-3">Portfolio Concept</h3>
+                    <h6 class="h5 card-subtitle text-primary mb-2">Bootcamp week 02 challenge</h6>
                     <p class="card-text">Task: Build a portfolio page.</p>
-                    <p>
-                      <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                      <span class="visually-hidden">HTML5</span>
-                      <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                      <span class="visually-hidden">CSS3</span>
-                    </p>
-                    <a class="btn btn-outline-secondary" href="https://alexandrabatrak.github.io/portfolio-concept-page" target="_blank" class="card-link">Deployement</a>
-                    <a class="btn btn-outline-secondary" href="https://github.com/alexandrabatrak/portfolio-concept-page" target="_blank" class="card-link">Repo</a>
+                    <div class="card-links-wrapper position-absolute bottom-0">
+                      <a class="btn btn-outline-light" href="https://alexandrabatrak.github.io/portfolio-concept-page" target="_blank" class="card-link">Deployement</a>
+                      <a class="btn btn-outline-light" href="https://github.com/alexandrabatrak/portfolio-concept-page" target="_blank" class="card-link">Repo</a>
+                    </div>
                   </div>
-                  <div class="bg-gradient"></div>
+                  <div class="hover-gradient position-absolute position-absolute"></div>
                 </div>
               </div>
   
-              <div class="g-col-lg-4 g-col-md-6 g-col-sm-12">
-                <div class="card bg-dark mb-4 p-4">
-                  <div class="card-body">
-                    <h3 class="h4 card-title mb-3 accent-font">Bootstrap Portfolio</h3>
-                    <h6 class="h5 card-subtitle mb-2">Bootcamp week 03 challenge</h6>
+              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
+                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                  <div class="card-body position-relative">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="category">
+                        <p class="badge">Challenge</p>
+                      </div>
+                      <div class="tools pb-2">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                        <i class="fa-brands fa-sass" aria-hidden="true" title="SCSS"></i>
+                        <span class="visually-hidden">SCSS</span>
+                        <i class="fa-brands fa-bootstrap" aria-hidden="true" title="BootStrap"></i>
+                        <span class="visually-hidden">BootStrap</span>
+                        <i class="fa-brands fa-js" aria-hidden="true" title="JavaScript"></i>
+                        <span class="visually-hidden">JavaScript</span>
+                      </div>
+                    </div>
+                    <h3 class="h3 card-title accent-font mb-3">Bootstrap Portfolio</h3>
+                    <h6 class="h5 card-subtitle text-primary mb-2">Bootcamp week 03 challenge</h6>
                     <p class="card-text">Task: Build a portfolio utilizing Bootstrap.</p>
-                    <p>
-                      <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                      <span class="visually-hidden">HTML5</span>
-                      <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                      <span class="visually-hidden">CSS3</span>
-                      <i class="fa-brands fa-js" aria-hidden="true" title="JavaScript"></i>
-                      <span class="visually-hidden">JavaScript</span>
-                    </p>
-                    <a class="btn btn-outline-secondary" href="https://alexandrabatrak.github.io/bootstrap-portfolio" target="_blank" class="card-link">Deployement</a>
-                    <a class="btn btn-outline-secondary" href="https://github.com/alexandrabatrak/bootstrap-portfolio" target="_blank" class="card-link">Repo</a>
+                    <div class="card-links-wrapper position-absolute bottom-0">
+                      <a class="btn btn-outline-light" href="https://alexandrabatrak.github.io/bootstrap-portfolio" target="_blank" class="card-link">Deployement</a>
+                      <a class="btn btn-outline-light" href="https://github.com/alexandrabatrak/bootstrap-portfolio" target="_blank" class="card-link">Repo</a>
+                    </div>
                   </div>
-                  <div class="bg-gradient"></div>
+                  <div class="hover-gradient position-absolute position-absolute"></div>
                 </div>
               </div>
 
-              <div class="g-col-lg-4 g-col-md-6 g-col-sm-12">
-                <div class="card bg-dark mb-4 p-4">
-                  <div class="card-body">
-                    <h3 class="h4 card-title mb-3 accent-font">Exercitation ullamco</h3>
-                    <h6 class="h5 card-subtitle mb-2">Placeholder</h6>
+              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
+                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                  <div class="card-body position-relative">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="category">
+                        <p class="badge">Placeholder</p>
+                      </div>
+                      <div class="tools pb-2">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                        <i class="fa-brands fa-js" aria-hidden="true" title="JavaScript"></i>
+                        <span class="visually-hidden">JavaScript</span>
+                        <i class="fa-brands fa-wordpress-simple" aria-hidden="true" title="WordPress"></i>
+                        <span class="visually-hidden">WordPress</span>
+                      </div>
+                    </div>
+                    <h3 class="h3 card-title accent-font mb-3">Exercitation ullamco</h3>
+                    <h6 class="h5 card-subtitle text-primary mb-2">Placeholder</h6>
                     <p class="card-text">Enim sit amet venenatis urna cursus eget nunc.</p>
-                    <a class="btn btn-outline-secondary"href="https://alexandrabatrak.github.io/bootstrap-portfolio" target="_blank" class="card-link">Deployement</a>
-                    <a class="btn btn-outline-secondary" href="https://github.com/alexandrabatrak/bootstrap-portfolio" target="_blank" class="card-link">Repo</a>
+                    <div class="card-links-wrapper position-absolute bottom-0">
+                      <a class="btn btn-outline-light"href="#" target="_blank" class="card-link">Deployement</a>
+                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Repo</a>
+                    </div>
                   </div>
-                  <div class="bg-gradient"></div>
+                  <div class="hover-gradient position-absolute position-absolute"></div>
                 </div>
               </div>
 
-              <div class="g-col-lg-4 g-col-md-6 g-col-sm-12">
-                <div class="card bg-dark mb-4 p-4">
-                  <div class="card-body">
-                    <h3 class="h4 card-title mb-3 accent-font">Pellentesque</h3>
-                    <h6 class="h5 card-subtitle mb-2">Placeholder</h6>
+              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
+                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                  <div class="card-body position-relative">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="category">
+                        <p class="badge">Placeholder</p>
+                      </div>
+                      <div class="tools pb-2">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                      </div>
+                    </div>
+                    <h3 class="h3 card-title accent-font mb-3">Pellentesque</h3>
+                    <h6 class="h5 card-subtitle text-primary mb-2">Placeholder</h6>
                     <p class="card-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a class="btn btn-outline-secondary" href="https://alexandrabatrak.github.io/bootstrap-portfolio" target="_blank" class="card-link">Deployement</a>
-                    <a class="btn btn-outline-secondary" href="https://github.com/alexandrabatrak/bootstrap-portfolio" target="_blank" class="card-link">Repo</a>
+                    <div class="card-links-wrapper position-absolute bottom-0">
+                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Deployement</a>
+                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Repo</a>
+                    </div>
                   </div>
-                  <div class="bg-gradient"></div>
+                  <div class="hover-gradient position-absolute position-absolute"></div>
                 </div>
               </div>
 
-              <div class="g-col-lg-4 g-col-md-6 g-col-sm-12">
-                <div class="card bg-dark mb-4 p-4">
-                  <div class="card-body">
-                    <h3 class="h4 card-title mb-3 accent-font">Ornare</h3>
-                    <h6 class="h5 card-subtitle mb-2">Placeholder</h6>
+              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
+                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                  <div class="card-body position-relative">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                      <div class="category">
+                        <p class="badge">Placeholder</p>
+                      </div>
+                      <div class="tools pb-2">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                        <i class="fa-brands fa-react" aria-hidden="true" title="ReactJS"></i>
+                        <span class="visually-hidden">React JS</span>
+                      </div>
+                    </div>
+                    <h3 class="h3 card-title accent-font mb-3">Ornare</h3>
+                    <h6 class="h5 card-subtitle text-primary mb-2">Placeholder</h6>
                     <p class="card-text">Malesuada pellentesque elit eget gravida cum sociis natoque penatibus.</p>
-                    <a class="btn btn-outline-secondary" href="https://alexandrabatrak.github.io/bootstrap-portfolio" target="_blank" class="card-link">Deployement</a>
-                    <a class="btn btn-outline-secondary" href="https://github.com/alexandrabatrak/bootstrap-portfolio" target="_blank" class="card-link">Repo</a>
+                    <div class="card-links-wrapper position-absolute bottom-0">
+                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Deployement</a>
+                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Repo</a>
+                    </div>
                   </div>
-                  <div class="bg-gradient"></div>
+                  <div class="hover-gradient position-absolute position-absolute"></div>
                 </div>
               </div>
 
@@ -250,37 +349,82 @@ class Coffee extends Energy {
       </section> <!-- end of Work section-->
 
       <!-- About section -->
-      <section id="about" class="about">
+      <section id="about" class="about bg-dark py-5 position-relative">
         <div class="container py-5">
           <div class="section-title big-text">
             <h2 class="mb-5 pt-5">About</h2>
           </div>
-          <div class="container">
             <div class="row">
-              <div class="section-content">
-                <div class="about-text-wrapper">
-                  <h3>Coded with 
-                    <span class="visually-hidden">paws</span>
-                    <i class="fa-solid fa-paw" aria-hidden="true"></i>
-                    <i class="fa-solid fa-paw" aria-hidden="true"></i>
-                  </h3>
+                <div class="col-lg-3 col-sm-12 about-text-wrapper">
+                  <h3 class="accent-font">Bio</h3>
                   <p>
                     All projects are coded under strict supervision and paw-some help.
                   </p>
                   <p>
                     The purrfect source code and design solutions are achieved by utilising ergonomic furry elbow support, comforting purring for demanding deadlines and constant reminders to take sleep breaks.
                   </p>
-                  
-                  <small>
-                    P.S. Staff efforts are always generously rewarded with tasty snacks and cuddles.
-                  </small>
                 </div>
-                <div class="about-team-wrapper">
-                  <h3>The team</h3>
+                <div class="col-lg-5 col-sm-12">
+                  <h3 class="accent-font">Skills</h3>
+                  <div class="row">
+                    <ul class="list-inline">
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
+                        <span class="visually-hidden">HTML5</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
+                        <span class="visually-hidden">CSS3</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-sass" aria-hidden="true" title="SCSS"></i>
+                        <span class="visually-hidden">SCSS</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-bootstrap" aria-hidden="true" title="BootStrap"></i>
+                        <span class="visually-hidden">BootStrap</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-js" aria-hidden="true" title="Javascript & JQuery"></i>
+                        <span class="visually-hidden">Javascript & JQuery</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-gulp" aria-hidden="true" title="Gulp"></i>
+                        <span class="visually-hidden">Gulp</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-wordpress-simple" aria-hidden="true" title="WordPress"></i>
+                        <span class="visually-hidden">WordPress</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-php" aria-hidden="true" title="PHP"></i>
+                        <span class="visually-hidden">PHP</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-node" aria-hidden="true" title="Node.js"></i>
+                        <span class="visually-hidden">Node</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-brands fa-npm" aria-hidden="true" title="npm"></i>
+                        <span class="visually-hidden">npm</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true" title="Adobe Creative Suite"></i>
+                        <span class="visually-hidden">Adobe Creative Suite</span>
+                      </li>
+                      <li class="list-inline-item">
+                        <i class="fa-solid fa-laptop-code" aria-hidden="true" title="VS Code"></i>
+                        <span class="visually-hidden">VS Code</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- <div class="col-lg-4 col-sm-12 about-team-wrapper">
+                  <h3 class="accent-font">The team</h3>
                   <div class="team-member-wrapper">
                     <div class="team-member">
-                      <div id="koopa" class="blob-border profile-pic" alt="Koopa, ginger Maine Coon">
-                        <img src="./assets/images/koopa.jpg" id="koopa" 
+                      <div id="koopa" class="blob-border profile-pic">
+                        <img src="./dist/images/koopa.jpg" id="koopa" 
                             alt="Koopa, ginger Maine Coon cat" title="Koopa">
                       </div>
                       <h4>Koopa</h4>
@@ -288,118 +432,95 @@ class Coffee extends Energy {
                     </div>
                     <div class="team-member">
                       <div id="kevin" class="blob-border profile-pic">
-                        <img src="./assets/images/kevin.jpg" id="Kevin" 
+                        <img src="./dist/images/kevin.jpg" id="Kevin" 
                             alt="Kevin, cream Maine Coon cat">
                       </div>
                       <h4>Kevin</h4>
                       <p>Assistant Manager</p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
         </div>
       </section> <!-- end of About section-->
 
-      <!-- Skills section -->
-      <section id="skills" class="skills">
-        <div class="container py-5">
-          <div class="section-title big-text">
-            <h2 class="mb-5 pt-5">Skills</h2>
-          </div>
-  
-          <div class="container">
-            <div class="row">
-              <p>
-              Tools used regularly to achieve <em>(p)awesomeness</em>:
-            </p>
-            <ul class="list-inline">
-              <li class="list-inline-item">
-                <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                <span class="visually-hidden">HTML5</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                <span class="visually-hidden">CSS3</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-sass" aria-hidden="true" title="SCSS"></i>
-                <span class="visually-hidden">SCSS</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-bootstrap" aria-hidden="true" title="BootStrap"></i>
-                <span class="visually-hidden">BootStrap</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-js" aria-hidden="true" title="Javascript & JQuery"></i>
-                <span class="visually-hidden">Javascript & JQuery</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-gulp" aria-hidden="true" title="Gulp"></i>
-                <span class="visually-hidden">Gulp</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-wordpress-simple" aria-hidden="true" title="WordPress"></i>
-                <span class="visually-hidden">WordPress</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-php" aria-hidden="true" title="PHP"></i>
-                <span class="visually-hidden">PHP</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-node" aria-hidden="true" title="Node.js"></i>
-                <span class="visually-hidden">Node</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-brands fa-npm" aria-hidden="true" title="npm"></i>
-                <span class="visually-hidden">npm</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true" title="Adobe Creative Suite"></i>
-                <span class="visually-hidden">Adobe Creative Suite</span>
-              </li>
-              <li class="list-inline-item">
-                <i class="fa-solid fa-laptop-code" aria-hidden="true" title="VS Code"></i>
-                <span class="visually-hidden">VS Code</span>
-              </li>
-            </ul>
+      <section id="counter" class="counter bg-dark position-relative">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3 col-sm 6">
+              <div class="card bg-dark">
+                <span data-purecounter-start="0" data-purecounter-end="999" class="card-title display-5 position-relative purecounter">0</span>
+                <p class="subtitle h4">Files</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm 6">
+              <div class="card bg-dark">
+                <span data-purecounter-start="0" data-purecounter-end="1466" class="card-title display-5 position-relative purecounter">0</span>
+                <p class="subtitle h4">Cups of coffee</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm 6">
+              <div class="card bg-dark">
+                <span data-purecounter-start="0" data-purecounter-end="968" class="card-title display-5 position-relative purecounter">0</span>
+                <p class="subtitle h4">Missed semicolons</p>
+              </div>
+            </div>
+            <div class="col-md-3 col-sm 6">
+              <div class="card bg-dark">
+                <span data-purecounter-start="0" data-purecounter-end="189" class="card-title display-5 position-relative purecounter">0</span>
+                <p class="subtitle h4">Meows</p>
+              </div>
+            </div>
           </div>
         </div>
-      </section> <!-- end of Skills section-->
+      </section>
 
       <!-- Testimonials -->
-      <section id="testimonials" class="testimonials">
+      <section id="testimonials" class="testimonials bg-dark position-relative">
         <div class="container py-5">
           <div class="section-title big-text">
-            <h2 class="mb-5 pt-5">Testimonials</h2>
+            <h2 class="mb-5 pt-5">What they say about me</h2>
           </div>
-          <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+          <div id="carousel" class="carousel slide carousel-fade py-5" data-bs-ride="carousel">
+            <!-- <div class="carousel"> -->
             <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
             </div>
             <div class="carousel-inner">
               <div class="carousel-item active" data-bs-interval="10000">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>First slide label</h3>
-                  <p>Some representative placeholder content for the first slide.</p>
+                <div class="carousel-thumbnail d-flex mx-auto">
+                  <img src="./dist/images/koopa.jpg" id="koopa" class="rounded-circle" alt="Koopa, vivid gradient-filter image of a ginger Maine Coon cat" title="Koopa">
+                </div>
+                <div class="carousel-title d-none d-md-block text-md-center">
+                  <h3 class="testimonial-name">Koopa</h3>
+                  <h4 class="testimonial-subtitle h5">Comfort Support</h4>
+                  <p class="testimonial-text">I approve only if Dreamies are involved.</p>
                 </div>
               </div>
               <div class="carousel-item" data-bs-interval="2000">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Second slide label</h3>
-                  <p>Some representative placeholder content for the second slide.</p>
+                <div class="carousel-thumbnail d-flex mx-auto mb-3">
+                  <img src="./dist/images/kevin.jpg" id="Kevin" class="rounded-circle" alt="Kevin, vivid gradient-filter image of a cream Maine Coon cat" title="Kevin">
+                </div>
+                <div class="carousel-title d-none d-md-block text-md-center">
+                  <h3 class="testimonial-name">Kevin</h3>
+                  <h4 class="testimonial-subtitle h5">Expert Pooper</h4>
+                  <p class="testimonial-text">Love it! Does great job.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="..." class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                  <h3>Third slide label</h3>
-                  <p>Some representative placeholder content for the third slide.</p>
+                <div class="carousel-thumbnail d-flex mx-auto">
+                  <div class="fa-img w-100 rounded-circle bg-black pb-2 position-relative">
+                    <span class="d-flex justify-content-center align-items-center text-center w-100 h-100"></span>
+                  </div>
+                </div>
+                <div class="carousel-title d-none d-md-block text-md-center">
+                  <h3 class="testimonial-name">Negative Nancy</h3>
+                  <h4 class="testimonial-subtitle h5">Professional Complainer</h4>
+                  <p class="testimonial-text">Good, but I have few remarks...</p>
                 </div>
               </div>
             </div>
@@ -417,7 +538,7 @@ class Coffee extends Energy {
 
     </div> <!-- end of .primary-content -->
 
-    <footer class="pb-3">
+    <footer class="bg-dark pb-3">
       <p>
         <i class="fa-regular fa-heart" aria-hidden="true"></i> 
         All rights reserved © 2022
@@ -426,7 +547,8 @@ class Coffee extends Energy {
 
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script src="./dist/vendor/prism.js"></script>
+  <script src="./dist/vendor/prism/prism.js"></script>
+  <script src="./dist/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="./dist/index.js"></script>
 
 </body>
