@@ -1,5 +1,6 @@
 $enable-cssgrid: true;
 $enable-rounded: false;
+$modal-fade-transform: scale(0.8);
 
-@import "var/variables.scss";
-@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import 'var/variables.scss';
+@import '../../node_modules/bootstrap/scss/bootstrap.scss';

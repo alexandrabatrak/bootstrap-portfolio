@@ -1,8 +1,8 @@
 $white: rgb(255, 243, 255);
 $black: rgb(1, 0, 1);
 $dark: rgb(23, 23, 26);
+$dark-grey: rgba(40, 40, 43);
 
-$d-blue: rgb(1, 53, 136);
 $pink: rgb(246, 179, 251);
 $pink2: rgb(224, 114, 190);
 $coral: rgb(235, 132, 148);
@@ -12,31 +12,12 @@ $blue: rgb(64, 156, 255);
 $lightblue: rgb(23, 186, 255);
 $green1: rgb(72, 173, 156);
 $green2: rgb(8, 166, 101);
+$d-blue: rgb(1, 53, 136);
+
+$primary: $l-blue;
+$secondary: $d-blue;
 
 $transition: all 0.35s ease-in-out;
 
-/* 
---blue1:  #1A64D7;
---blue2:  #3764D9;
---blue3:  #00DAFF;
---blue4:  #50A5F6;
---blue5:  #5183E1;
---blue6:  #729afa;
---blue7:  #409CFF;
---blue8:  #1E36AD;
---blue9:  #012A8B; 
-*/
-
-/* Beige portfolio palette */
-/*
---white:    #F0F0F4;
---light:    rgb(225, 207, 207);
---beige:    rgb(128, 115, 116);
---medium:   rgb(95, 77, 81);
---dark:     rgb(38, 12, 12);
---accent:   rgb(161, 128, 131);
- */
-
-$body-font: "JetBrains", mono;
-/* --display-font: "Druzhok", display; */
-$display-font: "Gerbil", display;
+$body-font: 'JetBrains', mono;
+$display-font: 'Gerbil', display;

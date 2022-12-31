@@ -3,13 +3,21 @@
 *
 */
 
-@import "var/variables.scss";
+@import 'var/variables.scss';
+@import 'var/mixins.scss';
 
 /* General */
 body {
   color: $white;
   background: $black;
   font-family: $body-font;
+
+  // Modal opening add weird padding
+  &.modal-open,
+  &.modal-open nav {
+    overflow: auto !important;
+    padding-right: 0 !important;
+  }
 }
 
 .accent-font {
@@ -20,45 +28,16 @@ main .container-fluid {
   max-width: 1920px;
 }
 
-section {
-  position: relative;
-}
-
-.big-text {
-  background: linear-gradient(
-    -90deg,
-    $pink,
-    $pink2,
-    $coral,
-    $lilac,
-    $l-blue,
-    $blue,
-    $lightblue,
-    $green1,
-    $green2
-  );
-  background-size: 200% auto;
-  background-position: bottom;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: $white;
-  -webkit-text-fill-color: rgba($white, 0);
-  text-transform: uppercase;
-  letter-spacing: 15px;
-  animation: gradient 10s ease infinite;
-}
-
 /* https://css-tricks.com/keyboard-only-focus-styles/ */
 .btn-cta:focus-visible,
 .navbar-toggler:focus-visible {
   outline: 1px solid $white !important;
 }
 
-/*=====================
+/*===================== 
 * NAV
 =====================*/
 nav {
-  background: rgba($black, 0.9);
   transform: 0;
   transition: $transition;
 
@@ -70,7 +49,7 @@ nav {
 
 .nav-item a,
 .navbar-toggler span {
-  color: $blue;
+  color: $primary;
   letter-spacing: 5px;
 }
 
@@ -86,22 +65,48 @@ nav {
 .navbar {
   &-brand {
     padding-left: 0.75rem; /* to align it with the .big-text-left */
+
+    h1 {
+      -webkit-text-stroke: 1px $primary;
+    }
+  }
+
+  #nav-contact-btn {
+    box-shadow: -2px -3px 16px 0px rgba($green1, 0.5),
+      2px 5px 20px 0px rgba($pink2, 0.6), 0px 0 20px 0px rgba($primary, 0.8);
+
+    &:hover &:after {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      @include gradient-bg;
+    }
+  }
+
+  &-collapse {
+    &.show {
+      background: $black;
+    }
   }
 
   &-toggler {
-    color: $blue;
+    color: $primary;
     transition: $transition;
 
     &:focus {
       box-shadow: none !important;
     }
-    &[aria-expanded="true"] i.fa-solid {
+    &[aria-expanded='true'] i.fa-solid {
       font-weight: 400 !important;
     }
+  }
 
-    .social-wrapper {
-      .navbar-nav i {
-        color: $blue;
+  .social-wrapper {
+    .nav-item {
+      i,
+      a {
+        color: $primary;
 
         &:hover {
           color: $pink;
@@ -115,20 +120,14 @@ nav {
 * HERO
 =====================*/
 .masthead {
-  background: linear-gradient(0deg, rgb(23, 23, 26), rgba($black, 0.78));
+  background: linear-gradient(0deg, $dark, rgba($black, 0.58));
 
   video {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
     z-index: -1;
   }
 
   .title-wrapper {
-    -webkit-box-reflect: below 1px
-      linear-gradient(transparent, rgba($black, 0.15));
+    @include reflect();
   }
 
   .hero-title {
@@ -136,21 +135,20 @@ nav {
     max-width: 400px;
     font-size: 7rem;
     line-height: 0.9;
+    line-height: 0.9;
+    -webkit-text-stroke: 1px $lightblue;
+    text-shadow: -6px -7px 50px rgba($lilac, 0.54),
+      0px 3px 20px rgba($lightblue, 0.2), 0px 0px 20px rgba($green2, 0.56);
   }
 
   .code-block {
     min-height: 500px; /* fixed width and height for better animation */
+    width: 75%;
   }
 
   pre,
   .btn-cta span {
-    backdrop-filter: blur(5px);
-    position: relative;
-    border: 2px solid;
-    border-top-color: rgba($lilac, 0.15);
-    border-left-color: rgba($blue, 0.15);
-    border-bottom-color: rgba($blue, 0.05);
-    border-right-color: transparent;
+    @include backdrop-bg();
   }
 }
 
@@ -158,19 +156,9 @@ nav {
 .btn {
   &-cta {
     max-width: 400px;
-    padding: 1.5rem 0.45rem !important;
-    border-radius: 0 !important;
-    color: $blue;
-    background: rgba($blue, 0.5);
-    text-transform: lowercase;
-    position: relative;
     overflow: hidden;
 
     span {
-      position: relative;
-      width: 100%;
-      padding: 1rem 2rem;
-      background: $black;
       z-index: 1;
     }
 
@@ -182,9 +170,9 @@ nav {
     &:hover,
     &:focus,
     &:active {
-      background: rgba($blue, 0.5); /* bs override */
+      background: rgba($primary, 0.5); /* bs override */
 
-      span {
+      span a {
         color: $white;
       }
 
@@ -196,21 +184,33 @@ nav {
   }
 
   &-border {
-    position: absolute;
-    top: 0;
     left: 0%;
     width: 0;
     height: 100%;
-    background: $lightblue;
+    background: $lilac;
     transform: skewX(-20deg);
   }
 }
 
-/* SECTIONS */
+/*=====================
+* SECTIONS
+=====================*/
+.big-text {
+  @include gradient-bg($deg: -90deg);
+  background-size: 200% auto;
+  background-position: bottom;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: $white;
+  -webkit-text-fill-color: rgba($white, 0);
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  animation: gradient 10s ease infinite;
+}
+
 .section-title {
   &.big-text {
-    -webkit-box-reflect: below 1px
-      linear-gradient(transparent, rgba($black, 0.35));
+    @include reflect(0.35);
 
     h2 {
       line-height: 1;
@@ -224,75 +224,46 @@ nav {
 * WORK
 =====================*/
 .work {
-  background: linear-gradient(0deg, rgba(40, 40, 43), rgb(23, 23, 26));
+  background: linear-gradient(0deg, $dark-grey, $dark);
 
   .card {
+    $c: &;
     min-height: 400px;
-    background: $black;
-    border: 2px solid;
-    border-top-color: rgba($lilac, 0.15);
-    border-left-color: rgba($blue, 0.15);
-    border-bottom-color: rgba($blue, 0.05);
-    border-right-color: transparent;
-    position: relative;
+    @include backdrop-bg();
 
     &-body {
       z-index: 1;
     }
+  }
 
-    .bg-gradient {
-      border-radius: inherit;
+  .hover-gradient {
+    border-radius: inherit;
+    inset: 0;
+    opacity: 0;
+    transition: all 0.5s;
+    z-index: 0;
+
+    &:before {
+      content: '';
       position: absolute;
-      inset: 0;
-      z-index: 1;
-      overflow: hidden;
-      opacity: 0;
-      transition: all 0.5s;
+      filter: blur(50px);
+      @include gradient-bg(repeating-linear-gradient, -15deg);
+      background-position: 0%;
+      background-size: 400%;
+      transition: $transition;
+    }
+
+    &:before {
+      width: 100%;
+      height: 100%;
+      opacity: 0.85;
+      transform: scale(0.9);
       z-index: 0;
-
-      &:before {
-        content: "";
-        width: 150%;
-        padding-bottom: 150%;
-        position: absolute;
-        filter: blur(25px);
-        opacity: 0.85;
-        transform: translateX(-50%);
-        background-image: repeating-linear-gradient(
-          15deg,
-          $pink,
-          $pink2,
-          $coral,
-          $lilac,
-          $l-blue,
-          $blue,
-          $lightblue,
-          $green1,
-          $green2
-        );
-        background-position: 0%;
-        background-size: 400%;
-        transition: $transition;
-        z-index: 0;
-      }
     }
+  }
 
-    &:hover {
-      box-shadow: 0px 3px 6px rgba($green1, 0.5), 0px 8px 15px rgba($pink, 0.3),
-        0 0 0 1px rgba($blue, 0.3);
-      color: $black !important;
-
-      .bg-gradient {
-        opacity: 1;
-        transition-duration: 0.5s;
-        transition-delay: 0s;
-
-        &:before {
-          transform: translate(0);
-          animation: gradient 10s linear infinite;
-        }
-      }
-    }
+  &:after {
+    z-index: -1;
   }
 }
 
@@ -300,16 +271,101 @@ nav {
 * ABOUT, SKILLS
 =====================*/
 .about {
-  background: linear-gradient(0deg, rgb(23, 23, 26), rgb(40, 40, 43));
+  background: linear-gradient(0deg, $dark, $dark-grey);
+}
+
+/*=====================
+* COUNTER
+=====================*/
+.counter {
+  .card {
+    &-title {
+      @include gradient-bg($deg: 50deg);
+      background-size: 150%;
+      background-position: bottom;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: $white;
+      -webkit-text-fill-color: rgba($white, 0);
+      -webkit-text-stroke: 1px rgba($primary, 0.5);
+      animation: gradient 10s ease infinite;
+
+      &:after {
+        content: attr(data-purecounter-end);
+        background-image: inherit;
+        background-size: inherit;
+        background-clip: inherit;
+        -webkit-background-clip: inherit;
+        -webkit-text-fill-color: inherit;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        filter: blur(25px);
+        z-index: 0;
+      }
+    }
+  }
 }
 
 /*=====================
 * TESTIMONIALS
 =====================*/
-.skills,
-.testimonials,
-footer {
-  background: $dark;
+.carousel {
+  &-thumbnail {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+
+    .fa-img {
+      span {
+        &::before,
+        &:after {
+          content: '\f2fe';
+          font-family: 'FontAwesome';
+          font-size: 5rem;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          bottom: -7.5%;
+          @include gradient-bg($deg: -15deg);
+          background-size: 200%;
+          background-position: left;
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: $white;
+          -webkit-text-fill-color: transparent;
+        }
+
+        &:before {
+          -webkit-text-stroke: 1px;
+        }
+
+        &:after {
+          filter: blur(15px);
+          transform: scale(1.05);
+          z-index: 0;
+        }
+      }
+    }
+  }
+  .testimonial {
+    &-text {
+      &:before,
+      &:after {
+        font-size: 0.5rem;
+        font-family: 'FontAwesome';
+        margin-top: -1rem;
+        padding: 0 1rem;
+      }
+      &:before {
+        content: '\f10d';
+      }
+      &:after {
+        content: '\f10e';
+      }
+    }
+  }
 }
 
 /*=====================
@@ -319,7 +375,40 @@ footer {
 /*=====================
 * ANIMATION
 =====================*/
+.reveal {
+  opacity: 0;
+  transition: all 0.8s;
 
+  &.inview {
+    opacity: 1;
+    transform: translate(0) scale(1) skew(0);
+    transition-delay: 0.3s;
+  }
+
+  &-from-left {
+    transform: translateX(-40px);
+  }
+
+  &-blurred-in {
+    filter: blur(5px);
+    transform: translateY(50px) scale(0.8) skew(5deg);
+
+    &.inview {
+      filter: blur(0);
+
+      // through $n: attr('data-item-nr') doesn't want to work
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          transition-delay: $i * 0.1s;
+        }
+      }
+    }
+  }
+}
+
+/*=====================
+* KEYFRAMES
+=====================*/
 @keyframes gradient {
   0% {
     background-position: center;
@@ -338,8 +427,62 @@ footer {
 /*=====================
 * MEDIA
 =====================*/
-
 @media (any-hover: hover) {
+  .work {
+    .card {
+      &:hover {
+        box-shadow: 0px 3px 6px rgba($green1, 0.5),
+          0px 8px 15px rgba($pink, 0.3), 0 0 0 1px rgba($primary, 0.3);
+        transition: all 0.5s linear;
+
+        .card {
+          &-title {
+            color: $black !important;
+          }
+
+          // &-links-wrapper {
+          //   a.btn {
+          //     border-color: $white !important;
+          //     color: $white !important;
+
+          //     &:hover,
+          //     &:active,
+          //     &:focus {
+          //       background: $white;
+          //       color: $black !important;
+          //     }
+          //   }
+          // }
+        }
+
+        .hover-gradient {
+          opacity: 1;
+          transition-duration: 0.5s;
+          transition-delay: 0s;
+
+          &:before {
+            transform: scale(1);
+            animation: gradient 10s linear infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (any-hover: none) {
+  .work {
+    .card {
+      .hover-gradient {
+        overflow: hidden;
+        opacity: 0.5;
+
+        &::before {
+          animation: gradient 10s linear infinite;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -357,8 +500,8 @@ footer {
     }
 
     &::after {
-      content: "\f111";
-      font-family: "FontAwesome";
+      content: '\f111';
+      font-family: 'FontAwesome';
       font-size: 1rem;
       display: flex;
       justify-content: center;
@@ -374,6 +517,12 @@ footer {
 }
 
 @media screen and (min-width: 992px) {
+  .masthead {
+    .title-wrapper {
+      margin-bottom: 50%;
+    }
+  }
+
   .big-text-left {
     position: absolute;
     transform: translate(-46.5%, 100%) rotate(-90deg);
@@ -386,11 +535,33 @@ footer {
   main {
     padding-top: 100px; /* to place after fixed nav */
   }
+
+  .navbar-collapse {
+    .nav-item,
+    button {
+      width: fit-content;
+    }
+  }
+
+  .masthead {
+    .hero-title {
+      font-size: 5rem;
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * {
+  *,
+  *:before,
+  *:after {
     animation: none !important;
     transition-duration: 0.1s !important;
+  }
+
+  .reveal,
+  .reveal2 {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: translate(0) scale(1) !important;
   }
 }
