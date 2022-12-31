@@ -93,7 +93,7 @@ nav.is-up {
 * HERO
 =====================*/
 .masthead {
-  background: linear-gradient(0deg, #17171a, rgba(1, 0, 1, 0.58));
+  background: linear-gradient(0deg, #17171a, rgba(1, 0, 1, 0.8));
 }
 .masthead video {
   z-index: -1;
@@ -159,6 +159,11 @@ nav.is-up {
 /*=====================
 * SECTIONS
 =====================*/
+.primary-content {
+  position: relative;
+  z-index: 1;
+}
+
 .big-text {
   background-image: linear-gradient(-90deg, #9596f7, #557fff, #409cff, #17baff, #48ad9c, #08a665, #409cff, #557fff, #9596f7, #e072be, #f6b3fb, #eb8494);
   background-size: 200% auto;
@@ -174,11 +179,6 @@ nav.is-up {
 
 .section-title.big-text {
   -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(1, 0, 1, 0.35));
-}
-.section-title.big-text h2 {
-  line-height: 1;
-  word-break: break-all;
-  white-space: normal;
 }
 
 /*=====================
@@ -230,7 +230,7 @@ nav.is-up {
 * ABOUT, SKILLS
 =====================*/
 .about {
-  background: linear-gradient(0deg, #17171a, #28282b);
+  background: linear-gradient(180deg, #28282b, #17171a);
 }
 
 /*=====================

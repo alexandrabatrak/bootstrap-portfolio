@@ -166,9 +166,9 @@ class Coffee extends Energy {
     <div class="primary-content bg-black">
 
       <!-- Work section -->
-      <section id="work" class="work position-relative pb-5">
-        <div class="container py-5">
-          <div class="section-title big-text">
+      <section id="work" class="work position-relative pb-md-5">
+        <div class="container pb-5">
+          <div class="section-title big-text lh-1 text-lg-end">
             <h2 class="mb-5 pt-5">Work</h2>
           </div>
   
@@ -349,9 +349,9 @@ class Coffee extends Energy {
       </section> <!-- end of Work section-->
 
       <!-- About section -->
-      <section id="about" class="about bg-dark py-5 position-relative">
-        <div class="container py-5">
-          <div class="section-title big-text">
+      <section id="about" class="about py-md-5 bg-dark">
+        <div class="container">
+          <div class="section-title big-text lh-1 text-lg-end">
             <h2 class="mb-5 pt-5">About</h2>
           </div>
             <div class="row">
@@ -446,28 +446,28 @@ class Coffee extends Energy {
         </div>
       </section> <!-- end of About section-->
 
-      <section id="counter" class="counter bg-dark position-relative">
+      <section id="counter" class="counter bg-dark py-5 position-relative">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3 col-sm 6">
+          <div class="row text-lg-center">
+            <div class="col-md-3 col-sm-6">
               <div class="card bg-dark">
                 <span data-purecounter-start="0" data-purecounter-end="999" class="card-title display-5 position-relative purecounter">0</span>
                 <p class="subtitle h4">Files</p>
               </div>
             </div>
-            <div class="col-md-3 col-sm 6">
+            <div class="col-md-3 col-sm-6">
               <div class="card bg-dark">
                 <span data-purecounter-start="0" data-purecounter-end="1466" class="card-title display-5 position-relative purecounter">0</span>
                 <p class="subtitle h4">Cups of coffee</p>
               </div>
             </div>
-            <div class="col-md-3 col-sm 6">
+            <div class="col-md-3 col-sm-6">
               <div class="card bg-dark">
                 <span data-purecounter-start="0" data-purecounter-end="968" class="card-title display-5 position-relative purecounter">0</span>
                 <p class="subtitle h4">Missed semicolons</p>
               </div>
             </div>
-            <div class="col-md-3 col-sm 6">
+            <div class="col-md-3 col-sm-6">
               <div class="card bg-dark">
                 <span data-purecounter-start="0" data-purecounter-end="189" class="card-title display-5 position-relative purecounter">0</span>
                 <p class="subtitle h4">Meows</p>
@@ -480,58 +480,64 @@ class Coffee extends Energy {
       <!-- Testimonials -->
       <section id="testimonials" class="testimonials bg-dark position-relative">
         <div class="container py-5">
-          <div class="section-title big-text">
-            <h2 class="mb-5 pt-5">What they say about me</h2>
-          </div>
-          <div id="carousel" class="carousel slide carousel-fade py-5" data-bs-ride="carousel">
-            <!-- <div class="carousel"> -->
-            <div class="carousel-indicators">
-              <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-              <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-              <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          <div class="row">
+            <div class="col-lg-3 col-sm-12">
+              <div class="section-title big-text lh-1 text-wrap">
+                <h2 class="mb-5 pt-5">What they say about me</h2>
+              </div>
             </div>
-            <div class="carousel-inner">
-              <div class="carousel-item active" data-bs-interval="10000">
-                <div class="carousel-thumbnail d-flex mx-auto">
-                  <img src="./dist/images/koopa.jpg" id="koopa" class="rounded-circle" alt="Koopa, vivid gradient-filter image of a ginger Maine Coon cat" title="Koopa">
+            <div class="col-lg-9 col-sm-12">
+              <div id="carousel" class="carousel slide carousel-fade py-5" data-bs-ride="carousel">
+                <!-- <div class="carousel"> -->
+                <div class="carousel-indicators">
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
                 </div>
-                <div class="carousel-title d-none d-md-block text-md-center">
-                  <h3 class="testimonial-name">Koopa</h3>
-                  <h4 class="testimonial-subtitle h5">Comfort Support</h4>
-                  <p class="testimonial-text">I approve only if Dreamies are involved.</p>
-                </div>
-              </div>
-              <div class="carousel-item" data-bs-interval="2000">
-                <div class="carousel-thumbnail d-flex mx-auto mb-3">
-                  <img src="./dist/images/kevin.jpg" id="Kevin" class="rounded-circle" alt="Kevin, vivid gradient-filter image of a cream Maine Coon cat" title="Kevin">
-                </div>
-                <div class="carousel-title d-none d-md-block text-md-center">
-                  <h3 class="testimonial-name">Kevin</h3>
-                  <h4 class="testimonial-subtitle h5">Expert Pooper</h4>
-                  <p class="testimonial-text">Love it! Does great job.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="carousel-thumbnail d-flex mx-auto">
-                  <div class="fa-img w-100 rounded-circle bg-black pb-2 position-relative">
-                    <span class="d-flex justify-content-center align-items-center text-center w-100 h-100"></span>
+                <div class="carousel-inner">
+                  <div class="carousel-item active" data-bs-interval="10000">
+                    <div class="carousel-thumbnail d-flex mx-auto">
+                      <img src="./dist/images/koopa.jpg" id="koopa" class="rounded-circle" alt="Koopa, vivid gradient-filter image of a ginger Maine Coon cat" title="Koopa">
+                    </div>
+                    <div class="carousel-title mt-5 text-center">
+                      <h3 class="testimonial-name">Koopa</h3>
+                      <h4 class="testimonial-subtitle h5">Comfort Support</h4>
+                      <p class="testimonial-text">I approve only if Dreamies are involved.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item" data-bs-interval="2000">
+                    <div class="carousel-thumbnail d-flex mx-auto mb-3">
+                      <img src="./dist/images/kevin.jpg" id="Kevin" class="rounded-circle" alt="Kevin, vivid gradient-filter image of a cream Maine Coon cat" title="Kevin">
+                    </div>
+                    <div class="carousel-title mt-5 text-center">
+                      <h3 class="testimonial-name">Kevin</h3>
+                      <h4 class="testimonial-subtitle h5">Expert Pooper</h4>
+                      <p class="testimonial-text">Love it! Does great job.</p>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="carousel-thumbnail d-flex mx-auto">
+                      <div class="fa-img w-100 rounded-circle bg-black pb-2 position-relative">
+                        <span class="d-flex justify-content-center align-items-center text-center w-100 h-100"></span>
+                      </div>
+                    </div>
+                    <div class="carousel-title mt-5 text-center">
+                      <h3 class="testimonial-name">Negative Nancy</h3>
+                      <h4 class="testimonial-subtitle h5">Professional Complainer</h4>
+                      <p class="testimonial-text">Good, but I have few remarks...</p>
+                    </div>
                   </div>
                 </div>
-                <div class="carousel-title d-none d-md-block text-md-center">
-                  <h3 class="testimonial-name">Negative Nancy</h3>
-                  <h4 class="testimonial-subtitle h5">Professional Complainer</h4>
-                  <p class="testimonial-text">Good, but I have few remarks...</p>
-                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
               </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
           </div>
         </div>
       </section> <!-- end of Testimonials section-->

@@ -120,7 +120,7 @@ nav {
 * HERO
 =====================*/
 .masthead {
-  background: linear-gradient(0deg, $dark, rgba($black, 0.58));
+  background: linear-gradient(0deg, $dark, rgba($black, 0.8));
 
   video {
     z-index: -1;
@@ -195,6 +195,11 @@ nav {
 /*=====================
 * SECTIONS
 =====================*/
+.primary-content {
+  position: relative;
+  z-index: 1;
+}
+
 .big-text {
   @include gradient-bg($deg: -90deg);
   background-size: 200% auto;
@@ -211,12 +216,6 @@ nav {
 .section-title {
   &.big-text {
     @include reflect(0.35);
-
-    h2 {
-      line-height: 1;
-      word-break: break-all;
-      white-space: normal;
-    }
   }
 }
 
@@ -270,8 +269,9 @@ nav {
 /*=====================
 * ABOUT, SKILLS
 =====================*/
+
 .about {
-  background: linear-gradient(0deg, $dark, $dark-grey);
+  background: linear-gradient(180deg, $dark-grey, $dark);
 }
 
 /*=====================
