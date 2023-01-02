@@ -327,7 +327,7 @@ nav {
 .counter {
   .card {
     &-title {
-      @include gradient-bg('counter-card');
+      @include gradient-text('counter-card');
       // // @include gradient-bg($deg: 50deg);
       // background-size: 150%;
       // background-position: bottom;

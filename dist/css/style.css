@@ -491,7 +491,14 @@ nav.is-up {
 * COUNTER
 =====================*/
 .counter .card-title {
-  background-image: "counter-card(0deg, #9596f7, #557fff, #409cff, #17baff, #48ad9c, #08a665, #409cff, #557fff, #9596f7, #e072be, #f6b3fb, #eb8494)";
+  background-image: linear-gradient(50deg, #9596f7, #557fff, #409cff, #17baff, #48ad9c, #08a665, #409cff, #557fff, #9596f7, #e072be, #f6b3fb, #eb8494);
+  background-size: 150%;
+  background-position: bottom;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: #fff3ff;
+  -webkit-text-fill-color: rgba(255, 243, 255, 0);
+  animation: gradient 10s ease infinite;
   -webkit-text-stroke: 1px rgba(85, 127, 255, 0.5);
 }
 .counter .card-title:after {
