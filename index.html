@@ -1,38 +1,79 @@
 <!DOCTYPE html>
 <html lang="en-gb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Alexandra Batrak ~ Web Developer</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=anaheim:400"
+      rel="stylesheet"
+    />
+    <link href="./dist/fonts/stylesheet.css" rel="stylesheet" />
+    <!-- Compiled Bootstrap v5.3.0 -->
+    <link href="./dist/css/bootstrap-custom.css" rel="stylesheet" />
+    <!-- Prism.js <pre> styling -->
+    <link href="./dist/vendor/prism/prism.css" rel="stylesheet" />
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <!-- Main CSS -->
+    <link href="./dist/css/style.css" rel="stylesheet" />
+    <!-- Font Awesome package-->
+    <script
+      src="https://kit.fontawesome.com/f549d17040.js"
+      crossorigin="anonymous"
+    ></script>
+    <noscript>
+      <style>
+        .loader {
+          display: none !important;
+          visibility: none;
+        }
+        .reveal {
+          visibility: visible;
+          opacity: 1 !important;
+        }
+      </style>
+    </noscript>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Alexandra Batrak ~ Web Developer</title>
-  
-  <link rel="preconnect" href="https://fonts.bunny.net">
-  <link href="https://fonts.bunny.net/css?family=archivo:400|elsie:400,900" rel="stylesheet">
-  <link href="./dist/css/bootstrap-custom.css" rel="stylesheet">
-  <link href="./dist/fonts/stylesheet.css" rel="stylesheet">
-  <link href="./dist/css/style.css" rel="stylesheet">
-  <link href="./dist/vendor/prism/prism.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/f549d17040.js" crossorigin="anonymous"></script>
-</head>
-
-<body>
-  <header>
-    <div id="loader">
+  <body>
+    <div class="loader vw-100 vh-100 position-fixed bg-dark" id="loader">
+      <div
+        class="d-flex justify-content-center align-content-center align-items-center vw-100 vh-100"
+      >
+        <i class="fa-solid fa-paw fa-beat-fade" aria-hidden="true">
+          <span class="visually-hidden">Loading...</span>
+        </i>
+      </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-          <h1>
-            <span class="accent-font" aria-hidden="true">A.</span>
-            <span class="visually-hidden">Alexandra Batrak</span>
-          </h1>
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="text-uppercase">Menu</span>
-          <i class="fa-solid fa-circle"></i>
-        </button>
-        <div class="collapse navbar-collapse p-5 p-lg-0" id="navbarText" >
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <h1>
+              <span class="accent-font" aria-hidden="true">A.</span>
+              <span class="visually-hidden">Alexandra Batrak</span>
+            </h1>
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarText"
+            aria-controls="navbarText"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="text-uppercase">Menu</span>
+            <i class="fa-solid fa-circle"></i>
+          </button>
+          <div class="collapse navbar-collapse p-5 p-lg-0" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
               <li class="nav-item">
                 <a class="nav-link" href="#work">Work</a>
@@ -43,519 +84,1281 @@
               <li class="nav-item">
                 <a class="nav-link" href="#testimonials">Reviews</a>
               </li>
-              <button type="button" id="nav-contact-btn" class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase" data-bs-toggle="modal" data-bs-target="#contact">Contact</button>
+              <button
+                type="button"
+                id="nav-contact-btn"
+                class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase"
+                data-bs-toggle="modal"
+                data-bs-target="#contact"
+              >
+                <i class="fa-regular fa-hand-back-fist"></i>
+                Knock-knock
+              </button>
             </ul>
-            <div class="social-wrapper d-flex justify-content-start align-items-center">
-              <ul class="navbar-nav h4 flex-row">
+            <div
+              class="social-wrapper d-flex justify-content-start align-items-center"
+            >
+              <ul class="list-unstyled d-flex flex-row h4">
                 <li class="nav-item px-2">
-                  <a href="mailto:contact@alexandrabatrak.uk" >
-                    <i class="fa-solid fa-at" aria-hidden="true" title="Email"></i>
+                  <a href="mailto:contact@alexandrabatrak.uk">
+                    <i
+                      class="fa-solid fa-at"
+                      aria-hidden="true"
+                      title="Email"
+                    ></i>
                     <span class="visually-hidden">
                       Send email to contact@alexandrabatrak.uk
-                    </span> 
+                    </span>
                   </a>
                 </li>
                 <li class="nav-item px-2">
                   <a href="https://github.com/alexandrabatrak" target="_blank">
-                    <i class="fa-brands fa-github" aria-hidden="true" title="Github"></i>
+                    <i
+                      class="fa-brands fa-github"
+                      aria-hidden="true"
+                      title="Github"
+                    ></i>
                     <span class="visually-hidden">Github</span>
                   </a>
                 </li>
                 <li class="nav-item px-2">
                   <a href="https://codepen.io/alexandrabatrak" target="_blank">
-                    <i class="fa-brands fa-codepen" aria-hidden="true" title="CodePen"></i>
+                    <i
+                      class="fa-brands fa-codepen"
+                      aria-hidden="true"
+                      title="CodePen"
+                    ></i>
                     <span class="visually-hidden">CodePen</span>
                   </a>
                 </li>
               </ul>
             </div>
           </div>
+          <i class="fa-solid fa-pause px-4" id="pauseBtn">
+            <span class="visually-hidden">Pause</span>
+          </i>
         </div>
-      </div>
-    </nav>
-  </header>
+      </nav>
+    </header>
 
-  <main data-bs-spy="scroll" data-bs-target="#navbarText" tabindex="0">
-    <!-- Hero section -->
-    <section class="masthead position-relative" id="hero">
-      <video autoplay muted loop id="videoBg" class="position-fixed right-0 bottom-0 min-w-100 min-h-100">
-        <source src="./dist/images/video-bg.mp4" type="video/mp4">
-      </video>
-      <div class="big-text big-text-left mx-3 my-3 my-lg-0 h4">Web Developer ~ Web designer</div>
-      <div class="container min-vh-100 my-auto">
-        <div class="row min-vh-100 mx-auto">
-          <div class="col-xl-5 col-lg-6 col-sm-12 d-flex flex-column justify-content-lg-end align-items-lg-end ps-lg-3 my-5 my-lg-auto">
-            <div class="title-wrapper pb-2 reveal reveal-from-left">
-              <h2 class="hero-title accent-font text-primary text-uppercase text-wrap">Look, I can code</h2>
-              <p class="text-decoration-line-through">...maybe</p>
-              <button class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 py-4 px-2 position-relative text-lowercase">
-                <span class="w-100 position-relative bg-black py-3 px-4">
-                  <a href="#contact" class="text-decoration-none">Work with me</a>
-                </span>
-                <div class="btn-border position-absolute top-0"></div>
-              </button>
+    <main data-bs-spy="scroll" data-bs-target="#navbarText" tabindex="0">
+      <!-- Hero section -->
+      <section class="masthead position-relative" id="hero">
+        <video
+          autoplay
+          muted
+          loop
+          id="videoBg"
+          class="position-fixed end-0 bottom-0 min-w-100 min-h-100 z-n1"
+        >
+          <source src="./dist/images/video-bg.mp4" type="video/mp4" />
+        </video>
+        <div class="big-text big-text-left mx-3 my-3 my-lg-0 h4">
+          Web Developer ~ Web designer
+        </div>
+        <div class="container min-vh-100 my-auto">
+          <div class="row min-vh-100 mx-auto">
+            <div
+              class="col-xl-5 col-lg-6 col-sm-12 d-flex flex-column justify-content-lg-end align-items-lg-end ps-lg-3 my-5 my-lg-auto"
+            >
+              <div class="title-wrapper pb-2 reveal reveal-from-left">
+                <h2
+                  class="hero-title accent-font text-primary text-uppercase text-wrap"
+                >
+                  Look, I can code
+                </h2>
+                <p class="text-decoration-line-through">...maybe</p>
+                <button
+                  class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 py-4 px-2 position-relative text-lowercase z-1"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contact"
+                >
+                  <span class="w-100 position-relative bg-black py-3 px-4">
+                    Work with me
+                  </span>
+                  <div class="btn-border position-absolute top-0"></div>
+                </button>
+              </div>
             </div>
-          </div>
 
-          <div class="col-xl-7 col-lg-6 col-sm-12 d-flex justify-content-lg-center align-items-center">
-            <div class="code-block">
-              <pre class="rounded-1 bg-dark position-relative" style="--bs-bg-opacity: .75;">
+            <div
+              class="col-xl-7 col-lg-6 col-sm-12 d-flex justify-content-lg-center align-items-center"
+            >
+              <div class="code-block">
+                <pre
+                  class="rounded-1 bg-dark position-relative"
+                  style="--bs-bg-opacity: 0.75"
+                >
                 <code id="typed-text" class="language-js">
-const coffee = require( 'coffee-machine' );
+const coffeeMachine = require('coffee-machine');
 const tired = sleepyEyes(e);
-let today = new Date();
-let hours = today.getHours();
-let code = new Array();
+const hours = (new Date()).getHours();
 
-class Coffee extends Energy {
-  constructor(code) {
-    try {
-      if (tired === true &amp;&amp; (hours &gt;= 09 && hours &lt; 22)) {
-        let awake = tired.get(coffee);
-        const moreCode = new Array();
-        awake.code.push(...moreCode);
-      } else {
-        let sleep = tired.sleep('bed');
-        return;
-      }
-    }
-    catch(err) {
-      throw "Nope";
-    }
-    finally {
-      return code[0];
-    }
+self.Energy = class Energy {
+  constructor(energy) {
+    this.energy = energy;
   }
+}
+
+export class Coffee extends Energy {
+  constructor(energy, caffeine) {
+    super(energy);
+    this.caffeine = caffeine;
+  }
+}
+
+class Code {
+  constructor(lines) {
+    this.lines = lines;
+  }
+  present() {
+    return this.lines;
+  }
+}
+
+if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
+  try {
+    const coffee = coffeeMachine.get('coffee');
+    const code = new Code(345);
+  } catch (err) {
+    throw 'You cannot even get the coffee right, damn!';
+  }
+} else {
+  tired.sleep('bed');
 }
                 </code>
               </pre>
-            </div>
-          </div>
-          
-        </div>
-      </div>
-    </section> <!-- end of .masthead -->
-
-    <div class="modal fade" id="contact" tabindex="-1" aria-labelledby="contactLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content bg-dark">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="contactLabel">New message</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="name" class="col-form-label">Name:</label>
-                <input type="text" class="form-control" id="name">
-              </div>
-              <div class="mb-3">
-                <label for="message-text" class="col-form-label">Message:</label>
-                <textarea class="form-control" id="message-text"></textarea>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Send message</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="primary-content bg-black">
-
-      <!-- Work section -->
-      <section id="work" class="work position-relative pb-md-5">
-        <div class="container pb-5">
-          <div class="section-title big-text lh-1 text-lg-end">
-            <h2 class="mb-5 pt-5">Work</h2>
-          </div>
-  
-          <div class="container section-content">
-            <div class="grid">
-
-              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
-                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
-                  <div class="card-body position-relative">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="category">
-                        <p class="badge">Challenge</p>
-                      </div>
-                      <div class="tools pb-2">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                      </div>
-                    </div>
-                    <h3 class="h3 card-title accent-font mb-3">Horiseon</h3>
-                    <h6 class="h5 card-subtitle text-primary mb-2">Bootcamp week 01 challenge</h6>
-                    <p class="card-text">Task: Improve webpage source code for better accessibility.</p>
-                    <div class="card-links-wrapper position-absolute bottom-0">
-                      <a class="btn btn-outline-light" href="https://alexandrabatrak.github.io/horiseon/" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-light" href="https://github.com/alexandrabatrak/horiseon" target="_blank" class="card-link">Repo</a>
-                    </div>
-                  </div>
-                  <div class="hover-gradient position-absolute position-absolute"></div>
-                </div>
-              </div>
-
-              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
-                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
-                  <div class="card-body position-relative">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="category">
-                        <p class="badge">Challenge</p>
-                      </div>
-                      <div class="tools pb-2">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                      </div>
-                    </div>
-                    <h3 class="h3 card-title accent-font mb-3">Portfolio Concept</h3>
-                    <h6 class="h5 card-subtitle text-primary mb-2">Bootcamp week 02 challenge</h6>
-                    <p class="card-text">Task: Build a portfolio page.</p>
-                    <div class="card-links-wrapper position-absolute bottom-0">
-                      <a class="btn btn-outline-light" href="https://alexandrabatrak.github.io/portfolio-concept-page" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-light" href="https://github.com/alexandrabatrak/portfolio-concept-page" target="_blank" class="card-link">Repo</a>
-                    </div>
-                  </div>
-                  <div class="hover-gradient position-absolute position-absolute"></div>
-                </div>
-              </div>
-  
-              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
-                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
-                  <div class="card-body position-relative">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="category">
-                        <p class="badge">Challenge</p>
-                      </div>
-                      <div class="tools pb-2">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                        <i class="fa-brands fa-sass" aria-hidden="true" title="SCSS"></i>
-                        <span class="visually-hidden">SCSS</span>
-                        <i class="fa-brands fa-bootstrap" aria-hidden="true" title="BootStrap"></i>
-                        <span class="visually-hidden">BootStrap</span>
-                        <i class="fa-brands fa-js" aria-hidden="true" title="JavaScript"></i>
-                        <span class="visually-hidden">JavaScript</span>
-                      </div>
-                    </div>
-                    <h3 class="h3 card-title accent-font mb-3">Bootstrap Portfolio</h3>
-                    <h6 class="h5 card-subtitle text-primary mb-2">Bootcamp week 03 challenge</h6>
-                    <p class="card-text">Task: Build a portfolio utilizing Bootstrap.</p>
-                    <div class="card-links-wrapper position-absolute bottom-0">
-                      <a class="btn btn-outline-light" href="https://alexandrabatrak.github.io/bootstrap-portfolio" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-light" href="https://github.com/alexandrabatrak/bootstrap-portfolio" target="_blank" class="card-link">Repo</a>
-                    </div>
-                  </div>
-                  <div class="hover-gradient position-absolute position-absolute"></div>
-                </div>
-              </div>
-
-              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
-                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
-                  <div class="card-body position-relative">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="category">
-                        <p class="badge">Placeholder</p>
-                      </div>
-                      <div class="tools pb-2">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                        <i class="fa-brands fa-js" aria-hidden="true" title="JavaScript"></i>
-                        <span class="visually-hidden">JavaScript</span>
-                        <i class="fa-brands fa-wordpress-simple" aria-hidden="true" title="WordPress"></i>
-                        <span class="visually-hidden">WordPress</span>
-                      </div>
-                    </div>
-                    <h3 class="h3 card-title accent-font mb-3">Exercitation ullamco</h3>
-                    <h6 class="h5 card-subtitle text-primary mb-2">Placeholder</h6>
-                    <p class="card-text">Enim sit amet venenatis urna cursus eget nunc.</p>
-                    <div class="card-links-wrapper position-absolute bottom-0">
-                      <a class="btn btn-outline-light"href="#" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Repo</a>
-                    </div>
-                  </div>
-                  <div class="hover-gradient position-absolute position-absolute"></div>
-                </div>
-              </div>
-
-              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
-                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
-                  <div class="card-body position-relative">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="category">
-                        <p class="badge">Placeholder</p>
-                      </div>
-                      <div class="tools pb-2">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                      </div>
-                    </div>
-                    <h3 class="h3 card-title accent-font mb-3">Pellentesque</h3>
-                    <h6 class="h5 card-subtitle text-primary mb-2">Placeholder</h6>
-                    <p class="card-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <div class="card-links-wrapper position-absolute bottom-0">
-                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Repo</a>
-                    </div>
-                  </div>
-                  <div class="hover-gradient position-absolute position-absolute"></div>
-                </div>
-              </div>
-
-              <div class="g-col-lg-4 g-col-md-6 g-col-12 reveal reveal-blurred-in">
-                <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
-                  <div class="card-body position-relative">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                      <div class="category">
-                        <p class="badge">Placeholder</p>
-                      </div>
-                      <div class="tools pb-2">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                        <i class="fa-brands fa-react" aria-hidden="true" title="ReactJS"></i>
-                        <span class="visually-hidden">React JS</span>
-                      </div>
-                    </div>
-                    <h3 class="h3 card-title accent-font mb-3">Ornare</h3>
-                    <h6 class="h5 card-subtitle text-primary mb-2">Placeholder</h6>
-                    <p class="card-text">Malesuada pellentesque elit eget gravida cum sociis natoque penatibus.</p>
-                    <div class="card-links-wrapper position-absolute bottom-0">
-                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Deployement</a>
-                      <a class="btn btn-outline-light" href="#" target="_blank" class="card-link">Repo</a>
-                    </div>
-                  </div>
-                  <div class="hover-gradient position-absolute position-absolute"></div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </section> <!-- end of Work section-->
-
-      <!-- About section -->
-      <section id="about" class="about py-md-5 bg-dark">
-        <div class="container">
-          <div class="section-title big-text lh-1 text-lg-end">
-            <h2 class="mb-5 pt-5">About</h2>
-          </div>
-            <div class="row">
-                <div class="col-lg-3 col-sm-12 about-text-wrapper">
-                  <h3 class="accent-font">Bio</h3>
-                  <p>
-                    All projects are coded under strict supervision and paw-some help.
-                  </p>
-                  <p>
-                    The purrfect source code and design solutions are achieved by utilising ergonomic furry elbow support, comforting purring for demanding deadlines and constant reminders to take sleep breaks.
-                  </p>
-                </div>
-                <div class="col-lg-5 col-sm-12">
-                  <h3 class="accent-font">Skills</h3>
-                  <div class="row">
-                    <ul class="list-inline">
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-html5" aria-hidden="true" title="HTML5"></i>
-                        <span class="visually-hidden">HTML5</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-css3-alt" aria-hidden="true" title="CSS3"></i>
-                        <span class="visually-hidden">CSS3</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-sass" aria-hidden="true" title="SCSS"></i>
-                        <span class="visually-hidden">SCSS</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-bootstrap" aria-hidden="true" title="BootStrap"></i>
-                        <span class="visually-hidden">BootStrap</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-js" aria-hidden="true" title="Javascript & JQuery"></i>
-                        <span class="visually-hidden">Javascript & JQuery</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-gulp" aria-hidden="true" title="Gulp"></i>
-                        <span class="visually-hidden">Gulp</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-wordpress-simple" aria-hidden="true" title="WordPress"></i>
-                        <span class="visually-hidden">WordPress</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-php" aria-hidden="true" title="PHP"></i>
-                        <span class="visually-hidden">PHP</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-node" aria-hidden="true" title="Node.js"></i>
-                        <span class="visually-hidden">Node</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-brands fa-npm" aria-hidden="true" title="npm"></i>
-                        <span class="visually-hidden">npm</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true" title="Adobe Creative Suite"></i>
-                        <span class="visually-hidden">Adobe Creative Suite</span>
-                      </li>
-                      <li class="list-inline-item">
-                        <i class="fa-solid fa-laptop-code" aria-hidden="true" title="VS Code"></i>
-                        <span class="visually-hidden">VS Code</span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <!-- <div class="col-lg-4 col-sm-12 about-team-wrapper">
-                  <h3 class="accent-font">The team</h3>
-                  <div class="team-member-wrapper">
-                    <div class="team-member">
-                      <div id="koopa" class="blob-border profile-pic">
-                        <img src="./dist/images/koopa.jpg" id="koopa" 
-                            alt="Koopa, ginger Maine Coon cat" title="Koopa">
-                      </div>
-                      <h4>Koopa</h4>
-                      <p>Comfort Support</p>
-                    </div>
-                    <div class="team-member">
-                      <div id="kevin" class="blob-border profile-pic">
-                        <img src="./dist/images/kevin.jpg" id="Kevin" 
-                            alt="Kevin, cream Maine Coon cat">
-                      </div>
-                      <h4>Kevin</h4>
-                      <p>Assistant Manager</p>
-                    </div>
-                  </div>
-                </div> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> <!-- end of About section-->
-
-      <section id="counter" class="counter bg-dark py-5 position-relative">
-        <div class="container">
-          <div class="row text-lg-center">
-            <div class="col-md-3 col-sm-6">
-              <div class="card bg-dark">
-                <span data-purecounter-start="0" data-purecounter-end="999" class="card-title display-5 position-relative purecounter">0</span>
-                <p class="subtitle h4">Files</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="card bg-dark">
-                <span data-purecounter-start="0" data-purecounter-end="1466" class="card-title display-5 position-relative purecounter">0</span>
-                <p class="subtitle h4">Cups of coffee</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="card bg-dark">
-                <span data-purecounter-start="0" data-purecounter-end="968" class="card-title display-5 position-relative purecounter">0</span>
-                <p class="subtitle h4">Missed semicolons</p>
-              </div>
-            </div>
-            <div class="col-md-3 col-sm-6">
-              <div class="card bg-dark">
-                <span data-purecounter-start="0" data-purecounter-end="189" class="card-title display-5 position-relative purecounter">0</span>
-                <p class="subtitle h4">Meows</p>
               </div>
             </div>
           </div>
         </div>
       </section>
+      <!-- end of .masthead -->
 
-      <!-- Testimonials -->
-      <section id="testimonials" class="testimonials bg-dark position-relative">
-        <div class="container py-5">
-          <div class="row">
-            <div class="col-lg-3 col-sm-12">
-              <div class="section-title big-text lh-1 text-wrap">
-                <h2 class="mb-5 pt-5">What they say about me</h2>
-              </div>
+      <!-- Contact form modal -->
+      <div
+        class="modal fade"
+        id="contact"
+        tabindex="-1"
+        aria-labelledby="contactLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content bg-dark">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="contactLabel">New message</h1>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
             </div>
-            <div class="col-lg-9 col-sm-12">
-              <div id="carousel" class="carousel slide carousel-fade py-5" data-bs-ride="carousel">
-                <!-- <div class="carousel"> -->
-                <div class="carousel-indicators">
-                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                  <button type="button" data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <div class="modal-body">
+              <form
+                class="row g-3 p-3 bg-dark needs-validation text-font"
+                novalidate
+              >
+                <div class="col-md-6 col-sm-12">
+                  <label for="validationFirstName" class="form-label"
+                    >First name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationFirstName"
+                    placeholder="Jane"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
                 </div>
-                <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
-                    <div class="carousel-thumbnail d-flex mx-auto">
-                      <img src="./dist/images/koopa.jpg" id="koopa" class="rounded-circle" alt="Koopa, vivid gradient-filter image of a ginger Maine Coon cat" title="Koopa">
-                    </div>
-                    <div class="carousel-title mt-5 text-center">
-                      <h3 class="testimonial-name">Koopa</h3>
-                      <h4 class="testimonial-subtitle h5">Comfort Support</h4>
-                      <p class="testimonial-text">I approve only if Dreamies are involved.</p>
+                <div class="col-md-6 col-sm-12">
+                  <label for="validationLastName" class="form-label"
+                    >Last name</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="validationLastName"
+                    placeholder="Doe"
+                    required
+                  />
+                  <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="col-12">
+                  <label for="validationEmail" class="form-label"
+                    >Email address</label
+                  >
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="validationEmail"
+                    placeholder="name@example.com"
+                    required
+                  />
+                  <div class="invalid-feedback">
+                    Please type a valid email address.
+                  </div>
+                </div>
+                <div class="col-8">
+                  <label for="category" class="form-label"
+                    >Category of service</label
+                  >
+                  <select
+                    class="form-select"
+                    id="category"
+                    aria-label="Category of service"
+                    required
+                  >
+                    <option selected>Select</option>
+                    <option value="1">Development</option>
+                    <option value="2">Design</option>
+                    <option value="3">Research</option>
+                    <option value="4">Other</option>
+                  </select>
+                  <div class="invalid-feedback">Please select one option.</div>
+                </div>
+                <div class="col-4">
+                  <label for="budgetInput" class="form-label">Budget</label>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text">£</span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="budgetInput"
+                      aria-label="Amount (to the nearest GBP)"
+                    />
+                    <span class="input-group-text">.00</span>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="mb-3">
+                    <label for="Message" class="form-label">Message</label>
+                    <textarea
+                      class="form-control"
+                      id="Message"
+                      rows="3"
+                      required
+                    ></textarea>
+                    <div class="invalid-feedback">Cannot be empty.</div>
+                  </div>
+                </div>
+                <div class="col-12 mb-3">
+                  <label for="formFileMultiple" class="form-label"
+                    >Add files of inspiration</label
+                  >
+                  <input
+                    class="form-control"
+                    type="file"
+                    id="formFileMultiple"
+                    multiple
+                  />
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      value=""
+                      id="invalidCheck"
+                      required
+                    />
+                    <label class="form-check-label" for="invalidCheck">
+                      Agree to
+                      <a href="#" target="_blank">terms &amp; conditions</a>
+                    </label>
+                    <div class="invalid-feedback">
+                      You must agree before submitting.
                     </div>
                   </div>
-                  <div class="carousel-item" data-bs-interval="2000">
-                    <div class="carousel-thumbnail d-flex mx-auto mb-3">
-                      <img src="./dist/images/kevin.jpg" id="Kevin" class="rounded-circle" alt="Kevin, vivid gradient-filter image of a cream Maine Coon cat" title="Kevin">
-                    </div>
-                    <div class="carousel-title mt-5 text-center">
-                      <h3 class="testimonial-name">Kevin</h3>
-                      <h4 class="testimonial-subtitle h5">Expert Pooper</h4>
-                      <p class="testimonial-text">Love it! Does great job.</p>
-                    </div>
-                  </div>
-                  <div class="carousel-item">
-                    <div class="carousel-thumbnail d-flex mx-auto">
-                      <div class="fa-img w-100 rounded-circle bg-black pb-2 position-relative">
-                        <span class="d-flex justify-content-center align-items-center text-center w-100 h-100"></span>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-primary submit" type="submit">
+                    Submit
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer"></div>
+          </div>
+        </div>
+      </div>
+      <!-- end of Contact form modal -->
+
+      <div class="primary-content bg-dark position-relative z-1">
+        <!-- Work section -->
+        <section id="work" class="work position-relative pb-md-5">
+          <div class="container pb-5">
+            <div class="section-title big-text lh-1 text-lg-end">
+              <h2 class="mb-5 pt-5">Projects</h2>
+            </div>
+
+            <div class="container section-content">
+              <div class="grid">
+                <div
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                >
+                  <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                    <div class="card-body position-relative z-1">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-3"
+                      >
+                        <div class="category">
+                          <p class="badge">Challenge</p>
+                        </div>
+                        <div class="tools pb-2">
+                          <i
+                            class="fa-brands fa-html5"
+                            aria-hidden="true"
+                            title="HTML5"
+                          ></i>
+                          <span class="visually-hidden">HTML5</span>
+                          <i
+                            class="fa-brands fa-css3-alt"
+                            aria-hidden="true"
+                            title="CSS3"
+                          ></i>
+                          <span class="visually-hidden">CSS3</span>
+                        </div>
+                      </div>
+                      <h3 class="h3 card-title accent-font mb-3">Horiseon</h3>
+                      <h6 class="h5 card-subtitle text-primary mb-2">
+                        Bootcamp week 01 challenge
+                      </h6>
+                      <p class="card-text text-font">
+                        Task: Improve webpage source code for better
+                        accessibility.
+                      </p>
+                      <div
+                        class="card-links-wrapper position-absolute bottom-0"
+                      >
+                        <a
+                          class="btn btn-outline-light"
+                          href="https://alexandrabatrak.github.io/horiseon/"
+                          target="_blank"
+                          class="card-link"
+                          >Deployement</a
+                        >
+                        <a
+                          class="btn btn-outline-light"
+                          href="https://github.com/alexandrabatrak/horiseon"
+                          target="_blank"
+                          class="card-link"
+                          >Repo</a
+                        >
                       </div>
                     </div>
-                    <div class="carousel-title mt-5 text-center">
-                      <h3 class="testimonial-name">Negative Nancy</h3>
-                      <h4 class="testimonial-subtitle h5">Professional Complainer</h4>
-                      <p class="testimonial-text">Good, but I have few remarks...</p>
-                    </div>
+                    <div class="hover-gradient position-absolute z-0"></div>
                   </div>
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
+
+                <div
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                >
+                  <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                    <div class="card-body position-relative z-1">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-3"
+                      >
+                        <div class="category">
+                          <p class="badge">Challenge</p>
+                        </div>
+                        <div class="tools pb-2">
+                          <i
+                            class="fa-brands fa-html5"
+                            aria-hidden="true"
+                            title="HTML5"
+                          ></i>
+                          <span class="visually-hidden">HTML5</span>
+                          <i
+                            class="fa-brands fa-css3-alt"
+                            aria-hidden="true"
+                            title="CSS3"
+                          ></i>
+                          <span class="visually-hidden">CSS3</span>
+                        </div>
+                      </div>
+                      <h3 class="h3 card-title accent-font mb-3">
+                        Portfolio Concept
+                      </h3>
+                      <h6 class="h5 card-subtitle text-primary mb-2">
+                        Bootcamp week 02 challenge
+                      </h6>
+                      <p class="card-text text-font">
+                        Task: Build a portfolio page.
+                      </p>
+                      <div
+                        class="card-links-wrapper position-absolute bottom-0"
+                      >
+                        <a
+                          class="btn btn-outline-light"
+                          href="https://alexandrabatrak.github.io/portfolio-concept-page"
+                          target="_blank"
+                          class="card-link"
+                          >Deployement</a
+                        >
+                        <a
+                          class="btn btn-outline-light"
+                          href="https://github.com/alexandrabatrak/portfolio-concept-page"
+                          target="_blank"
+                          class="card-link"
+                          >Repo</a
+                        >
+                      </div>
+                    </div>
+                    <div class="hover-gradient position-absolute z-0"></div>
+                  </div>
+                </div>
+
+                <div
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                >
+                  <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                    <div class="card-body position-relative z-1">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-3"
+                      >
+                        <div class="category">
+                          <p class="badge">Challenge</p>
+                        </div>
+                        <div class="tools pb-2">
+                          <i
+                            class="fa-brands fa-html5"
+                            aria-hidden="true"
+                            title="HTML5"
+                          ></i>
+                          <span class="visually-hidden">HTML5</span>
+                          <i
+                            class="fa-brands fa-css3-alt"
+                            aria-hidden="true"
+                            title="CSS3"
+                          ></i>
+                          <span class="visually-hidden">CSS3</span>
+                          <i
+                            class="fa-brands fa-sass"
+                            aria-hidden="true"
+                            title="SCSS"
+                          ></i>
+                          <span class="visually-hidden">SCSS</span>
+                          <i
+                            class="fa-brands fa-bootstrap"
+                            aria-hidden="true"
+                            title="BootStrap"
+                          ></i>
+                          <span class="visually-hidden">BootStrap</span>
+                          <i
+                            class="fa-brands fa-js"
+                            aria-hidden="true"
+                            title="JavaScript"
+                          ></i>
+                          <span class="visually-hidden">JavaScript</span>
+                        </div>
+                      </div>
+                      <h3 class="h3 card-title accent-font mb-3">
+                        Bootstrap Portfolio
+                      </h3>
+                      <h6 class="h5 card-subtitle text-primary mb-2">
+                        Bootcamp week 03 challenge
+                      </h6>
+                      <p class="card-text text-font">
+                        Task: Build a portfolio utilizing Bootstrap.
+                      </p>
+                      <div
+                        class="card-links-wrapper position-absolute bottom-0"
+                      >
+                        <a
+                          class="btn btn-outline-light"
+                          href="https://alexandrabatrak.github.io/bootstrap-portfolio"
+                          target="_blank"
+                          class="card-link"
+                          >Deployement</a
+                        >
+                        <a
+                          class="btn btn-outline-light"
+                          href="https://github.com/alexandrabatrak/bootstrap-portfolio"
+                          target="_blank"
+                          class="card-link"
+                          >Repo</a
+                        >
+                      </div>
+                    </div>
+                    <div class="hover-gradient position-absolute z-0"></div>
+                  </div>
+                </div>
+
+                <div
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                >
+                  <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                    <div class="card-body position-relative z-1">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-3"
+                      >
+                        <div class="category">
+                          <p class="badge">Placeholder</p>
+                        </div>
+                        <div class="tools pb-2">
+                          <i
+                            class="fa-brands fa-html5"
+                            aria-hidden="true"
+                            title="HTML5"
+                          ></i>
+                          <span class="visually-hidden">HTML5</span>
+                          <i
+                            class="fa-brands fa-css3-alt"
+                            aria-hidden="true"
+                            title="CSS3"
+                          ></i>
+                          <span class="visually-hidden">CSS3</span>
+                          <i
+                            class="fa-brands fa-js"
+                            aria-hidden="true"
+                            title="JavaScript"
+                          ></i>
+                          <span class="visually-hidden">JavaScript</span>
+                          <i
+                            class="fa-brands fa-wordpress-simple"
+                            aria-hidden="true"
+                            title="WordPress"
+                          ></i>
+                          <span class="visually-hidden">WordPress</span>
+                        </div>
+                      </div>
+                      <h3 class="h3 card-title accent-font mb-3">
+                        Exercitation ullamco
+                      </h3>
+                      <h6 class="h5 card-subtitle text-primary mb-2">
+                        Placeholder
+                      </h6>
+                      <p class="card-text text-font">
+                        Enim sit amet venenatis urna cursus eget nunc.
+                      </p>
+                      <div
+                        class="card-links-wrapper position-absolute bottom-0"
+                      >
+                        <a
+                          class="btn btn-outline-light"
+                          href="#"
+                          target="_blank"
+                          class="card-link"
+                          >Deployement</a
+                        >
+                        <a
+                          class="btn btn-outline-light"
+                          href="#"
+                          target="_blank"
+                          class="card-link"
+                          >Repo</a
+                        >
+                      </div>
+                    </div>
+                    <div class="hover-gradient position-absolute z-0"></div>
+                  </div>
+                </div>
+
+                <div
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                >
+                  <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                    <div class="card-body position-relative z-1">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-3"
+                      >
+                        <div class="category">
+                          <p class="badge">Placeholder</p>
+                        </div>
+                        <div class="tools pb-2">
+                          <i
+                            class="fa-brands fa-html5"
+                            aria-hidden="true"
+                            title="HTML5"
+                          ></i>
+                          <span class="visually-hidden">HTML5</span>
+                          <i
+                            class="fa-brands fa-css3-alt"
+                            aria-hidden="true"
+                            title="CSS3"
+                          ></i>
+                          <span class="visually-hidden">CSS3</span>
+                        </div>
+                      </div>
+                      <h3 class="h3 card-title accent-font mb-3">
+                        Pellentesque
+                      </h3>
+                      <h6 class="h5 card-subtitle text-primary mb-2">
+                        Placeholder
+                      </h6>
+                      <p class="card-text text-font">
+                        Excepteur sint occaecat cupidatat non proident, sunt in
+                        culpa qui officia deserunt mollit anim id est laborum.
+                      </p>
+                      <div
+                        class="card-links-wrapper position-absolute bottom-0"
+                      >
+                        <a
+                          class="btn btn-outline-light"
+                          href="#"
+                          target="_blank"
+                          class="card-link"
+                          >Deployement</a
+                        >
+                        <a
+                          class="btn btn-outline-light"
+                          href="#"
+                          target="_blank"
+                          class="card-link"
+                          >Repo</a
+                        >
+                      </div>
+                    </div>
+                    <div class="hover-gradient position-absolute z-0"></div>
+                  </div>
+                </div>
+
+                <div
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                >
+                  <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
+                    <div class="card-body position-relative z-1">
+                      <div
+                        class="d-flex align-items-center justify-content-between mb-3"
+                      >
+                        <div class="category">
+                          <p class="badge">Placeholder</p>
+                        </div>
+                        <div class="tools pb-2">
+                          <i
+                            class="fa-brands fa-html5"
+                            aria-hidden="true"
+                            title="HTML5"
+                          ></i>
+                          <span class="visually-hidden">HTML5</span>
+                          <i
+                            class="fa-brands fa-css3-alt"
+                            aria-hidden="true"
+                            title="CSS3"
+                          ></i>
+                          <span class="visually-hidden">CSS3</span>
+                          <i
+                            class="fa-brands fa-react"
+                            aria-hidden="true"
+                            title="ReactJS"
+                          ></i>
+                          <span class="visually-hidden">React JS</span>
+                        </div>
+                      </div>
+                      <h3 class="h3 card-title accent-font mb-3">Ornare</h3>
+                      <h6 class="h5 card-subtitle text-primary mb-2">
+                        Placeholder
+                      </h6>
+                      <p class="card-text text-font">
+                        Malesuada pellentesque elit eget gravida cum sociis
+                        natoque penatibus.
+                      </p>
+                      <div
+                        class="card-links-wrapper position-absolute bottom-0"
+                      >
+                        <a
+                          class="btn btn-outline-light"
+                          href="#"
+                          target="_blank"
+                          class="card-link"
+                          >Deployement</a
+                        >
+                        <a
+                          class="btn btn-outline-light"
+                          href="#"
+                          target="_blank"
+                          class="card-link"
+                          >Repo</a
+                        >
+                      </div>
+                    </div>
+                    <div class="hover-gradient position-absolute z-0"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+        </section>
+        <!-- end of Work section-->
+
+        <!-- About section -->
+        <section id="about" class="about py-md-5 bg-dark">
+          <div class="container">
+            <div class="section-title big-text lh-1 text-lg-end">
+              <h2 class="mb-5 pt-5">About</h2>
+            </div>
+            <div class="row flex-row-reverse">
+              <div
+                class="col-lg-6 col-sm-12 about-text-wrapper mb-4 mb-lg-0 text-font fs-5"
+              >
+                <h3 class="accent-font">Who dis</h3>
+                <p>
+                  I'm a creative mastermind with a knack for aesthetics and a
+                  hunger for new challenges. When I'm not busy solving problems
+                  and learning new things, you can find me pouring my heart and
+                  soul into crafting beautiful designs that leave a lasting
+                  impression.
+                </p>
+                <p>
+                  From brand identity to front-end development, I've got a range
+                  of skills that allow me to bring my wildest ideas to life.
+                  Whether I'm wielding a pen and paper or tinkering with
+                  Photoshop and Illustrator, I'm always on the lookout for ways
+                  to add some whimsy and flair to my work. And when it comes to
+                  web design, I believe that simplicity is key. Nothing makes me
+                  happier than creating intuitive and user-friendly experiences
+                  that make people's lives a little bit brighter.
+                </p>
+                <p>
+                  But my talents don't stop there! I'm also a dab hand at
+                  product packaging design, illustration (both traditional and
+                  digital), video editing, and animation. In short, I'm a
+                  jack-of-all-trades with a love for all things creative. So if
+                  you're in need of a little magic and wonder in your life,
+                  don't hesitate to reach out. I'm here to bring a little bit of
+                  whimsy to your world.
+                </p>
+                <button
+                  class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 py-4 px-2 position-relative text-lowercase"
+                  data-bs-toggle="modal"
+                  data-bs-target="#contact"
+                >
+                  <span class="w-100 position-relative bg-black py-3 px-4">
+                    Work with me
+                  </span>
+                  <div class="btn-border position-absolute top-0"></div>
+                </button>
+              </div>
+              <div class="col-lg-6 col-sm-12 py-5 py-lg-0">
+                <h3 class="accent-font text-lg-center">Usual suspects</h3>
+                <div class="circle-container pt-5 mx-auto my-5">
+                  <ul class="circle">
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-html5 d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="HTML5"
+                      ></i>
+                      <span class="visually-hidden">HTML5</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-css3-alt d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="CSS3"
+                      ></i>
+                      <span class="visually-hidden">CSS3</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-sass d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="SCSS"
+                      ></i>
+                      <span class="visually-hidden">SCSS</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-bootstrap d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="BootStrap"
+                      ></i>
+                      <span class="visually-hidden">BootStrap</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-js d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="Javascript & JQuery"
+                      ></i>
+                      <span class="visually-hidden">Javascript & JQuery</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-gulp d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="Gulp"
+                      ></i>
+                      <span class="visually-hidden">Gulp</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-wordpress-simple d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="WordPress"
+                      ></i>
+                      <span class="visually-hidden">WordPress</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-php d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="PHP"
+                      ></i>
+                      <span class="visually-hidden">PHP</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-node d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="Node.js"
+                      ></i>
+                      <span class="visually-hidden">Node</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-brands fa-npm d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="npm"
+                      ></i>
+                      <span class="visually-hidden">npm</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-solid fa-wand-magic-sparkles d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="Adobe Creative Suite"
+                      ></i>
+                      <span class="visually-hidden">Adobe Creative Suite</span>
+                    </li>
+                    <li class="rounded-circle">
+                      <i
+                        class="fa-solid fa-laptop-code d-flex justify-content-center align-items-center h-100"
+                        aria-hidden="true"
+                        title="VS Code"
+                      ></i>
+                      <span class="visually-hidden">VS Code</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end of About section-->
+
+        <section
+          id="counter"
+          class="counter bg-dark py-5 my-5 position-relative"
+        >
+          <div class="container">
+            <div class="row text-lg-center">
+              <div class="col-md-3 col-sm-6">
+                <div class="card bg-dark">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="999"
+                    class="card-title display-5 position-relative purecounter"
+                    >0</span
+                  >
+                  <p class="subtitle h4">Files</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card bg-dark">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="1466"
+                    class="card-title display-5 position-relative purecounter"
+                    >0</span
+                  >
+                  <p class="subtitle h4">Cups of coffee</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card bg-dark">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="968"
+                    class="card-title display-5 position-relative purecounter"
+                    >0</span
+                  >
+                  <p class="subtitle h4">Missed semicolons</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="card bg-dark">
+                  <span
+                    data-purecounter-start="0"
+                    data-purecounter-end="189"
+                    class="card-title display-5 position-relative purecounter"
+                    >0</span
+                  >
+                  <p class="subtitle h4">Meows</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Testimonials-->
+        <section
+          id="testimonials"
+          class="testimonials bg-dark position-relative"
+        >
+          <div class="container py-5">
+            <div class="row">
+              <div class="col-lg-4 col-md-3 col-sm-12">
+                <div class="section-title big-text lh-1 text-md-end text-wrap">
+                  <h2 class="mb-5">What they say about me</h2>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-9 col-sm-12">
+                <div
+                  class="swiper mySwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
+                >
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="swiper-thumbnail d-flex mx-auto">
+                        <img
+                          src="./dist/images/koopa.jpg"
+                          id="koopa"
+                          class="rounded-circle"
+                          alt="Koopa, vivid gradient-filter image of a ginger Maine Coon cat"
+                          title="Koopa"
+                        />
+                      </div>
+                      <div class="swiper-title mt-5 text-center">
+                        <blockquote class="blockquote mx-auto w-100">
+                          <p class="text-font fs-4">
+                            <i
+                              class="fa-solid fa-quote-left fa-2xs"
+                              aria-hidden="true"
+                            ></i>
+                            I approve only if Dreamies are involved.
+                            <i
+                              class="fa-solid fa-quote-right fa-2xs"
+                              aria-hidden="true"
+                            ></i>
+                          </p>
+                          <footer class="blockquote-footer text-secondary">
+                            <span class="fw-bold">Koopa: </span>
+                            <span class="fst-italic">Comfort Support</span>
+                          </footer>
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-thumbnail d-flex mx-auto mb-3">
+                        <img
+                          src="./dist/images/kevin.jpg"
+                          id="Kevin"
+                          class="rounded-circle"
+                          alt="Kevin, vivid gradient-filter image of a cream Maine Coon cat"
+                          title="Kevin"
+                        />
+                      </div>
+                      <div class="swiper-title mt-5 text-center">
+                        <blockquote class="blockquote mx-auto w-100">
+                          <p class="text-font fs-4">
+                            <i
+                              class="fa-solid fa-quote-left fa-2xs"
+                              aria-hidden="true"
+                            ></i>
+                            Love it! Does great job.
+                            <i
+                              class="fa-solid fa-quote-right fa-2xs"
+                              aria-hidden="true"
+                            ></i>
+                          </p>
+                          <footer class="blockquote-footer text-secondary">
+                            <span class="fw-bold">Kevin: </span>
+                            <span class="fst-italic">Expert Pooper</span>
+                          </footer>
+                        </blockquote>
+                      </div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="swiper-thumbnail d-flex mx-auto">
+                        <div
+                          class="fa-img w-100 rounded-circle bg-black pb-2 position-relative"
+                        >
+                          <span
+                            class="d-flex justify-content-center align-items-center text-center w-100 h-100"
+                          ></span>
+                        </div>
+                      </div>
+                      <div class="swiper-title mt-5 text-center">
+                        <blockquote class="blockquote mx-auto w-100">
+                          <p class="text-font fs-4">
+                            <i
+                              class="fa-solid fa-quote-left fa-2xs"
+                              aria-hidden="true"
+                            ></i>
+                            Good, but I have few remarks...
+                            <i
+                              class="fa-solid fa-quote-right fa-2xs"
+                              aria-hidden="true"
+                            ></i>
+                          </p>
+                          <footer class="blockquote-footer text-secondary">
+                            <span class="fw-bold">Negative Nancy: </span>
+                            <span class="fst-italic"
+                              >Professional Complainer/Pain in the a</span
+                            >
+                          </footer>
+                        </blockquote>
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="swiper-pagination swiper-pagination-bullets swiper-pagination-horizontal swiper-pagination-bullets-dynamic position-relative my-3"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- end of Testimonials section-->
+
+        <!-- Contact form -->
+        <section id="contact" class="contact py-5">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-7 col-md-12 mx-auto">
+                <form
+                  class="row g-3 p-3 bg-dark needs-validation text-font"
+                  novalidate
+                >
+                  <div class="col-md-6 col-sm-12">
+                    <label for="validationFirstName" class="form-label"
+                      >First name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="validationFirstName"
+                      placeholder="Jane"
+                      required
+                    />
+                    <div class="valid-feedback">Looks good!</div>
+                  </div>
+                  <div class="col-md-6 col-sm-12">
+                    <label for="validationLastName" class="form-label"
+                      >Last name</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="validationLastName"
+                      placeholder="Doe"
+                      required
+                    />
+                    <div class="valid-feedback">Looks good!</div>
+                  </div>
+                  <div class="col-12">
+                    <label for="validationEmail" class="form-label"
+                      >Email address</label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="validationEmail"
+                      placeholder="name@example.com"
+                      required
+                    />
+                    <div class="invalid-feedback">
+                      Please type a valid email address.
+                    </div>
+                  </div>
+                  <div class="col-8">
+                    <label for="category" class="form-label"
+                      >Category of service</label
+                    >
+                    <select
+                      class="form-select"
+                      id="category"
+                      aria-label="Category of service"
+                      required
+                    >
+                      <option selected>Select</option>
+                      <option value="1">Development</option>
+                      <option value="2">Design</option>
+                      <option value="3">Research</option>
+                      <option value="4">Other</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Please select one option.
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <label for="budgetInput" class="form-label">Budget</label>
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">£</span>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="budgetInput"
+                        aria-label="Amount (to the nearest GBP)"
+                      />
+                      <span class="input-group-text">.00</span>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <label for="Message" class="form-label">Message</label>
+                      <textarea
+                        class="form-control"
+                        id="Message"
+                        rows="3"
+                        required
+                      ></textarea>
+                      <div class="invalid-feedback">Cannot be empty.</div>
+                    </div>
+                  </div>
+                  <div class="col-12 mb-3">
+                    <label for="formFileMultiple" class="form-label"
+                      >Add files of inspiration</label
+                    >
+                    <input
+                      class="form-control"
+                      type="file"
+                      id="formFileMultiple"
+                      multiple
+                    />
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="invalidCheck"
+                        required
+                      />
+                      <label class="form-check-label" for="invalidCheck">
+                        Agree to
+                        <a href="#" target="_blank">terms &amp; conditions</a>
+                      </label>
+                      <div class="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <button class="btn btn-primary submit" type="submit">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <!-- end of .primary-content -->
+
+      <footer class="bg-dark py-5 pb-3">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5 col-md-6 col-sm-12">
+              <h2 class="accent-font">A.</h2>
+              <div
+                class="text-font fs-5 border-bottom border-primary border-2 mb-5 mb-lg-0"
+                style="--bs-border-opacity: 0.5"
+              >
+                <p>
+                  Check out this Bootstrap-powered portfolio featuring fancy
+                  things like spinning, flashy, eye-catching elements, lots of
+                  glow, and <strong>gradients</strong>(which are essential,
+                  right?). Plus, the elements even appear on scroll, which is so
+                  fancy!
+                </p>
+                <p>
+                  Koopa and Kevin are thrilled to be a part of every portfolio
+                  and want some fame too.
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <h3 class="h4">What's not to like?</h3>
+              <p class="text-font">
+                Please consider starring it on
+                <a
+                  href="https://github.com/alexandrabatrak/bootstrap-portfolio"
+                  target="_blank"
+                >
+                  <i class="fa-brands fa-github pe-1"></i
+                  ><span class="text-lowercase">github</span></a
+                >
+                to show your support, the cats will be pleased.
+              </p>
+              Special thanks to:
+              <ul class="list-unstyled">
+                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
+                  <a href="https://getbootstrap.com/" target="_blank">
+                    Bootstrap (5.3.0)
+                  </a>
+                </li>
+                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
+                  <a href="https://fontawesome.com/" target="_blank"
+                    >FontAwesome</a
+                  >
+                </li>
+                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
+                  <a href="https://swiperjs.com/get-started" target="_blank"
+                    >Swiper</a
+                  >
+                </li>
+                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
+                  <a href="https://www.npmjs.com/" target="_blank">npm</a>
+                </li>
+                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
+                  <a href="https://code.visualstudio.com/" target="_blank"
+                    >VS Code</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12">
+              <div class="row">
+                <!-- check the correct heading tag -->
+                <h3>Links</h3>
+                <nav class="footer-nav" role="secondary">
+                  <ul
+                    class="list-unstyled pb-3 border-bottom border-primary border-2 fs-5"
+                    style="--bs-border-opacity: 0.5"
+                  >
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#work">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                  </ul>
+                  <ul class="list-unstyled">
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Cookies Policy</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div class="col-12 gy-5 d-flex justify-content-center">
+              <p>
+                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                All rights reserved © 2022
+              </p>
+            </div>
+          </div>
         </div>
-      </section> <!-- end of Testimonials section-->
-
-    </div> <!-- end of .primary-content -->
-
-    <footer class="bg-dark pb-3">
-      <p>
-        <i class="fa-regular fa-heart" aria-hidden="true"></i> 
-        All rights reserved © 2022
-      </p>
-    </footer>
-
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  <script src="./dist/vendor/prism/prism.js"></script>
-  <script src="./dist/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="./dist/index.js"></script>
-
-</body>
+      </footer>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./dist/vendor/prism/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./dist/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="./dist/index.js"></script>
+  </body>
 </html>
