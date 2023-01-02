@@ -89,11 +89,12 @@
     });
 
     // NAV scroll behavior
-    const nav = document.querySelector('nav');
+    const nav = document.querySelector('nav.navbar');
     const startchange = document
       .querySelector('.title-wrapper')
       .getBoundingClientRect();
     var offset = startchange.top + window.scrollY;
+    const footer = document.querySelector('footer.footer');
 
     window.addEventListener('scroll', () => {
       const st = window.scrollY;
@@ -103,6 +104,13 @@
       } else {
         nav.classList.remove('bg-black');
         nav.classList.add('bg-transparent');
+      }
+
+      // slide nav up when reaching the footer of the page
+      if (footer.getBoundingClientRect().top <= window.innerHeight) {
+        nav.classList.add('is-up');
+      } else {
+        nav.classList.remove('is-up');
       }
     });
 
