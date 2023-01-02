@@ -7,9 +7,14 @@
 @import 'var/mixins.scss';
 
 /* General */
+.loader {
+  z-index: 1099;
+  overflow: hidden;
+}
+
 body {
   color: $white;
-  background: $black;
+  background: $dark;
   font-family: $body-font;
 
   // Modal opening add weird padding
@@ -20,8 +25,16 @@ body {
   }
 }
 
+ul li a {
+  text-decoration: none;
+}
+
 .accent-font {
   font-family: $display-font;
+}
+
+.text-font {
+  font-family: $text-font;
 }
 
 main .container-fluid {
@@ -72,15 +85,10 @@ nav {
   }
 
   #nav-contact-btn {
-    box-shadow: -2px -3px 16px 0px rgba($green1, 0.5),
-      2px 5px 20px 0px rgba($pink2, 0.6), 0px 0 20px 0px rgba($primary, 0.8);
-
-    &:hover &:after {
-      content: '';
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      @include gradient-bg;
+    i.fa-hand-back-fist {
+      animation: knock 1s ease-in-out infinite;
+      transform-style: preserve-3d;
+      font-size: 1.15rem;
     }
   }
 
@@ -103,7 +111,7 @@ nav {
   }
 
   .social-wrapper {
-    .nav-item {
+    li {
       i,
       a {
         color: $primary;
@@ -122,10 +130,6 @@ nav {
 .masthead {
   background: linear-gradient(0deg, $dark, rgba($black, 0.8));
 
-  video {
-    z-index: -1;
-  }
-
   .title-wrapper {
     @include reflect();
   }
@@ -135,20 +139,28 @@ nav {
     max-width: 400px;
     font-size: 7rem;
     line-height: 0.9;
-    line-height: 0.9;
     -webkit-text-stroke: 1px $lightblue;
     text-shadow: -6px -7px 50px rgba($lilac, 0.54),
       0px 3px 20px rgba($lightblue, 0.2), 0px 0px 20px rgba($green2, 0.56);
   }
 
   .code-block {
-    min-height: 500px; /* fixed width and height for better animation */
     width: 75%;
   }
 
   pre,
   .btn-cta span {
-    @include backdrop-bg();
+    border: 2px solid;
+    border-top-color: rgba($lilac, 0.15);
+    border-left-color: rgba($blue, 0.15);
+    border-bottom-color: rgba($blue, 0.05);
+    border-right-color: transparent;
+    backdrop-filter: blur(5px);
+  }
+
+  .code-block code {
+    font: 0.58rem/1 'JetBrains', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+      monospace !important;
   }
 }
 
@@ -157,10 +169,6 @@ nav {
   &-cta {
     max-width: 400px;
     overflow: hidden;
-
-    span {
-      z-index: 1;
-    }
 
     span,
     .btn-border {
@@ -172,7 +180,7 @@ nav {
     &:active {
       background: rgba($primary, 0.5); /* bs override */
 
-      span a {
+      span {
         color: $white;
       }
 
@@ -195,19 +203,15 @@ nav {
 /*=====================
 * SECTIONS
 =====================*/
-.primary-content {
-  position: relative;
-  z-index: 1;
-}
-
 .big-text {
-  @include gradient-bg($deg: -90deg);
-  background-size: 200% auto;
-  background-position: bottom;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: $white;
-  -webkit-text-fill-color: rgba($white, 0);
+  @include gradient-text();
+  // @include gradient-bg($deg: -90deg);
+  // background-size: 200% auto;
+  // background-position: bottom;
+  // background-clip: text;
+  // -webkit-background-clip: text;
+  // color: $white;
+  // -webkit-text-fill-color: rgba($white, 0);
   text-transform: uppercase;
   letter-spacing: 15px;
   animation: gradient 10s ease infinite;
@@ -223,15 +227,15 @@ nav {
 * WORK
 =====================*/
 .work {
-  background: linear-gradient(0deg, $dark-grey, $dark);
+  background: $grey-to-dark;
 
   .card {
-    $c: &;
     min-height: 400px;
-    @include backdrop-bg();
+    @include card-border();
 
-    &-body {
-      z-index: 1;
+    &-text {
+      font-family: $text-font;
+      font-size: 1.15rem;
     }
   }
 
@@ -240,7 +244,6 @@ nav {
     inset: 0;
     opacity: 0;
     transition: all 0.5s;
-    z-index: 0;
 
     &:before {
       content: '';
@@ -250,6 +253,7 @@ nav {
       background-position: 0%;
       background-size: 400%;
       transition: $transition;
+      animation: gradient 10s linear infinite;
     }
 
     &:before {
@@ -269,9 +273,52 @@ nav {
 /*=====================
 * ABOUT, SKILLS
 =====================*/
-
 .about {
-  background: linear-gradient(180deg, $dark-grey, $dark);
+  background: $dark-to-grey;
+
+  &-text-wrapper {
+    font-family: $text-font;
+    font-size: 1.25rem;
+  }
+
+  .btn-cta {
+    font-family: $body-font;
+  }
+
+  // TODO: custom style for mobile
+  .circle-container {
+    max-width: 75%;
+    max-height: 75%;
+
+    .circle {
+      @include on-circle(25%, 12);
+      animation: spin 20s infinite;
+
+      &:hover,
+      &:hover li i {
+        animation-play-state: paused !important;
+      }
+
+      li {
+        color: $white;
+        border: 2px solid transparent;
+        transition: all 0.3s ease-in-out;
+
+        &:hover {
+          background: $white;
+          color: $black;
+          border-color: $primary;
+          box-shadow: $hero-shadow;
+        }
+
+        i {
+          font-size: 2.5rem;
+          transition: 0.15s;
+          animation: rotate 20s infinite;
+        }
+      }
+    }
+  }
 }
 
 /*=====================
@@ -280,15 +327,16 @@ nav {
 .counter {
   .card {
     &-title {
-      @include gradient-bg($deg: 50deg);
-      background-size: 150%;
-      background-position: bottom;
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: $white;
-      -webkit-text-fill-color: rgba($white, 0);
+      @include gradient-bg('counter-card');
+      // // @include gradient-bg($deg: 50deg);
+      // background-size: 150%;
+      // background-position: bottom;
+      // background-clip: text;
+      // -webkit-background-clip: text;
+      // color: $white;
+      // -webkit-text-fill-color: rgba($white, 0);
       -webkit-text-stroke: 1px rgba($primary, 0.5);
-      animation: gradient 10s ease infinite;
+      // animation: gradient 10s ease infinite;
 
       &:after {
         content: attr(data-purecounter-end);
@@ -311,66 +359,83 @@ nav {
 /*=====================
 * TESTIMONIALS
 =====================*/
-.carousel {
+.testimonials {
+  background: linear-gradient(0deg, $dark-grey, $dark);
+}
+
+.swiper {
+  &-pagination-bullet {
+    opacity: 0.5;
+    background: $white;
+
+    &-active {
+      opacity: 1;
+    }
+  }
+
   &-thumbnail {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-
-    .fa-img {
-      span {
-        &::before,
-        &:after {
-          content: '\f2fe';
-          font-family: 'FontAwesome';
-          font-size: 5rem;
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          bottom: -7.5%;
-          @include gradient-bg($deg: -15deg);
-          background-size: 200%;
-          background-position: left;
-          background-clip: text;
-          -webkit-background-clip: text;
-          color: $white;
-          -webkit-text-fill-color: transparent;
-        }
-
-        &:before {
-          -webkit-text-stroke: 1px;
-        }
-
-        &:after {
-          filter: blur(15px);
-          transform: scale(1.05);
-          z-index: 0;
-        }
-      }
-    }
   }
-  .testimonial {
-    &-text {
-      &:before,
+
+  .fa-img {
+    span {
+      &::before,
       &:after {
-        font-size: 0.5rem;
+        content: '\f2fe';
         font-family: 'FontAwesome';
-        margin-top: -1rem;
-        padding: 0 1rem;
+        font-size: 5rem;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        bottom: -7.5%;
+        @include gradient-bg($deg: -15deg);
+        background-size: 200%;
+        background-position: left;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: $white;
+        -webkit-text-fill-color: transparent;
       }
+
       &:before {
-        content: '\f10d';
+        -webkit-text-stroke: 1px;
       }
+
       &:after {
-        content: '\f10e';
+        filter: blur(15px);
+        transform: scale(1.05);
+        z-index: 0;
       }
     }
   }
 }
 
 /*=====================
+* CONTACT
+=====================*/
+.contact {
+  background: $dark-to-grey;
+
+  .submit {
+    font-family: $body-font;
+  }
+}
+
+/*=====================
 * FOOTER
 =====================*/
+
+footer nav {
+  li a {
+    color: $white;
+
+    &:hover {
+      color: $primary;
+    }
+  }
+}
 
 /*=====================
 * ANIMATION
@@ -424,116 +489,62 @@ nav {
   }
 }
 
+@keyframes knock {
+  0% {
+    transform: rotateX(17deg) scale(1, 0.95);
+  }
+  30% {
+    transform: rotate(0), scale(0.9999);
+  }
+  50% {
+    transform: rotateX(-15deg);
+  }
+  75% {
+    transform: rotateX(17deg) scale(1, 0.95);
+  }
+  100% {
+    transform: rotate(0), scale(0.9999);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(-360deg);
+  }
+  from {
+    transform: rotate(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /*=====================
 * MEDIA
 =====================*/
-@media (any-hover: hover) {
-  .work {
-    .card {
-      &:hover {
-        box-shadow: 0px 3px 6px rgba($green1, 0.5),
-          0px 8px 15px rgba($pink, 0.3), 0 0 0 1px rgba($primary, 0.3);
-        transition: all 0.5s linear;
-
-        .card {
-          &-title {
-            color: $black !important;
-          }
-
-          // &-links-wrapper {
-          //   a.btn {
-          //     border-color: $white !important;
-          //     color: $white !important;
-
-          //     &:hover,
-          //     &:active,
-          //     &:focus {
-          //       background: $white;
-          //       color: $black !important;
-          //     }
-          //   }
-          // }
-        }
-
-        .hover-gradient {
-          opacity: 1;
-          transition-duration: 0.5s;
-          transition-delay: 0s;
-
-          &:before {
-            transform: scale(1);
-            animation: gradient 10s linear infinite;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media (any-hover: none) {
-  .work {
-    .card {
-      .hover-gradient {
-        overflow: hidden;
-        opacity: 0.5;
-
-        &::before {
-          animation: gradient 10s linear infinite;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .navbar-expand-lg {
-    .social-wrapper {
-      transform: translateY(50vh) rotate(90deg);
-      right: -2.5rem;
-      position: fixed;
-      z-index: 1030;
-      transition: $transition;
-
-      .nav-item i {
-        transform: rotate(-90deg); /* reset rotation from the navbar */
-      }
-    }
-
-    &::after {
-      content: '\f111';
-      font-family: 'FontAwesome';
-      font-size: 1rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: $white;
-      width: 70px;
-      height: 70px;
-      position: relative;
-      right: 0;
-      top: 0;
-    }
-  }
-}
-
-@media screen and (min-width: 992px) {
+@media screen and (max-width: 768px) {
   .masthead {
-    .title-wrapper {
-      margin-bottom: 50%;
+    .code-block {
+      width: 100%;
     }
-  }
-
-  .big-text-left {
-    position: absolute;
-    transform: translate(-46.5%, 100%) rotate(-90deg);
-    bottom: 50%;
-    white-space: nowrap;
   }
 }
 
 @media screen and (max-width: 991.999px) {
-  main {
+  .masthead {
     padding-top: 100px; /* to place after fixed nav */
+  }
+
+  #pauseBtn {
+    position: absolute;
+    top: 25px;
+    left: 50px;
   }
 
   .navbar-collapse {
@@ -548,6 +559,79 @@ nav {
       font-size: 5rem;
     }
   }
+
+  .circle,
+  .circle li i {
+    animation: none !important;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .masthead {
+    .hero-title {
+      margin-bottom: 50%;
+    }
+  }
+
+  .big-text-left {
+    position: absolute;
+    transform: translate(-46.5%, 100%) rotate(-90deg);
+    bottom: 50%;
+    white-space: nowrap;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .navbar-expand-lg {
+    .social-wrapper {
+      transform: translateY(50vh) rotate(90deg);
+      right: -2rem;
+      position: fixed;
+      z-index: 1030;
+      transition: $transition;
+
+      li i {
+        transform: rotate(-90deg); /* reset rotation from the navbar */
+      }
+    }
+  }
+}
+
+@media (any-hover: hover) {
+  .work {
+    .card {
+      &:hover {
+        box-shadow: $card-shadow;
+        .card {
+          &-title,
+          &-subtitle {
+            color: $black !important;
+          }
+        }
+
+        .hover-gradient {
+          opacity: 1;
+          transition-duration: 0.5s;
+          transition-delay: 0s;
+
+          &:before {
+            transform: scale(1);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (any-hover: none) {
+  .work {
+    .card {
+      .hover-gradient {
+        overflow: hidden;
+        opacity: 0.5;
+      }
+    }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -558,8 +642,8 @@ nav {
     transition-duration: 0.1s !important;
   }
 
-  .reveal,
-  .reveal2 {
+  .reveal {
+    visibility: visible;
     opacity: 1 !important;
     filter: none !important;
     transform: translate(0) scale(1) !important;

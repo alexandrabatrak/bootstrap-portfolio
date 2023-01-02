@@ -1,7 +1,7 @@
 $white: rgb(255, 243, 255);
 $black: rgb(1, 0, 1);
 $dark: rgb(23, 23, 26);
-$dark-grey: rgba(40, 40, 43);
+$dark-grey: rgb(40, 40, 43);
 
 $pink: rgb(246, 179, 251);
 $pink2: rgb(224, 114, 190);
@@ -12,7 +12,7 @@ $blue: rgb(64, 156, 255);
 $lightblue: rgb(23, 186, 255);
 $green1: rgb(72, 173, 156);
 $green2: rgb(8, 166, 101);
-$d-blue: rgb(1, 53, 136);
+$d-blue: rgb(19, 76, 167);
 
 $primary: $l-blue;
 $secondary: $d-blue;
@@ -20,4 +20,16 @@ $secondary: $d-blue;
 $transition: all 0.35s ease-in-out;
 
 $body-font: 'JetBrains', mono;
+$text-font: 'Anaheim', Arial, sans-serif;
 $display-font: 'Gerbil', display;
+
+// background gradients
+$dark-to-black: linear-gradient(0deg, $dark, rgba($black, 0.8));
+$grey-to-dark: linear-gradient(0deg, $dark-grey, $dark);
+$dark-to-grey: linear-gradient(180deg, $dark-grey, $dark);
+
+// glow
+$hero-shadow: -6px -7px 50px rgba($lilac, 0.54),
+  0px 3px 20px rgba($lightblue, 0.2), 0px 0px 20px rgba($green2, 0.56);
+$card-shadow: 0px 3px 6px rgba($green1, 0.5), 0px 8px 15px rgba($pink, 0.3),
+  0 0 0 1px rgba($primary, 0.3);
