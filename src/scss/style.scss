@@ -205,13 +205,6 @@ nav {
 =====================*/
 .big-text {
   @include gradient-text();
-  // @include gradient-bg($deg: -90deg);
-  // background-size: 200% auto;
-  // background-position: bottom;
-  // background-clip: text;
-  // -webkit-background-clip: text;
-  // color: $white;
-  // -webkit-text-fill-color: rgba($white, 0);
   text-transform: uppercase;
   letter-spacing: 15px;
   animation: gradient 10s ease infinite;
@@ -328,15 +321,7 @@ nav {
   .card {
     &-title {
       @include gradient-text('counter-card');
-      // // @include gradient-bg($deg: 50deg);
-      // background-size: 150%;
-      // background-position: bottom;
-      // background-clip: text;
-      // -webkit-background-clip: text;
-      // color: $white;
-      // -webkit-text-fill-color: rgba($white, 0);
       -webkit-text-stroke: 1px rgba($primary, 0.5);
-      // animation: gradient 10s ease infinite;
 
       &:after {
         content: attr(data-purecounter-end);
