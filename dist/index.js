@@ -146,7 +146,17 @@
     // Reverse order of projects
     const container = document.querySelector('.work .grid');
     const child = Array.from(document.getElementsByClassName('project'));
-    child.reverse().forEach((div) => container.appendChild(div));
+    const button = document.getElementById('sortingButton');
+    let toggle = true;
+    button.addEventListener('click', () => {
+      child.reverse().forEach((div) => container.appendChild(div));
+      toggle = !toggle;
+      if (toggle) {
+        button.firstElementChild.innerHTML = 'Sort by latest';
+      } else {
+        button.firstElementChild.innerHTML = 'Sort by oldest';
+      }
+    });
 
     // Form validation by Bootstrap
     const formValidation = () => {
