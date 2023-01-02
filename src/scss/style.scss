@@ -53,6 +53,7 @@ main .container-fluid {
 nav {
   transform: 0;
   transition: $transition;
+  backdrop-filter: blur(5px);
 
   &.is-up {
     transform: translateY(-100%);
@@ -63,7 +64,7 @@ nav {
 .nav-item a,
 .navbar-toggler span {
   color: $primary;
-  letter-spacing: 5px;
+  letter-spacing: $letter-spacing-small;
 }
 
 .nav-link {
@@ -135,13 +136,10 @@ nav {
   }
 
   .hero-title {
-    color: $blue;
     max-width: 400px;
-    font-size: 7rem;
-    line-height: 0.9;
-    -webkit-text-stroke: 1px $lightblue;
-    text-shadow: -6px -7px 50px rgba($lilac, 0.54),
-      0px 3px 20px rgba($lightblue, 0.2), 0px 0px 20px rgba($green2, 0.56);
+    letter-spacing: $letter-spacing-big;
+    // font-size: 7rem;
+    // line-height: 0.9;
   }
 
   .code-block {
@@ -205,8 +203,7 @@ nav {
 =====================*/
 .big-text {
   @include gradient-text();
-  text-transform: uppercase;
-  letter-spacing: 15px;
+  letter-spacing: $letter-spacing-big;
   animation: gradient 10s ease infinite;
 }
 
@@ -220,7 +217,7 @@ nav {
 * WORK
 =====================*/
 .work {
-  background: $grey-to-dark;
+  background: $dark-to-grey;
 
   .card {
     min-height: 400px;
@@ -267,7 +264,7 @@ nav {
 * ABOUT, SKILLS
 =====================*/
 .about {
-  background: $dark-to-grey;
+  background: $grey-to-dark;
 
   &-text-wrapper {
     font-family: $text-font;
@@ -361,7 +358,6 @@ nav {
   &-thumbnail {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
   }
 
   .fa-img {
@@ -413,6 +409,9 @@ nav {
 =====================*/
 
 footer nav {
+  ul.text-uppercase {
+    letter-spacing: $letter-spacing-small;
+  }
   li a {
     color: $white;
 
@@ -524,6 +523,10 @@ footer nav {
 @media screen and (max-width: 991.999px) {
   .masthead {
     padding-top: 100px; /* to place after fixed nav */
+
+    .big-text {
+      letter-spacing: $letter-spacing-small;
+    }
   }
 
   #pauseBtn {
@@ -539,12 +542,6 @@ footer nav {
     }
   }
 
-  .masthead {
-    .hero-title {
-      font-size: 5rem;
-    }
-  }
-
   .circle,
   .circle li i {
     animation: none !important;
@@ -554,7 +551,7 @@ footer nav {
 @media screen and (min-width: 992px) {
   .masthead {
     .hero-title {
-      margin-bottom: 50%;
+      // margin-bottom: 50%;
     }
   }
 

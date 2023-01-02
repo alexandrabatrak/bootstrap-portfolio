@@ -19,9 +19,12 @@ $secondary: $d-blue;
 
 $transition: all 0.35s ease-in-out;
 
-$body-font: 'JetBrains', mono;
-$text-font: 'Anaheim', Arial, sans-serif;
+$body-font: 'JetBrains', Consolas, mono;
+$text-font: 'Didact Gothic', sans-serif;
 $display-font: 'Gerbil', display;
+
+$letter-spacing-big: 15px;
+$letter-spacing-small: 5px;
 
 // background gradients
 $dark-to-black: linear-gradient(0deg, $dark, rgba($black, 0.8));
