@@ -92,7 +92,7 @@
     // NAV scroll behavior
     const nav = document.querySelector('nav.navbar');
     const startchange = document
-      .querySelector('.title-wrapper')
+      .querySelector('.about')
       .getBoundingClientRect();
     var offset = startchange.top + window.scrollY;
     const footer = document.querySelector('footer.footer');
