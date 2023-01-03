@@ -19,6 +19,7 @@
       videoPause();
     } else {
       typedText();
+      animateSkills();
     }
 
     // Typing animation
@@ -157,6 +158,63 @@
         button.firstElementChild.innerHTML = 'Sort by oldest';
       }
     });
+
+    // animate skill list
+    // Source https://codepen.io/tmhrtwg/pen/PvywxY.
+    // Edited to fix error with negative margin and first element never appending to the last correctly.
+    // TODO: Find a solution for stutter: just before the element is near the left edge, the margin is reset to 0 and it pushes the element to the right
+    // Solution: configure exact value of differenceCheck based on a li size and it's margin.
+
+    function animateSkills() {
+      const skillsContainer = document.getElementById('skillsContainer');
+      const leftSideOfContainer = skillsContainer.getBoundingClientRect().left;
+      const rightSideOfContainer =
+        skillsContainer.getBoundingClientRect().right;
+      const skillsList = document.getElementById('skillsList');
+      let currentLeftValue = 0;
+
+      let animationInterval = window.setInterval(animationLoop, 20);
+
+      skillsContainer.addEventListener('mouseenter', () => {
+        window.clearInterval(animationInterval);
+      });
+
+      skillsContainer.addEventListener('mouseleave', () => {
+        animationInterval = window.setInterval(animationLoop, 20);
+      });
+
+      // Update container edge values when window is resized
+      // TODO still issue when resizing (not eve) - the margin increases expedencially
+      window.addEventListener('resize', () => {
+        leftSideOfContainer = skillsContainer.getBoundingClientRect().left;
+        rightSideOfContainer = skillsContainer.getBoundingClientRect().right;
+      });
+
+      function animationLoop() {
+        const firstListItem = skillsList.querySelector('ul li:first-child');
+        let leftSideOfFirstItem = firstListItem.getBoundingClientRect().left;
+        let rightSideOfFirstItem = firstListItem.getBoundingClientRect().right;
+        const differenceCheck = 12;
+
+        if (rightSideOfFirstItem - leftSideOfContainer < differenceCheck) {
+          currentLeftValue = -1;
+          // Update container edge values again to avoid weird positions
+          rightSideOfFirstItem = firstListItem.getBoundingClientRect().right;
+          leftSideOfFirstItem = firstListItem.getBoundingClientRect().left;
+          const listItems = skillsList.querySelectorAll('ul li');
+          listItems.forEach((item) => item.classList.remove('fade-out'));
+          skillsList.appendChild(firstListItem);
+        }
+        if (leftSideOfFirstItem - leftSideOfContainer < 1) {
+          firstListItem.classList.add('fade-out');
+        } else {
+          firstListItem.classList.remove('fade-out');
+        }
+
+        skillsList.style.marginLeft = `${currentLeftValue}px`;
+        currentLeftValue--;
+      }
+    }
 
     // Form validation by Bootstrap
     const formValidation = () => {
