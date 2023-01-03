@@ -166,10 +166,9 @@
     // Solution: configure exact value of differenceCheck based on a li size and it's margin.
 
     function animateSkills() {
-      const skillsContainer = document.getElementById('skillsContainer');
-      const leftSideOfContainer = skillsContainer.getBoundingClientRect().left;
-      const rightSideOfContainer =
-        skillsContainer.getBoundingClientRect().right;
+      let skillsContainer = document.getElementById('skillsContainer');
+      let leftSideOfContainer = skillsContainer.getBoundingClientRect().left;
+      let rightSideOfContainer = skillsContainer.getBoundingClientRect().right;
       const skillsList = document.getElementById('skillsList');
       let currentLeftValue = 0;
 
