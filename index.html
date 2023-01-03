@@ -37,6 +37,8 @@
         .reveal {
           visibility: visible;
           opacity: 1 !important;
+          filter: blur(0) !important;
+          transform: none !important;
         }
       </style>
     </noscript>
@@ -55,14 +57,14 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand reveal reveal-from-left" href="#">
             <h1>
               <span class="accent-font" aria-hidden="true">A.</span>
               <span class="visually-hidden">Alexandra Batrak</span>
             </h1>
           </a>
           <button
-            class="navbar-toggler"
+            class="navbar-toggler reveal reveal-from-top"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarText"
@@ -75,31 +77,32 @@
           </button>
           <div class="collapse navbar-collapse p-5 p-lg-0" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
-              <li class="nav-item">
-                <a class="nav-link" href="#work">Work</a>
-              </li>
-              <li class="nav-item">
+              <li class="nav-item reveal reveal-from-top reveal-delay">
                 <a class="nav-link" href="#about">About</a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item reveal reveal-from-top">
+                <a class="nav-link" href="#work">Projects</a>
+              </li>
+              <li class="nav-item reveal reveal-from-top">
                 <a class="nav-link" href="#testimonials">Reviews</a>
               </li>
               <button
                 type="button"
                 id="nav-contact-btn"
-                class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase"
+                class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase reveal reveal-from-top reveal-delay"
                 data-bs-toggle="modal"
                 data-bs-target="#contact"
               >
-                <i class="fa-regular fa-hand-back-fist"></i>
-                Knock-knock
+                <i class="fa-regular fa-hand-back-fist" aria-hidden="true"></i>
+                <span class="visually-hidden">Contact button</span>
+                <span area-hidden="true">Knock-knock</span>
               </button>
             </ul>
             <div
               class="social-wrapper d-flex justify-content-start align-items-center"
             >
               <ul class="list-unstyled d-flex flex-row h4">
-                <li class="nav-item px-2">
+                <li class="nav-item px-2 reveal reveal-from-top reveal-delay">
                   <a href="mailto:contact@alexandrabatrak.uk">
                     <i
                       class="fa-solid fa-at"
@@ -111,7 +114,7 @@
                     </span>
                   </a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2 reveal reveal-from-top reveal-delay">
                   <a href="https://github.com/alexandrabatrak" target="_blank">
                     <i
                       class="fa-brands fa-github"
@@ -121,7 +124,7 @@
                     <span class="visually-hidden">Github</span>
                   </a>
                 </li>
-                <li class="nav-item px-2">
+                <li class="nav-item px-2 reveal reveal-from-top reveal-delay">
                   <a href="https://codepen.io/alexandrabatrak" target="_blank">
                     <i
                       class="fa-brands fa-codepen"
@@ -134,13 +137,145 @@
               </ul>
             </div>
           </div>
-          <i class="fa-solid fa-pause px-4" id="pauseBtn">
+          <i
+            class="fa-solid fa-pause px-4 reveal reveal-from-top reveal-delay"
+            id="pauseBtn"
+          >
             <span class="visually-hidden">Pause</span>
           </i>
         </div>
       </nav>
     </header>
-
+    <!-- Contact form modal -->
+    <div
+      class="modal fade"
+      id="contact"
+      tabindex="-1"
+      aria-labelledby="contactLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-3">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5 reveal reveal-from-bottom"
+              id="contactLabel"
+            >
+              Get in touch
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="row g-3 p-3 pb-5 needs-validation text-font"
+              novalidate
+            >
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <label for="validationFirstName" class="form-label"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationFirstName"
+                  placeholder="Jane"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <label for="validationLastName" class="form-label"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationLastName"
+                  placeholder="Doe"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <label for="validationEmail" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="validationEmail"
+                  placeholder="name@example.com"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please type a valid email address.
+                </div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <div class="mb-3">
+                  <label for="Message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="Message"
+                    rows="3"
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">Cannot be empty.</div>
+                </div>
+              </div>
+              <div class="col-12 mb-3 reveal reveal-from-bottom">
+                <label for="formFileMultiple" class="form-label"
+                  >Add files of inspiration</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="invalidCheck"
+                    required
+                  />
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to
+                    <a href="#" target="_blank">terms &amp; conditions</a>
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <button class="btn btn-primary submit" type="submit">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary reveal reveal-from-right"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Contact form modal -->
     <main data-bs-spy="scroll" data-bs-target="#navbarText" tabindex="0">
       <!-- Hero section -->
       <section class="masthead position-relative" id="hero">
@@ -167,29 +302,171 @@
                 >
                   Look, I can code
                 </h2>
-                <p class="text-decoration-line-through">...maybe</p>
                 <button
-                  class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 py-4 px-2 position-relative text-lowercase z-1"
+                  class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 mt-5 py-4 px-2 position-relative text-lowercase z-1"
                   data-bs-toggle="modal"
                   data-bs-target="#contact"
                 >
-                  <span class="w-100 position-relative bg-black py-3 px-4">
+                  <span class="w-100 position-relative bg-black py-3 px-4 z-1">
                     Work with me
                   </span>
                   <div class="btn-border position-absolute top-0"></div>
                 </button>
               </div>
             </div>
-
             <div
-              class="col-xl-7 col-lg-6 col-sm-12 d-flex justify-content-lg-center align-items-center"
+              class="col-xl-7 col-lg-6 col-sm-12 justify-content-lg-end align-items-lg-end py-5 my-5 my-lg-auto"
             >
-              <div class="code-block">
-                <pre
-                  class="rounded-1 bg-dark position-relative"
-                  style="--bs-bg-opacity: 0.75"
-                >
-                <code id="typed-text" class="language-js">
+              <div
+                class="skills-title mx-auto mt-3 d-flex justify-content-end reveal reveal-from-top"
+              >
+                <h3>Skilled in:</h3>
+              </div>
+              <div class="skills-container mx-auto my-5" id="skillsContainer">
+                <ul class="skills-list" id="skillsList">
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-html5 d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="HTML5"
+                    ></i>
+                    <span class="visually-hidden">HTML5</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-css3-alt d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="CSS3"
+                    ></i>
+                    <span class="visually-hidden">CSS3</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-sass d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="SCSS"
+                    ></i>
+                    <span class="visually-hidden">SCSS</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-bootstrap d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="BootStrap"
+                    ></i>
+                    <span class="visually-hidden">BootStrap</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-js d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="Javascript & JQuery"
+                    ></i>
+                    <span class="visually-hidden">Javascript & JQuery</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-gulp d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="Gulp"
+                    ></i>
+                    <span class="visually-hidden">Gulp</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-wordpress-simple d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="WordPress"
+                    ></i>
+                    <span class="visually-hidden">WordPress</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-php d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="PHP"
+                    ></i>
+                    <span class="visually-hidden">PHP</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-node d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="Node.js"
+                    ></i>
+                    <span class="visually-hidden">Node</span>
+                  </li>
+                  <li class="rounded-circle">
+                    <i
+                      class="fa-brands fa-npm d-flex justify-content-center align-items-center h-100"
+                      aria-hidden="true"
+                      title="npm"
+                    ></i>
+                    <span class="visually-hidden">npm</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- end of .masthead -->
+
+      <div class="primary-content bg-dark position-relative z-1">
+        <!-- About section -->
+        <section id="about" class="about py-md-5 bg-dark">
+          <div class="container">
+            <div
+              class="section-title big-text text-uppercase lh-1 text-lg-end reveal reveal-from-bottom"
+            >
+              <h2 class="mb-5 pt-5">About</h2>
+            </div>
+            <div class="row flex-row-reverse">
+              <div
+                class="col-xl-5 col-lg-6 col-sm-12 about-text-wrapper mb-4 mb-lg-0 text-font fs-5"
+              >
+                <h3 class="accent-font reveal reveal-from-bottom reveal-delay">
+                  Who dis
+                </h3>
+                <div class="about-text">
+                  <p class="reveal reveal-from-bottom">
+                    I'm a creative mastermind with a knack for aesthetics and a
+                    hunger for new challenges. When I'm not busy solving
+                    problems and learning new things, you can find me pouring my
+                    heart and soul into crafting beautiful designs that leave a
+                    lasting impression.
+                  </p>
+                  <p class="reveal reveal-from-bottom reveal-delay">
+                    From brand identity to front-end development, I've got a
+                    range of skills that allow me to bring my wildest ideas to
+                    life. Whether I'm wielding a pen and paper or tinkering with
+                    Photoshop and Illustrator, I'm always on the lookout for
+                    ways to add some whimsy and flair to my work. And when it
+                    comes to web design, I believe that simplicity is key.
+                    Nothing makes me happier than creating intuitive and
+                    user-friendly experiences that make people's lives a little
+                    bit brighter.
+                  </p>
+                  <p class="reveal reveal-from-bottom reveal-delay">
+                    But my talents don't stop there! I'm also a dab hand at
+                    product packaging design, illustration (both traditional and
+                    digital), video editing, and animation. In short, I'm a
+                    jack-of-all-trades with a love for all things creative. So
+                    if you're in need of a little magic and wonder in your life,
+                    don't hesitate to reach out. I'm here to bring a little bit
+                    of whimsy to your world.
+                  </p>
+                </div>
+              </div>
+              <div
+                class="col-xl-7 col-lg-6 col-sm-12 code-block-wrapper reveal reveal-from-left"
+              >
+                <div class="code-block">
+                  <pre
+                    class="rounded-1 bg-dark position-relative"
+                    style="--bs-bg-opacity: 0.25"
+                  >
+                  <code id="typed-text" class="language-js">
 const coffeeMachine = require('coffee-machine');
 const tired = sleepyEyes(e);
 const hours = (new Date()).getHours();
@@ -226,312 +503,8 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
 } else {
   tired.sleep('bed');
 }
-                </code>
-              </pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- end of .masthead -->
-
-      <!-- Contact form modal -->
-      <div
-        class="modal fade"
-        id="contact"
-        tabindex="-1"
-        aria-labelledby="contactLabel"
-        aria-hidden="true"
-      >
-        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content bg-dark">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="contactLabel">New message</h1>
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="modal"
-                aria-label="Close"
-              ></button>
-            </div>
-            <div class="modal-body">
-              <form
-                class="row g-3 p-3 bg-dark needs-validation text-font"
-                novalidate
-              >
-                <div class="col-md-6 col-sm-12">
-                  <label for="validationFirstName" class="form-label"
-                    >First name</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="validationFirstName"
-                    placeholder="Jane"
-                    required
-                  />
-                  <div class="valid-feedback">Looks good!</div>
-                </div>
-                <div class="col-md-6 col-sm-12">
-                  <label for="validationLastName" class="form-label"
-                    >Last name</label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="validationLastName"
-                    placeholder="Doe"
-                    required
-                  />
-                  <div class="valid-feedback">Looks good!</div>
-                </div>
-                <div class="col-12">
-                  <label for="validationEmail" class="form-label"
-                    >Email address</label
-                  >
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="validationEmail"
-                    placeholder="name@example.com"
-                    required
-                  />
-                  <div class="invalid-feedback">
-                    Please type a valid email address.
-                  </div>
-                </div>
-                <div class="col-8">
-                  <label for="category" class="form-label"
-                    >Category of service</label
-                  >
-                  <select
-                    class="form-select"
-                    id="category"
-                    aria-label="Category of service"
-                    required
-                  >
-                    <option selected>Select</option>
-                    <option value="1">Development</option>
-                    <option value="2">Design</option>
-                    <option value="3">Research</option>
-                    <option value="4">Other</option>
-                  </select>
-                  <div class="invalid-feedback">Please select one option.</div>
-                </div>
-                <div class="col-4">
-                  <label for="budgetInput" class="form-label">Budget</label>
-                  <div class="input-group mb-3">
-                    <span class="input-group-text">£</span>
-                    <input
-                      type="text"
-                      class="form-control"
-                      id="budgetInput"
-                      aria-label="Amount (to the nearest GBP)"
-                    />
-                    <span class="input-group-text">.00</span>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="mb-3">
-                    <label for="Message" class="form-label">Message</label>
-                    <textarea
-                      class="form-control"
-                      id="Message"
-                      rows="3"
-                      required
-                    ></textarea>
-                    <div class="invalid-feedback">Cannot be empty.</div>
-                  </div>
-                </div>
-                <div class="col-12 mb-3">
-                  <label for="formFileMultiple" class="form-label"
-                    >Add files of inspiration</label
-                  >
-                  <input
-                    class="form-control"
-                    type="file"
-                    id="formFileMultiple"
-                    multiple
-                  />
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input
-                      class="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="invalidCheck"
-                      required
-                    />
-                    <label class="form-check-label" for="invalidCheck">
-                      Agree to
-                      <a href="#" target="_blank">terms &amp; conditions</a>
-                    </label>
-                    <div class="invalid-feedback">
-                      You must agree before submitting.
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <button class="btn btn-primary submit" type="submit">
-                    Submit
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
-              </form>
-            </div>
-            <div class="modal-footer"></div>
-          </div>
-        </div>
-      </div>
-      <!-- end of Contact form modal -->
-
-      <div class="primary-content bg-dark position-relative z-1">
-        <!-- About section -->
-        <section id="about" class="about py-md-5 bg-dark">
-          <div class="container">
-            <div class="section-title big-text text-uppercase lh-1 text-lg-end">
-              <h2 class="mb-5 pt-5">About</h2>
-            </div>
-            <div class="row">
-              <div
-                class="col-lg-6 col-sm-12 about-text-wrapper mb-4 mb-lg-0 text-font fs-5"
-              >
-                <h3 class="accent-font">Who dis</h3>
-                <p>
-                  I'm a creative mastermind with a knack for aesthetics and a
-                  hunger for new challenges. When I'm not busy solving problems
-                  and learning new things, you can find me pouring my heart and
-                  soul into crafting beautiful designs that leave a lasting
-                  impression.
-                </p>
-                <p>
-                  From brand identity to front-end development, I've got a range
-                  of skills that allow me to bring my wildest ideas to life.
-                  Whether I'm wielding a pen and paper or tinkering with
-                  Photoshop and Illustrator, I'm always on the lookout for ways
-                  to add some whimsy and flair to my work. And when it comes to
-                  web design, I believe that simplicity is key. Nothing makes me
-                  happier than creating intuitive and user-friendly experiences
-                  that make people's lives a little bit brighter.
-                </p>
-                <p>
-                  But my talents don't stop there! I'm also a dab hand at
-                  product packaging design, illustration (both traditional and
-                  digital), video editing, and animation. In short, I'm a
-                  jack-of-all-trades with a love for all things creative. So if
-                  you're in need of a little magic and wonder in your life,
-                  don't hesitate to reach out. I'm here to bring a little bit of
-                  whimsy to your world.
-                </p>
-              </div>
-              <div class="col-lg-6 col-sm-12 py-5 py-lg-0">
-                <h3 class="accent-font text-lg-center">Usual suspects</h3>
-                <div class="circle-container pt-5 mx-auto my-5">
-                  <ul class="circle">
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-html5 d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="HTML5"
-                      ></i>
-                      <span class="visually-hidden">HTML5</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-css3-alt d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="CSS3"
-                      ></i>
-                      <span class="visually-hidden">CSS3</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-sass d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="SCSS"
-                      ></i>
-                      <span class="visually-hidden">SCSS</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-bootstrap d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="BootStrap"
-                      ></i>
-                      <span class="visually-hidden">BootStrap</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-js d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="Javascript & JQuery"
-                      ></i>
-                      <span class="visually-hidden">Javascript & JQuery</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-gulp d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="Gulp"
-                      ></i>
-                      <span class="visually-hidden">Gulp</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-wordpress-simple d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="WordPress"
-                      ></i>
-                      <span class="visually-hidden">WordPress</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-php d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="PHP"
-                      ></i>
-                      <span class="visually-hidden">PHP</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-node d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="Node.js"
-                      ></i>
-                      <span class="visually-hidden">Node</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-brands fa-npm d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="npm"
-                      ></i>
-                      <span class="visually-hidden">npm</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-solid fa-wand-magic-sparkles d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="Adobe Creative Suite"
-                      ></i>
-                      <span class="visually-hidden">Adobe Creative Suite</span>
-                    </li>
-                    <li class="rounded-circle">
-                      <i
-                        class="fa-solid fa-laptop-code d-flex justify-content-center align-items-center h-100"
-                        aria-hidden="true"
-                        title="VS Code"
-                      ></i>
-                      <span class="visually-hidden">VS Code</span>
-                    </li>
-                  </ul>
+                  </code>
+                </pre>
                 </div>
               </div>
             </div>
@@ -545,15 +518,15 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
             <div class="row flex-row-reverse">
               <div class="col-md-6 col-sm-12">
                 <div
-                  class="section-title big-text text-uppercase lh-1 text-lg-end"
+                  class="section-title big-text text-uppercase lh-1 text-lg-end reveal reveal-from-bottom"
                 >
                   <h2 class="mb-5 pt-5">Projects</h2>
                 </div>
               </div>
-              <div class="col-md-6 col-sm-12">
-                <div class="d-flex align-items-center h-100 mb-5 mb-md-0">
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <div class="d-flex">
                   <button
-                    class="btn btn-outline-light sortingButton"
+                    class="btn btn-outline-secondary sortingButton my-5"
                     id="sortingButton"
                     data-bs-toggle="button"
                   >
@@ -565,7 +538,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
             <div class="container section-content">
               <div class="grid">
                 <div
-                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-from-bottom"
                 >
                   <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
                     <div class="card-body position-relative z-1">
@@ -622,7 +595,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
 
                 <div
-                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-from-bottom"
                 >
                   <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
                     <div class="card-body position-relative z-1">
@@ -680,7 +653,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
 
                 <div
-                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-from-bottom"
                 >
                   <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
                     <div class="card-body position-relative z-1">
@@ -756,7 +729,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
 
                 <div
-                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-from-bottom"
                 >
                   <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
                     <div class="card-body position-relative z-1">
@@ -826,7 +799,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
 
                 <div
-                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-from-bottom"
                 >
                   <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
                     <div class="card-body position-relative z-1">
@@ -885,7 +858,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
 
                 <div
-                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-blurred-in"
+                  class="g-col-lg-4 g-col-md-6 g-col-12 project reveal reveal-from-bottom"
                 >
                   <div class="card bg-dark h-100 mb-4 p-4 rounded-3">
                     <div class="card-body position-relative z-1">
@@ -958,7 +931,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
         >
           <div class="container">
             <div class="row text-lg-center">
-              <div class="col-md-3 col-sm-6">
+              <div class="col-md-3 col-sm-6 reveal reveal-from-left">
                 <div class="card bg-dark">
                   <span
                     data-purecounter-start="0"
@@ -969,7 +942,9 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                   <p class="subtitle h4">Files</p>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div
+                class="col-md-3 col-sm-6 reveal reveal-from-left reveal-delay"
+              >
                 <div class="card bg-dark">
                   <span
                     data-purecounter-start="0"
@@ -980,7 +955,9 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                   <p class="subtitle h4">Cups of coffee</p>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div
+                class="col-md-3 col-sm-6 reveal reveal-from-left reveal-delay"
+              >
                 <div class="card bg-dark">
                   <span
                     data-purecounter-start="0"
@@ -991,7 +968,9 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                   <p class="subtitle h4">Missed semicolons</p>
                 </div>
               </div>
-              <div class="col-md-3 col-sm-6">
+              <div
+                class="col-md-3 col-sm-6 reveal reveal-from-left reveal-delay"
+              >
                 <div class="card bg-dark">
                   <span
                     data-purecounter-start="0"
@@ -1015,12 +994,12 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
             <div class="row">
               <div class="col-lg-4 col-md-3 col-sm-12">
                 <div
-                  class="section-title big-text text-uppercase lh-1 text-md-end text-wrap"
+                  class="section-title big-text text-uppercase lh-1 text-md-end text-wrap reveal reveal-from-left"
                 >
                   <h2 class="mb-5">What they say about me</h2>
                 </div>
               </div>
-              <div class="col-lg-8 col-md-9 col-sm-12">
+              <div class="col-lg-8 col-md-9 col-sm-12 reveal reveal-from-right">
                 <div
                   class="swiper mySwiper swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden"
                 >
@@ -1138,12 +1117,9 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
         <section id="contact" class="contact py-5">
           <div class="container">
             <div class="row">
-              <div class="col-lg-7 col-md-12 mx-auto">
-                <form
-                  class="row g-3 p-3 bg-dark needs-validation text-font"
-                  novalidate
-                >
-                  <div class="col-md-6 col-sm-12">
+              <div class="col-lg-7 col-md-12 mx-auto reveal reveal-from-bottom">
+                <form class="row g-3 p-3 needs-validation text-font" novalidate>
+                  <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
                     <label for="validationFirstName" class="form-label"
                       >First name</label
                     >
@@ -1156,7 +1132,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                     />
                     <div class="valid-feedback">Looks good!</div>
                   </div>
-                  <div class="col-md-6 col-sm-12">
+                  <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
                     <label for="validationLastName" class="form-label"
                       >Last name</label
                     >
@@ -1169,7 +1145,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                     />
                     <div class="valid-feedback">Looks good!</div>
                   </div>
-                  <div class="col-12">
+                  <div class="col-12 reveal reveal-from-bottom">
                     <label for="validationEmail" class="form-label"
                       >Email address</label
                     >
@@ -1184,40 +1160,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                       Please type a valid email address.
                     </div>
                   </div>
-                  <div class="col-8">
-                    <label for="category" class="form-label"
-                      >Category of service</label
-                    >
-                    <select
-                      class="form-select"
-                      id="category"
-                      aria-label="Category of service"
-                      required
-                    >
-                      <option selected>Select</option>
-                      <option value="1">Development</option>
-                      <option value="2">Design</option>
-                      <option value="3">Research</option>
-                      <option value="4">Other</option>
-                    </select>
-                    <div class="invalid-feedback">
-                      Please select one option.
-                    </div>
-                  </div>
-                  <div class="col-4">
-                    <label for="budgetInput" class="form-label">Budget</label>
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">£</span>
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="budgetInput"
-                        aria-label="Amount (to the nearest GBP)"
-                      />
-                      <span class="input-group-text">.00</span>
-                    </div>
-                  </div>
-                  <div class="col-12">
+                  <div class="col-12 reveal reveal-from-bottom">
                     <div class="mb-3">
                       <label for="Message" class="form-label">Message</label>
                       <textarea
@@ -1229,7 +1172,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                       <div class="invalid-feedback">Cannot be empty.</div>
                     </div>
                   </div>
-                  <div class="col-12 mb-3">
+                  <div class="col-12 mb-3 reveal reveal-from-bottom">
                     <label for="formFileMultiple" class="form-label"
                       >Add files of inspiration</label
                     >
@@ -1240,7 +1183,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                       multiple
                     />
                   </div>
-                  <div class="col-12">
+                  <div class="col-12 reveal reveal-from-bottom">
                     <div class="form-check">
                       <input
                         class="form-check-input"
@@ -1258,7 +1201,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                       </div>
                     </div>
                   </div>
-                  <div class="col-12">
+                  <div class="col-12 reveal reveal-from-bottom">
                     <button class="btn btn-primary submit" type="submit">
                       Submit
                     </button>
@@ -1270,101 +1213,123 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
         </section>
       </div>
       <!-- end of .primary-content -->
-
-      <footer class="footer bg-dark py-5 pb-3">
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-5 col-md-6 col-sm-12">
-              <h2 class="accent-font">A.</h2>
-              <div
-                class="text-font fs-5 border-bottom border-primary border-2 mb-5 mb-lg-0"
-                style="--bs-border-opacity: 0.5"
+    </main>
+    <footer class="footer bg-dark py-5 pb-3">
+      <div class="container reveal reveal-from-bottom">
+        <div class="row">
+          <div class="d-lg-flex col-lg-5 col-md-6 col-sm-12 flex-lg-column-reverse justify-content-lg-end">
+            <div class="footer-title mt-lg-4">
+              <h2 class="accent-font reveal reveal-from-left">A.</h2>
+            </div>
+            <div
+              class="text-font fs-5"
+            >
+              <p class="reveal reveal-from-bottom">
+                Check out this Bootstrap-powered portfolio featuring fancy
+                things like spinning, flashy, eye-catching elements, lots of
+                glow, and <strong>gradients</strong>(which are essential,
+                right?). Plus, the elements even appear on scroll, which is so
+                fancy!
+              </p>
+              <p class="reveal reveal-from-bottom">
+                Koopa and Kevin are thrilled to be a part of every portfolio and
+                want some fame too.
+              </p>
+              <div class="d-block border-bottom border-primary border-2 mb-5 mb-lg-0"
+            style="--bs-border-opacity: 0.5""></div>
+            </div>
+            
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <h3 class="h4 reveal reveal-from-bottom">What's not to like?</h3>
+            <p class="text-font reveal reveal-from-bottom">
+              Please consider starring it on
+              <a
+                href="https://github.com/alexandrabatrak/bootstrap-portfolio"
+                target="_blank"
               >
-                <p>
-                  Check out this Bootstrap-powered portfolio featuring fancy
-                  things like spinning, flashy, eye-catching elements, lots of
-                  glow, and <strong>gradients</strong>(which are essential,
-                  right?). Plus, the elements even appear on scroll, which is so
-                  fancy!
-                </p>
-                <p>
-                  Koopa and Kevin are thrilled to be a part of every portfolio
-                  and want some fame too.
-                </p>
-              </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <h3 class="h4">What's not to like?</h3>
-              <p class="text-font">
-                Please consider starring it on
-                <a
-                  href="https://github.com/alexandrabatrak/bootstrap-portfolio"
-                  target="_blank"
+                <i class="fa-brands fa-github pe-1"></i
+                ><span class="text-lowercase">github</span></a
+              >
+              to show your support, the cats will be pleased.
+            </p>
+            Special thanks to:
+            <ul class="list-unstyled reveal reveal-from-bottom">
+              <li
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+              >
+                <a href="https://getbootstrap.com/" target="_blank">
+                  Bootstrap (5.3.0)
+                </a>
+              </li>
+              <li
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+              >
+                <a href="https://fontawesome.com/" target="_blank"
+                  >FontAwesome</a
                 >
-                  <i class="fa-brands fa-github pe-1"></i
-                  ><span class="text-lowercase">github</span></a
+              </li>
+              <li
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+              >
+                <a href="https://swiperjs.com/get-started" target="_blank"
+                  >Swiper</a
                 >
-                to show your support, the cats will be pleased.
-              </p>
-              Special thanks to:
-              <ul class="list-unstyled">
-                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
-                  <a href="https://getbootstrap.com/" target="_blank">
-                    Bootstrap (5.3.0)
-                  </a>
-                </li>
-                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
-                  <a href="https://fontawesome.com/" target="_blank"
-                    >FontAwesome</a
-                  >
-                </li>
-                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
-                  <a href="https://swiperjs.com/get-started" target="_blank"
-                    >Swiper</a
-                  >
-                </li>
-                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
-                  <a href="https://www.npmjs.com/" target="_blank">npm</a>
-                </li>
-                <li class="btn btn-outline-secondary rounded-3 p-2 m-1">
-                  <a href="https://code.visualstudio.com/" target="_blank"
-                    >VS Code</a
-                  >
-                </li>
-              </ul>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-              <div class="row">
-                <!-- check the correct heading tag -->
-                <h3>Links</h3>
-                <nav class="footer-nav" role="secondary">
-                  <ul
-                    class="list-unstyled pb-3 border-bottom border-primary border-2 fs-5 text-uppercase"
-                    style="--bs-border-opacity: 0.5"
-                  >
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#work">Projects</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                  </ul>
-                  <ul class="list-unstyled">
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Cookies Policy</a></li>
-                  </ul>
-                </nav>
-              </div>
-            </div>
-            <div class="col-12 gy-5 d-flex justify-content-center">
-              <p>
-                <i class="fa-regular fa-heart" aria-hidden="true"></i>
-                All rights reserved © 2022
-              </p>
+              </li>
+              <li
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+              >
+                <a href="https://www.npmjs.com/" target="_blank">npm</a>
+              </li>
+              <li
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+              >
+                <a href="https://code.visualstudio.com/" target="_blank"
+                  >VS Code</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6 col-sm-12">
+            <div class="row">
+              <!-- check the correct heading tag -->
+              <h3 class="reveal reveal-from-right">Links</h3>
+              <nav class="footer-nav" role="secondary">
+                <div class="row">
+                  <div class="col-md-12 col-sm-6">
+                    <ul
+                      class="list-unstyled pb-3 border-bottom border-primary border-2 fs-5 text-uppercase reveal reveal-from-bottom"
+                      style="--bs-border-opacity: 0.5"
+                    >
+                      <li><a href="#about">About</a></li>
+                      <li><a href="#work">Projects</a></li>
+                      <li><a href="#testimonials">Testimonials</a></li>
+                      <li><a href="#contact">Contact</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-md-12 col-sm-6">
+                    <ul class="list-unstyled reveal reveal-from-bottom">
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Terms &amp; Conditions</a></li>
+                      <li><a href="#">Cookies Policy</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
             </div>
           </div>
+          <div
+            class="col-12 gy-5 d-flex justify-content-center text-font reveal reveal-from-bottom"
+          >
+            <p>
+              All rights reserved © 2022-2023
+              <i class="fa-regular fa-heart" aria-hidden="true"></i>
+              Alexandra Batrak
+            </p>
+          </div>
         </div>
-      </footer>
-    </main>
+      </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
