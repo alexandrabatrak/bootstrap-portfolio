@@ -20,7 +20,7 @@ body {
   // Modal opening add weird padding
   &.modal-open,
   &.modal-open nav {
-    overflow: auto !important;
+    overflow: hidden !important;
     padding-right: 0 !important;
   }
 }
@@ -79,10 +79,6 @@ nav {
 .navbar {
   &-brand {
     padding-left: 0.75rem; /* to align it with the .big-text-left */
-
-    h1 {
-      -webkit-text-stroke: 1px $primary;
-    }
   }
 
   #nav-contact-btn {
@@ -137,28 +133,10 @@ nav {
 
   .hero-title {
     max-width: 400px;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    -webkit-text-stroke: 0.05rem $green1;
     letter-spacing: $letter-spacing-big;
-    // font-size: 7rem;
-    // line-height: 0.9;
-  }
-
-  .code-block {
-    width: 75%;
-  }
-
-  pre,
-  .btn-cta span {
-    border: 2px solid;
-    border-top-color: rgba($lilac, 0.15);
-    border-left-color: rgba($blue, 0.15);
-    border-bottom-color: rgba($blue, 0.05);
-    border-right-color: transparent;
-    backdrop-filter: blur(5px);
-  }
-
-  .code-block code {
-    font: 0.58rem/1 'JetBrains', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-      monospace !important;
+    transform: skew(-5deg, -5deg);
   }
 }
 
@@ -170,6 +148,7 @@ nav {
 
     span,
     .btn-border {
+      backdrop-filter: blur(5px);
       transition: all 0.65s cubic-bezier(0.77, 0, 0.175, 1);
     }
 
@@ -193,8 +172,54 @@ nav {
     left: 0%;
     width: 0;
     height: 100%;
-    background: $lilac;
+    background: $primary;
     transform: skewX(-20deg);
+  }
+}
+
+/*=====================
+* SKILLS SCROLL
+=====================*/
+.skills {
+  &-container {
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    animation: borderflash 1s cubic-bezier(0.22, -0.23, 0, 1.19) infinite;
+  }
+
+  &-list {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    list-style: none;
+
+    li {
+      @include skills-colors();
+      position: relative;
+      flex-shrink: 0;
+      list-style: none;
+      width: 125px;
+      height: 125px;
+      margin-left: 0;
+      margin-right: 20px;
+      opacity: 1;
+      transition: $transition;
+
+      &.fade-out {
+        opacity: 0;
+      }
+
+      &:hover {
+        // background: $white;
+        // color: $black;
+        color: $white;
+      }
+
+      i {
+        font-size: 2.5rem;
+        transition: 0.15s;
+      }
+    }
   }
 }
 
@@ -214,10 +239,53 @@ nav {
 }
 
 /*=====================
+* ABOUT
+=====================*/
+.about {
+  background: $grey-to-dark;
+
+  &-text-wrapper {
+    font-family: $text-font;
+    font-size: 1.25rem;
+  }
+
+  .btn-cta {
+    font-family: $body-font;
+  }
+}
+
+.code-block-wrapper {
+  margin-top: 5rem;
+}
+
+.code-block {
+  width: 75%;
+}
+
+pre {
+  @include card-border();
+  backdrop-filter: blur(5px);
+}
+
+.code-block code {
+  font: 0.58rem/1 'JetBrains', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
+    monospace !important;
+}
+
+/*=====================
 * WORK
 =====================*/
 .work {
   background: $dark-to-grey;
+
+  .sortingButton {
+    &:active:not(:hover),
+    &:first-child:active,
+    &.active:not(:hover) {
+      color: inherit !important;
+      background-color: initial !important;
+    }
+  }
 
   .card {
     min-height: 400px;
@@ -257,57 +325,6 @@ nav {
 
   &:after {
     z-index: -1;
-  }
-}
-
-/*=====================
-* ABOUT, SKILLS
-=====================*/
-.about {
-  background: $grey-to-dark;
-
-  &-text-wrapper {
-    font-family: $text-font;
-    font-size: 1.25rem;
-  }
-
-  .btn-cta {
-    font-family: $body-font;
-  }
-
-  // TODO: custom style for mobile
-  .circle-container {
-    max-width: 75%;
-    max-height: 75%;
-
-    .circle {
-      @include on-circle(25%, 12);
-      animation: spin 20s infinite;
-
-      &:hover,
-      &:hover li i {
-        animation-play-state: paused !important;
-      }
-
-      li {
-        color: $white;
-        border: 2px solid transparent;
-        transition: all 0.3s ease-in-out;
-
-        &:hover {
-          background: $white;
-          color: $black;
-          border-color: $primary;
-          box-shadow: $hero-shadow;
-        }
-
-        i {
-          font-size: 2.5rem;
-          transition: 0.15s;
-          animation: rotate 20s infinite;
-        }
-      }
-    }
   }
 }
 
@@ -399,15 +416,50 @@ nav {
 .contact {
   background: $dark-to-grey;
 
+  form {
+    box-shadow: $card-shadow;
+  }
+
   .submit {
     font-family: $body-font;
+  }
+}
+
+.modal {
+  &-content {
+    background: $dark-grey;
+  }
+  &-header,
+  &-footer {
+    border: none;
+  }
+  &-header {
+    background: linear-gradient(15deg, $blue, $lilac, $green1);
+    box-shadow: 0 0 10px 0 rgba($black, 0.25);
+  }
+  &-footer {
+    background: linear-gradient(-15deg, $blue, $lilac, $green1);
+    box-shadow: 0 -4px 10px 0 rgba($black, 0.25);
+  }
+}
+
+form {
+  input,
+  optgroup,
+  textarea {
+    color: $white !important;
+    border: $black !important;
+    background-color: rgba($black, 0.25) !important;
+
+    &::placeholder {
+      color: rgba($white, 0.5) !important;
+    }
   }
 }
 
 /*=====================
 * FOOTER
 =====================*/
-
 footer nav {
   ul.text-uppercase {
     letter-spacing: $letter-spacing-small;
@@ -427,21 +479,32 @@ footer nav {
 .reveal {
   opacity: 0;
   transition: all 0.8s;
+  filter: blur(5px);
 
   &.inview {
     opacity: 1;
     transform: translate(0) scale(1) skew(0);
     transition-delay: 0.3s;
+    filter: blur(0);
   }
 
   &-from-left {
     transform: translateX(-40px);
   }
 
-  &-blurred-in {
-    filter: blur(5px);
-    transform: translateY(50px) scale(0.8) skew(5deg);
+  &-from-top {
+    transform: translateY(-40px);
+  }
 
+  &-from-right {
+    transform: translateX(40px);
+  }
+
+  &-from-bottom {
+    transform: translateY(40px);
+  }
+
+  &-delay {
     &.inview {
       filter: blur(0);
 
@@ -509,6 +572,15 @@ footer nav {
   }
 }
 
+@keyframes borderflash {
+  from {
+    border-color: $primary;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
 /*=====================
 * MEDIA
 =====================*/
@@ -541,25 +613,18 @@ footer nav {
       width: fit-content;
     }
   }
-
-  .circle,
-  .circle li i {
-    animation: none !important;
-  }
 }
 
 @media screen and (min-width: 992px) {
-  .masthead {
-    .hero-title {
-      // margin-bottom: 50%;
-    }
-  }
-
   .big-text-left {
     position: absolute;
     transform: translate(-46.5%, 100%) rotate(-90deg);
     bottom: 50%;
     white-space: nowrap;
+  }
+
+  .code-block-wrapper {
+    margin-top: -10rem;
   }
 }
 
@@ -622,6 +687,10 @@ footer nav {
   *:after {
     animation: none !important;
     transition-duration: 0.1s !important;
+  }
+
+  .skills-list {
+    flex-wrap: wrap; /* when horizontal animation is off show all elements */
   }
 
   .reveal {
