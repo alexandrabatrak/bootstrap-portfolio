@@ -1,3 +1,9 @@
+<!--1 change loader icon to smth else -->
+<!--2 contact form needs title or smht else fancy -->
+<!--2.1 contact form is still ugly -->
+<!--3 there are no images, no backgrounds? Maybe add some -->
+<!--4 js still has ocassional issue with weird skills animation on window resize-->
+
 <!DOCTYPE html>
 <html lang="en-gb">
   <head>
@@ -1121,9 +1127,17 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
         <!-- Contact form -->
         <section id="contact" class="contact py-5">
           <div class="container">
-            <div class="row">
-              <div class="col-lg-7 col-md-12 mx-auto reveal reveal-from-bottom">
+            <div class="row flex-row-reverse">
+              <div class="col-lg-4 col-md-3 col-sm-12">
+                <div
+                  class="section-title big-text text-uppercase lh-1 text-md-end text-wrap reveal reveal-from-left"
+                >
+                  <h2 class="mb-5">Send me chocolate</h2>
+                </div>
+              </div>
+              <div class="col-lg-8 col-md-12 mx-auto reveal reveal-from-bottom">
                 <form class="row g-3 p-3 needs-validation text-font" novalidate>
+                  <h3 class="accent-font reveal reveal-from-bottom">Details grabber</h3>
                   <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
                     <label for="validationFirstName" class="form-label"
                       >First name</label
