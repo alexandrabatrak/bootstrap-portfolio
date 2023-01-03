@@ -51,57 +51,27 @@
   animation: gradient 10s ease infinite;
 }
 
-/// Mixin to place items on a circle
-/// @author Alexandra Batrak SCSS
-/// @author Sơn Trần-Nguyễn LESS
-/// @author Kitty Giraudel
-/// @author Ana Tudor
-/// $param {percentage} [$item-size=20%] - Size of a single item as percentage of the circle.
-/// $param {integer} [$max-items=12] - Max number of items to be placed on the circle
-@mixin on-circle($item-size: 20%, $max-items: 12) {
-  $radius: 100% * 50% / $item-size;
-  position: relative;
-  width: 100%;
-  height: 0;
-  padding: 0 0 100% 0; // To make it a square.
-  margin: 0;
-  border-radius: 50%;
-  list-style: none;
+// assign random variable to list item
+@mixin skills-colors() {
+  // $colors: $lilac, $l-blue, $blue, $lightblue, $green1, $green2, $pink2, $pink,$coral;
+  $colors: $lilac, $l-blue, $blue, $lightblue, $green1, $green2, $blue, $l-blue,
+    $lilac, $pink2, $pink, $coral;
 
-  & > * {
-    display: block;
-    position: absolute;
-    // Move the items to center of the listing.
-    top: 50%;
-    left: 50%;
-    width: $item-size;
-    height: $item-size;
-    // Offset half the size so they are truly centered.
-    // Usually we use negative translation with transform,
-    // but transform is used for positioning them, so we
-    // use negative margin instead.
-    margin: -($item-size / 2);
+  // assign values as list order
+  $i: 1;
 
-    // First one is always at middle right.
-    &:nth-of-type(1) {
-      transform: rotate(0) translate($radius);
+  @each $color in $colors {
+    &:nth-of-type(#{$i}) {
+      color: $color;
     }
-
-    // Supports number of items from 1 to 12.
-    @for $i from 1 through $max-items {
-      $angle: (360 / $i);
-
-      &:nth-last-child(#{$i}):first-child {
-        @for $j from 2 through $i {
-          $rot: $angle * ($j - 1);
-
-          & ~ :nth-of-type(#{$j}) {
-            transform: rotate($rot * 1deg)
-              translate($radius)
-              rotate($rot * -1deg);
-          }
-        }
-      }
-    }
+    $i: $i + 1;
   }
+
+  // assign value randomly
+  // throws error why?
+  // @for $i from 1 through 10 {
+  //   &:nth-of-type(#{$i}) {
+  //     color: random($colors);
+  //   }
+  // }
 }
