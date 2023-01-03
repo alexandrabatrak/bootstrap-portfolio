@@ -98,6 +98,7 @@ nav {
   &-toggler {
     color: $primary;
     transition: $transition;
+    border: none;
 
     &:focus {
       box-shadow: none !important;
@@ -127,6 +128,13 @@ nav {
 .masthead {
   background: linear-gradient(0deg, $dark, rgba($black, 0.8));
 
+  .big-text-left {
+    position: absolute;
+    transform: translate(-46.5%, 100%) rotate(-90deg);
+    bottom: 50%;
+    white-space: nowrap;
+  }
+
   .title-wrapper {
     @include reflect();
   }
@@ -142,6 +150,11 @@ nav {
 
 /*  Inspired by Carlos Ortega https://codepen.io/Carlos1162/pen/eJdLXa */
 .btn {
+  &-cta,
+  &[type='submit'] {
+    letter-spacing: $letter-spacing-small;
+  }
+
   &-cta {
     max-width: 400px;
     overflow: hidden;
@@ -185,6 +198,15 @@ nav {
     overflow: hidden;
     border-right: 2px solid transparent;
     animation: borderflash 1s cubic-bezier(0.22, -0.23, 0, 1.19) infinite;
+  }
+
+  &-title {
+    .const {
+      color: $lightblue;
+    }
+    .operator {
+      color: $blue;
+    }
   }
 
   &-list {
@@ -280,6 +302,7 @@ pre {
   background: $dark-to-grey;
 
   .sortingButton {
+    color: $white;
     &:active:not(:hover),
     &:first-child:active,
     &.active:not(:hover) {
@@ -334,6 +357,8 @@ pre {
 =====================*/
 .counter {
   .card {
+    border: none;
+
     &-title {
       @include gradient-text('counter-card');
       -webkit-text-stroke: 1px rgba($primary, 0.5);
@@ -418,7 +443,12 @@ pre {
   background: $dark-to-grey;
 
   form {
-    box-shadow: $card-shadow;
+    background: $dark-grey;
+    @include card-border();
+
+    &:hover {
+      box-shadow: $card-shadow;
+    }
   }
 
   .submit {
@@ -484,13 +514,9 @@ footer nav {
 
   &.inview {
     opacity: 1;
-    transform: translate(0) scale(1) skew(0);
+    transform: translate(0);
     transition-delay: 0.3s;
     filter: blur(0);
-  }
-
-  &-from-left {
-    transform: translateX(-40px);
   }
 
   &-from-top {
@@ -503,6 +529,10 @@ footer nav {
 
   &-from-bottom {
     transform: translateY(40px);
+  }
+
+  &-from-left {
+    transform: translateX(-40px);
   }
 
   &-delay {
@@ -591,6 +621,17 @@ footer nav {
       width: 100%;
     }
   }
+
+  .reveal {
+    /* To avoid extending width of the body before scrolling in */
+    &-from-right {
+      transform: translateY(40px);
+    }
+
+    &-from-left {
+      transform: translateY(-40px);
+    }
+  }
 }
 
 @media screen and (max-width: 991.999px) {
@@ -598,7 +639,11 @@ footer nav {
     padding-top: 100px; /* to place after fixed nav */
 
     .big-text {
-      letter-spacing: $letter-spacing-small;
+      position: fixed;
+      left: -1rem;
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
     }
   }
 
@@ -617,13 +662,6 @@ footer nav {
 }
 
 @media screen and (min-width: 992px) {
-  .big-text-left {
-    position: absolute;
-    transform: translate(-46.5%, 100%) rotate(-90deg);
-    bottom: 50%;
-    white-space: nowrap;
-  }
-
   .code-block-wrapper {
     margin-top: -10rem;
   }
@@ -646,6 +684,7 @@ footer nav {
 }
 
 @media (any-hover: hover) {
+  /* Styles for work cards gradient to be shown on hover */
   .work {
     .card {
       &:hover {
@@ -667,11 +706,15 @@ footer nav {
           }
         }
       }
+      &-links-wrapper a.btn:hover {
+        box-shadow: 3px 4px 30px rgb(1 0 1 / 45%);
+      }
     }
   }
 }
 
 @media (any-hover: none) {
+  /* Styles for work cards gradient to be shown always */
   .work {
     .card {
       .hover-gradient {

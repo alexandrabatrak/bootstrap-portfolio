@@ -79,6 +79,7 @@ nav.is-up {
 .navbar-toggler {
   color: #17baff;
   transition: all 0.35s ease-in-out;
+  border: none;
 }
 .navbar-toggler:focus {
   box-shadow: none !important;
@@ -101,6 +102,12 @@ nav.is-up {
 .masthead {
   background: linear-gradient(0deg, #17171a, rgba(1, 0, 1, 0.8));
 }
+.masthead .big-text-left {
+  position: absolute;
+  transform: translate(-46.5%, 100%) rotate(-90deg);
+  bottom: 50%;
+  white-space: nowrap;
+}
 .masthead .title-wrapper {
   -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(1, 0, 1, 0.15));
 }
@@ -113,6 +120,9 @@ nav.is-up {
 }
 
 /*  Inspired by Carlos Ortega https://codepen.io/Carlos1162/pen/eJdLXa */
+.btn-cta, .btn[type=submit] {
+  letter-spacing: 5px;
+}
 .btn-cta {
   max-width: 400px;
   overflow: hidden;
@@ -148,6 +158,12 @@ nav.is-up {
   overflow: hidden;
   border-right: 2px solid transparent;
   animation: borderflash 1s cubic-bezier(0.22, -0.23, 0, 1.19) infinite;
+}
+.skills-title .const {
+  color: #17baff;
+}
+.skills-title .operator {
+  color: #409cff;
 }
 .skills-list {
   display: flex;
@@ -275,6 +291,9 @@ pre {
 .work {
   background: linear-gradient(180deg, #28282b, #17171a);
 }
+.work .sortingButton {
+  color: #fff3ff;
+}
 .work .sortingButton:active:not(:hover), .work .sortingButton:first-child:active, .work .sortingButton.active:not(:hover) {
   color: inherit !important;
   background-color: initial !important;
@@ -321,6 +340,9 @@ pre {
 /*=====================
 * COUNTER
 =====================*/
+.counter .card {
+  border: none;
+}
 .counter .card-title {
   background-image: linear-gradient(50deg, #9596f7, #557fff, #409cff, #17baff, #48ad9c, #08a665, #409cff, #557fff, #9596f7, #e072be, #f6b3fb, #eb8494);
   background-size: 150%;
@@ -397,6 +419,14 @@ pre {
   background: linear-gradient(180deg, #28282b, #17171a);
 }
 .contact form {
+  background: #28282b;
+  border: 2px solid;
+  border-top-color: rgba(149, 150, 247, 0.15);
+  border-left-color: rgba(64, 156, 255, 0.15);
+  border-bottom-color: rgba(64, 156, 255, 0.05);
+  border-right-color: transparent;
+}
+.contact form:hover {
   box-shadow: 0px 3px 6px rgba(72, 173, 156, 0.5), 0px 8px 15px rgba(246, 179, 251, 0.3), 0 0 0 1px rgba(23, 186, 255, 0.3);
 }
 .contact .submit {
@@ -454,12 +484,9 @@ footer nav li a:hover {
 }
 .reveal.inview {
   opacity: 1;
-  transform: translate(0) scale(1) skew(0);
+  transform: translate(0);
   transition-delay: 0.3s;
   filter: blur(0);
-}
-.reveal-from-left {
-  transform: translateX(-40px);
 }
 .reveal-from-top {
   transform: translateY(-40px);
@@ -469,6 +496,9 @@ footer nav li a:hover {
 }
 .reveal-from-bottom {
   transform: translateY(40px);
+}
+.reveal-from-left {
+  transform: translateX(-40px);
 }
 .reveal-delay.inview {
   filter: blur(0);
@@ -557,6 +587,16 @@ footer nav li a:hover {
   .masthead .code-block {
     width: 100%;
   }
+
+  .reveal {
+    /* To avoid extending width of the body before scrolling in */
+  }
+  .reveal-from-right {
+    transform: translateY(40px);
+  }
+  .reveal-from-left {
+    transform: translateY(-40px);
+  }
 }
 @media screen and (max-width: 991.999px) {
   .masthead {
@@ -564,7 +604,11 @@ footer nav li a:hover {
     /* to place after fixed nav */
   }
   .masthead .big-text {
-    letter-spacing: 5px;
+    position: fixed;
+    left: -1rem;
+    opacity: 0.25;
+    pointer-events: none;
+    z-index: 0;
   }
 
   #pauseBtn {
@@ -579,13 +623,6 @@ footer nav li a:hover {
   }
 }
 @media screen and (min-width: 992px) {
-  .big-text-left {
-    position: absolute;
-    transform: translate(-46.5%, 100%) rotate(-90deg);
-    bottom: 50%;
-    white-space: nowrap;
-  }
-
   .code-block-wrapper {
     margin-top: -10rem;
   }
@@ -604,6 +641,7 @@ footer nav li a:hover {
   }
 }
 @media (any-hover: hover) {
+  /* Styles for work cards gradient to be shown on hover */
   .work .card:hover {
     box-shadow: 0px 3px 6px rgba(72, 173, 156, 0.5), 0px 8px 15px rgba(246, 179, 251, 0.3), 0 0 0 1px rgba(23, 186, 255, 0.3);
   }
@@ -618,8 +656,12 @@ footer nav li a:hover {
   .work .card:hover .hover-gradient:before {
     transform: scale(1);
   }
+  .work .card-links-wrapper a.btn:hover {
+    box-shadow: 3px 4px 30px rgba(1, 0, 1, 0.45);
+  }
 }
 @media (any-hover: none) {
+  /* Styles for work cards gradient to be shown always */
   .work .card .hover-gradient {
     overflow: hidden;
     opacity: 0.5;
