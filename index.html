@@ -1,8 +1,6 @@
 <!--1 change loader icon to smth else -->
-<!--2 contact form is still ugly -->
 <!--3 there are no images, no backgrounds? Maybe add some -->
 <!--4 js still has ocassional issue with weird skills animation on window resize-->
-<!-- all reveals with their translates making base body width wider - fix it.-->
 
 <!DOCTYPE html>
 <html lang="en-gb">
@@ -64,7 +62,7 @@
       <nav class="navbar navbar-expand-lg navbar-dark bg-black fixed-top">
         <div class="container-fluid">
           <a class="navbar-brand reveal reveal-from-left" href="#">
-            <h1>
+            <h1 class="h-100 mb-0">
               <span class="accent-font" aria-hidden="true">A.</span>
               <span class="visually-hidden">Alexandra Batrak</span>
             </h1>
@@ -83,7 +81,7 @@
           </button>
           <div class="collapse navbar-collapse p-5 p-lg-0" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
-              <li class="nav-item reveal reveal-from-top reveal-delay">
+              <li class="nav-item reveal reveal-from-top">
                 <a class="nav-link" href="#about">About</a>
               </li>
               <li class="nav-item reveal reveal-from-top">
@@ -95,9 +93,9 @@
               <button
                 type="button"
                 id="nav-contact-btn"
-                class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase reveal reveal-from-top reveal-delay"
+                class="btn btn-outline-primary mx-lg-4 my-5 my-lg-auto position-relative text-uppercase reveal reveal-from-top"
                 data-bs-toggle="modal"
-                data-bs-target="#contact"
+                data-bs-target="#contactModal"
               >
                 <i class="fa-regular fa-hand-back-fist" aria-hidden="true"></i>
                 <span class="visually-hidden">Contact button</span>
@@ -144,7 +142,7 @@
             </div>
           </div>
           <i
-            class="fa-solid fa-pause px-4 reveal reveal-from-top reveal-delay"
+            class="fa-solid fa-pause px-4 reveal reveal-from-top"
             id="pauseBtn"
           >
             <span class="visually-hidden">Pause</span>
@@ -152,136 +150,6 @@
         </div>
       </nav>
     </header>
-    <!-- Contact form modal -->
-    <div
-      class="modal fade"
-      id="contact"
-      tabindex="-1"
-      aria-labelledby="contactLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-        <div class="modal-content rounded-3">
-          <div class="modal-header">
-            <h1
-              class="modal-title fs-5 reveal reveal-from-bottom"
-              id="contactLabel"
-            >
-              Get in touch
-            </h1>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <form
-              class="row g-3 p-3 pb-5 needs-validation text-font"
-              novalidate
-            >
-              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
-                <label for="validationFirstName" class="form-label"
-                  >First name</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationFirstName"
-                  placeholder="Jane"
-                  required
-                />
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
-                <label for="validationLastName" class="form-label"
-                  >Last name</label
-                >
-                <input
-                  type="text"
-                  class="form-control"
-                  id="validationLastName"
-                  placeholder="Doe"
-                  required
-                />
-                <div class="valid-feedback">Looks good!</div>
-              </div>
-              <div class="col-12 reveal reveal-from-bottom">
-                <label for="validationEmail" class="form-label"
-                  >Email address</label
-                >
-                <input
-                  type="email"
-                  class="form-control"
-                  id="validationEmail"
-                  placeholder="name@example.com"
-                  required
-                />
-                <div class="invalid-feedback">
-                  Please type a valid email address.
-                </div>
-              </div>
-              <div class="col-12 reveal reveal-from-bottom">
-                <div class="mb-3">
-                  <label for="Message" class="form-label">Message</label>
-                  <textarea
-                    class="form-control"
-                    id="Message"
-                    rows="3"
-                    required
-                  ></textarea>
-                  <div class="invalid-feedback">Cannot be empty.</div>
-                </div>
-              </div>
-              <div class="col-12 mb-3 reveal reveal-from-bottom">
-                <label for="formFileMultiple" class="form-label"
-                  >Add files of inspiration</label
-                >
-                <input
-                  class="form-control"
-                  type="file"
-                  id="formFileMultiple"
-                  multiple
-                />
-              </div>
-              <div class="col-12 reveal reveal-from-bottom">
-                <div class="form-check">
-                  <input
-                    class="form-check-input"
-                    type="checkbox"
-                    value=""
-                    id="invalidCheck"
-                    required
-                  />
-                  <label class="form-check-label" for="invalidCheck">
-                    Agree to
-                    <a href="#" target="_blank">terms &amp; conditions</a>
-                  </label>
-                  <div class="invalid-feedback">
-                    You must agree before submitting.
-                  </div>
-                </div>
-              </div>
-              <div class="col-12 reveal reveal-from-bottom">
-                <button class="btn btn-primary submit" type="submit">
-                  Submit
-                </button>
-                <button
-                  type="button"
-                  class="btn btn-secondary reveal reveal-from-right"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer"></div>
-        </div>
-      </div>
-    </div>
-    <!-- end of Contact form modal -->
     <main data-bs-spy="scroll" data-bs-target="#navbarText" tabindex="0">
       <!-- Hero section -->
       <section class="masthead position-relative" id="hero">
@@ -300,24 +168,26 @@
         <div class="container min-vh-100 my-auto">
           <div class="row min-vh-100 mx-auto">
             <div
-              class="col-xl-5 col-lg-6 col-sm-12 d-flex flex-column justify-content-lg-end align-items-lg-end ps-lg-3 my-5 my-lg-auto"
+              class="col-xl-5 col-lg-6 col-sm-12 d-flex justify-content-lg-end align-items-lg-end ps-lg-3 my-5 my-lg-auto"
             >
-              <div class="title-wrapper pb-2 reveal reveal-from-left">
+              <div
+                class="title-wrapper ms-4 ms-lg-0 pb-2 reveal reveal-from-left"
+              >
                 <h2
                   class="hero-title accent-font display-5 text-uppercase text-wrap"
                 >
                   Look, I can code
                 </h2>
-                <button
-                  class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 mt-5 py-4 px-2 position-relative text-lowercase z-1"
-                  data-bs-toggle="modal"
-                  data-bs-target="#contact"
+                <a
+                  href="#contact"
+                  class="btn btn-cta btn-outline bar-anchor text-primary bg-primary bg-opacity-50 mt-5 py-4 px-2 position-relative text-uppercase z-1"
+                  role="button"
                 >
                   <span class="w-100 position-relative bg-black py-3 px-4 z-1">
                     Work with me
                   </span>
                   <div class="btn-border position-absolute top-0"></div>
-                </button>
+                </a>
               </div>
             </div>
             <div
@@ -326,7 +196,10 @@
               <div
                 class="skills-title mx-auto mt-3 d-flex justify-content-end reveal reveal-from-top"
               >
-                <h3><span class="text-primary">const</span> skills = [</h3>
+                <h3>
+                  <span class="const">const</span> skills
+                  <span class="operator">=</span> [
+                </h3>
               </div>
               <div class="skills-container mx-auto my-5" id="skillsContainer">
                 <ul class="skills-list" id="skillsList">
@@ -415,7 +288,7 @@
               <div
                 class="skills-title-end mx-auto mt-3 d-flex justify-content-end reveal reveal-from-bottom"
               >
-              <p class="h3">]</p>
+                <p class="h3">]</p>
               </div>
             </div>
           </div>
@@ -537,7 +410,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
               <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
                 <div class="d-flex">
                   <button
-                    class="btn btn-outline-secondary sortingButton my-5"
+                    class="btn btn-outline-secondary sortingButton text-uppercase my-5"
                     id="sortingButton"
                     data-bs-toggle="button"
                   >
@@ -586,14 +459,14 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                         class="card-links-wrapper position-absolute bottom-0"
                       >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="https://alexandrabatrak.github.io/horiseon/"
                           target="_blank"
                           class="card-link"
                           >Deployement</a
                         >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="https://github.com/alexandrabatrak/horiseon"
                           target="_blank"
                           class="card-link"
@@ -644,14 +517,14 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                         class="card-links-wrapper position-absolute bottom-0"
                       >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="https://alexandrabatrak.github.io/portfolio-concept-page"
                           target="_blank"
                           class="card-link"
                           >Deployement</a
                         >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="https://github.com/alexandrabatrak/portfolio-concept-page"
                           target="_blank"
                           class="card-link"
@@ -720,14 +593,14 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                         class="card-links-wrapper position-absolute bottom-0"
                       >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="https://alexandrabatrak.github.io/bootstrap-portfolio"
                           target="_blank"
                           class="card-link"
                           >Deployement</a
                         >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="https://github.com/alexandrabatrak/bootstrap-portfolio"
                           target="_blank"
                           class="card-link"
@@ -790,14 +663,14 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                         class="card-links-wrapper position-absolute bottom-0"
                       >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="#"
                           target="_blank"
                           class="card-link"
                           >Deployement</a
                         >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="#"
                           target="_blank"
                           class="card-link"
@@ -849,14 +722,14 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                         class="card-links-wrapper position-absolute bottom-0"
                       >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="#"
                           target="_blank"
                           class="card-link"
                           >Deployement</a
                         >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="#"
                           target="_blank"
                           class="card-link"
@@ -912,14 +785,14 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                         class="card-links-wrapper position-absolute bottom-0"
                       >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="#"
                           target="_blank"
                           class="card-link"
                           >Deployement</a
                         >
                         <a
-                          class="btn btn-outline-light"
+                          class="btn btn-outline-light text-uppercase"
                           href="#"
                           target="_blank"
                           class="card-link"
@@ -940,9 +813,11 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
           id="counter"
           class="counter bg-dark py-5 my-5 position-relative"
         >
-          <div class="container">
+          <div class="container pb-lg-5">
             <div class="row text-lg-center">
-              <div class="col-md-3 col-sm-6 reveal reveal-from-left">
+              <div
+                class="col-md-3 col-sm-6 reveal reveal-from-bottom reveal-delay"
+              >
                 <div class="card bg-dark">
                   <span
                     data-purecounter-start="0"
@@ -954,7 +829,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
               </div>
               <div
-                class="col-md-3 col-sm-6 reveal reveal-from-left reveal-delay"
+                class="col-md-3 col-sm-6 reveal reveal-from-top reveal-delay"
               >
                 <div class="card bg-dark">
                   <span
@@ -967,7 +842,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
               </div>
               <div
-                class="col-md-3 col-sm-6 reveal reveal-from-left reveal-delay"
+                class="col-md-3 col-sm-6 reveal reveal-from-bottom reveal-delay"
               >
                 <div class="card bg-dark">
                   <span
@@ -980,7 +855,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                 </div>
               </div>
               <div
-                class="col-md-3 col-sm-6 reveal reveal-from-left reveal-delay"
+                class="col-md-3 col-sm-6 reveal reveal-from-top reveal-delay"
               >
                 <div class="card bg-dark">
                   <span
@@ -999,7 +874,7 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
         <!-- Testimonials-->
         <section
           id="testimonials"
-          class="testimonials bg-dark position-relative"
+          class="testimonials pt-5 bg-dark position-relative"
         >
           <div class="container py-5">
             <div class="row">
@@ -1130,14 +1005,19 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
             <div class="row flex-row-reverse">
               <div class="col-lg-4 col-md-12">
                 <div
-                  class="section-title big-text text-uppercase lh-1 text-md-end text-wrap reveal reveal-from-left"
+                  class="section-title big-text text-uppercase lh-1 text-md-end text-wrap reveal reveal-from-right"
                 >
                   <h2 class="mb-5">Send me chocolate</h2>
                 </div>
               </div>
               <div class="col-lg-8 col-md-12 mx-auto reveal reveal-from-bottom">
-                <form class="row g-3 p-3 needs-validation text-font" novalidate>
-                  <h3 class="accent-font reveal reveal-from-bottom">Details grabber</h3>
+                <form
+                  class="row g-3 p-3 rounded-3 needs-validation text-font"
+                  novalidate
+                >
+                  <h3 class="accent-font reveal reveal-from-bottom">
+                    Details grabber
+                  </h3>
                   <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
                     <label for="validationFirstName" class="form-label"
                       >First name</label
@@ -1221,7 +1101,10 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
                     </div>
                   </div>
                   <div class="col-12 reveal reveal-from-bottom">
-                    <button class="btn btn-primary submit" type="submit">
+                    <button
+                      class="btn btn-outline-primary submit"
+                      type="submit"
+                    >
                       Submit
                     </button>
                   </div>
@@ -1236,31 +1119,39 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
     <footer class="footer bg-dark py-5 pb-3">
       <div class="container reveal reveal-from-bottom">
         <div class="row">
-          <div class="d-lg-flex col-lg-5 col-md-6 col-sm-12 flex-lg-column-reverse justify-content-lg-end">
+          <div
+            class="d-lg-flex col-lg-5 col-md-6 col-sm-12 flex-lg-column-reverse justify-content-lg-end mb-4 mb-lg-0"
+          >
             <div class="footer-title mt-lg-4">
-              <h2 class="accent-font reveal reveal-from-left">A.</h2>
+              <h2
+                class="pb-2 accent-font border-bottom border-white border-2 reveal reveal-from-left"
+                style="--bs-border-opacity: 0.1"
+              >
+                A.
+              </h2>
             </div>
-            <div
-              class="text-font fs-5"
-            >
+            <div class="text-font fs-5">
               <p class="reveal reveal-from-bottom">
                 Check out this Bootstrap-powered portfolio featuring fancy
-                things like spinning, flashy, eye-catching elements, lots of
-                glow, and <strong>gradients</strong>(which are essential,
-                right?). Plus, the elements even appear on scroll, which is so
-                fancy!
+                things like eye-catching elements, lots of glow, and
+                <strong>gradients</strong> (which are essential, right?). Plus,
+                the elements even appear on scroll, which is so fancy!
               </p>
               <p class="reveal reveal-from-bottom">
                 Koopa and Kevin are thrilled to be a part of every portfolio and
                 want some fame too.
               </p>
-              <div class="d-block border-bottom border-primary border-2 mb-5 mb-lg-0"
-            style="--bs-border-opacity: 0.5""></div>
+              <!-- <div class="d-block border-bottom border-white border-2 mb-5 mb-lg-0"
+            style="--bs-border-opacity: 0.1""></div> -->
             </div>
-            
           </div>
-          <div class="col-lg-3 col-md-6 col-sm-12">
-            <h3 class="h4 reveal reveal-from-bottom">What's not to like?</h3>
+          <div class="col-lg-3 col-md-6 col-sm-12 mb-4 mb-lg-0">
+            <h3
+              class="pb-2 h4 border-bottom border-white border-2 reveal reveal-from-bottom"
+              style="--bs-border-opacity: 0.1"
+            >
+              What's not to like?
+            </h3>
             <p class="text-font reveal reveal-from-bottom">
               Please consider starring it on
               <a
@@ -1275,33 +1166,33 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
             Special thanks to:
             <ul class="list-unstyled reveal reveal-from-bottom">
               <li
-                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-bottom"
               >
                 <a href="https://getbootstrap.com/" target="_blank">
                   Bootstrap (5.3.0)
                 </a>
               </li>
               <li
-                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-bottom"
               >
                 <a href="https://fontawesome.com/" target="_blank"
                   >FontAwesome</a
                 >
               </li>
               <li
-                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-bottom"
               >
                 <a href="https://swiperjs.com/get-started" target="_blank"
                   >Swiper</a
                 >
               </li>
               <li
-                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-bottom"
               >
                 <a href="https://www.npmjs.com/" target="_blank">npm</a>
               </li>
               <li
-                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-right reveal-delay"
+                class="btn btn-outline-secondary rounded-3 p-2 m-1 reveal reveal-from-bottom"
               >
                 <a href="https://code.visualstudio.com/" target="_blank"
                   >VS Code</a
@@ -1311,14 +1202,18 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
           </div>
           <div class="col-lg-3 col-md-6 col-sm-12">
             <div class="row">
-              <!-- check the correct heading tag -->
-              <h3 class="reveal reveal-from-right">Links</h3>
+              <h3
+                class="h4 pb-2 border-bottom border-white border-2 reveal reveal-from-bottom"
+                style="--bs-border-opacity: 0.1"
+              >
+                Links
+              </h3>
               <nav class="footer-nav" role="secondary">
                 <div class="row">
                   <div class="col-md-12 col-sm-6">
                     <ul
-                      class="list-unstyled pb-3 border-bottom border-primary border-2 fs-5 text-uppercase reveal reveal-from-bottom"
-                      style="--bs-border-opacity: 0.5"
+                      class="list-unstyled pb-3 fs-5 text-uppercase reveal reveal-from-bottom"
+                      style="--bs-border-opacity: 0.1"
                     >
                       <li><a href="#about">About</a></li>
                       <li><a href="#work">Projects</a></li>
@@ -1349,6 +1244,136 @@ if (tired &amp;&amp; hours &gt;= 09 &amp;&amp; hours &lt;= 22) {
         </div>
       </div>
     </footer>
+    <!-- Contact form modal -->
+    <div
+      class="modal fade"
+      id="contactModal"
+      tabindex="-1"
+      aria-labelledby="contactLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content rounded-3">
+          <div class="modal-header">
+            <h1
+              class="modal-title fs-5 reveal reveal-from-bottom"
+              id="contactLabel"
+            >
+              Get in touch
+            </h1>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form
+              class="row g-3 p-3 pb-5 needs-validation text-font"
+              novalidate
+            >
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <label for="validationFirstName" class="form-label"
+                  >First name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationFirstName"
+                  placeholder="Jane"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-md-6 col-sm-12 reveal reveal-from-bottom">
+                <label for="validationLastName" class="form-label"
+                  >Last name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="validationLastName"
+                  placeholder="Doe"
+                  required
+                />
+                <div class="valid-feedback">Looks good!</div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <label for="validationEmail" class="form-label"
+                  >Email address</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="validationEmail"
+                  placeholder="name@example.com"
+                  required
+                />
+                <div class="invalid-feedback">
+                  Please type a valid email address.
+                </div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <div class="mb-3">
+                  <label for="Message" class="form-label">Message</label>
+                  <textarea
+                    class="form-control"
+                    id="Message"
+                    rows="3"
+                    required
+                  ></textarea>
+                  <div class="invalid-feedback">Cannot be empty.</div>
+                </div>
+              </div>
+              <div class="col-12 mb-3 reveal reveal-from-bottom">
+                <label for="formFileMultiple" class="form-label"
+                  >Add files of inspiration</label
+                >
+                <input
+                  class="form-control"
+                  type="file"
+                  id="formFileMultiple"
+                  multiple
+                />
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    value=""
+                    id="invalidCheck"
+                    required
+                  />
+                  <label class="form-check-label" for="invalidCheck">
+                    Agree to
+                    <a href="#" target="_blank">terms &amp; conditions</a>
+                  </label>
+                  <div class="invalid-feedback">
+                    You must agree before submitting.
+                  </div>
+                </div>
+              </div>
+              <div class="col-12 reveal reveal-from-bottom">
+                <button class="btn btn-primary submit" type="submit">
+                  Submit
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-secondary reveal reveal-from-right"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+    <!-- end of Contact form modal -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
