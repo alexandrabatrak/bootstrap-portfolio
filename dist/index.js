@@ -23,7 +23,37 @@
     }
 
     // Typing animation
-    // Using requestAnimationFrame is better for perfomance than using setInterval
+    // This function has an issue with not stopping after the animation is complete.
+    // TODO: figure out why
+    // function typedText() {
+    //   const typedText = document.getElementById('typed-text');
+    //   typedText.parentNode.style.opacity = '0';
+    //   let str = typedText.innerHTML;
+    //   let i = 0;
+    //   typedText.innerHTML = '';
+
+    //   // set a variable for animation completion check, so that it doesn't continue animation after completion
+    //   let animation = null;
+
+    //   function typing() {
+    //     if ((animation = null)) {
+    //       return;
+    //     }
+    //     i += 25; // Increase the value of i in each iteration that determines the speed of typing animation
+    //     typedText.innerHTML = str.slice(0, i) + '|';
+    //     typedText.parentNode.style.opacity = '1';
+    //     if (i == str.length) {
+    //       typedText.innerHTML = str;
+    //       cancelAnimationFrame(typing);
+    //     } else {
+    //       animation = requestAnimationFrame(typing);
+    //     }
+    //   }
+
+    //   requestAnimationFrame(typing);
+    // }
+
+    // setInterval version of typedText
     function typedText() {
       const typedText = document.getElementById('typed-text');
       typedText.parentNode.style.opacity = '0';
@@ -31,42 +61,29 @@
       let i = 0;
       typedText.innerHTML = '';
 
-      function typing() {
-        i += 3; // Increase the value of i by 3 in each iteration
-        typedText.innerHTML = str.slice(0, i) + '|';
-        typedText.parentNode.style.opacity = '1';
-        if (i == str.length) {
-          //~AnimationFrame is better for perfomance than setInterval
-          cancelAnimationFrame(typing);
-          typedText.innerHTML = str;
-        } else {
-          requestAnimationFrame(typing);
-        }
+      function typing(interval) {
+        return setInterval(() => {
+          i++;
+          typedText.innerHTML = str.slice(0, i) + '|';
+          typedText.parentNode.style.opacity = '1';
+          if (i == str.length) {
+            clearInterval(typing);
+            typedText.innerHTML = str;
+          }
+        }, interval);
       }
 
-      requestAnimationFrame(typing);
-      // To execute animation only once
-      cancelAnimationFrame(typing);
+      // start animation when it's in view
+      const observerTypedText = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) {
+          typing(5);
+        } else {
+          return;
+        }
+      });
+
+      observerTypedText.observe(typedText);
     }
-
-    // setInterval version of typedText
-    // function typedText() {
-    //  const typedText = document.getElementById('typed-text');
-    //  typedText.parentNode.style.opacity = '0';
-    //  let str = typedText.innerHTML;
-    //  let i = 0;
-    //  typedText.innerHTML = '';
-
-    //  let typing = setInterval(() => {
-    //    i++;
-    //    typedText.innerHTML = str.slice(0, i) + '|';
-    //    typedText.parentNode.style.opacity = '1';
-    //    if (i == str.length) {
-    //      clearInterval(typing);
-    //      typedText.innerHTML = str;
-    //    }
-    //  }, 1);
-    //}
 
     // Video pause
     const video = document.getElementById('videoBg');
@@ -131,18 +148,18 @@
     // };
 
     // to apply only once
-    const show = (entries) => {
+    const reveal = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('inview');
-          observer.unobserve(entry.target);
+          observerReveal.unobserve(entry.target);
         }
       });
     };
-    const observer = new IntersectionObserver(show, {
+    const observerReveal = new IntersectionObserver(reveal, {
       once: true,
     });
-    items.forEach((item) => observer.observe(item));
+    items.forEach((item) => observerReveal.observe(item));
 
     // Reverse order of projects
     const container = document.querySelector('.work .grid');
@@ -162,8 +179,7 @@
     // animate skill list
     // Source https://codepen.io/tmhrtwg/pen/PvywxY.
     // Edited to fix error with negative margin and first element never appending to the last correctly.
-    // TODO: Find a solution for stutter: just before the element is near the left edge, the margin is reset to 0 and it pushes the element to the right
-    // Solution: configure exact value of differenceCheck based on a li size and it's margin.
+    // Solution for stutter: configure exact value of differenceCheck based on a li size and it's margin.
 
     function animateSkills() {
       let skillsContainer = document.getElementById('skillsContainer');
