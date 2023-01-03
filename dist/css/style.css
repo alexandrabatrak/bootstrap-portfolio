@@ -253,6 +253,7 @@ nav.is-up {
 
 .code-block {
   width: 75%;
+  box-shadow: 7px 7px 30px 2px rgba(1, 0, 1, 0.27);
 }
 
 pre {
