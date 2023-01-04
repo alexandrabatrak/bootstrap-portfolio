@@ -513,9 +513,12 @@ footer nav {
 
   &.inview {
     opacity: 1;
-    transform: translate(0);
-    transition-delay: 0.3s;
     filter: blur(0);
+
+    &:not(.fade) {
+      transform: translate(0);
+      transition-delay: 0.3s;
+    }
   }
 
   &-from-top {

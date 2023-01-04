@@ -483,9 +483,11 @@ footer nav li a:hover {
 }
 .reveal.inview {
   opacity: 1;
+  filter: blur(0);
+}
+.reveal.inview:not(.fade) {
   transform: translate(0);
   transition-delay: 0.3s;
-  filter: blur(0);
 }
 .reveal-from-top {
   transform: translateY(-40px);
