@@ -151,13 +151,9 @@ nav {
 }
 
 .btn {
-  &-cta,
-  &[type='submit'] {
-    letter-spacing: $letter-spacing-small;
-  }
-
   &-cta {
     max-width: 400px;
+    letter-spacing: $letter-spacing-small;
     overflow: hidden;
 
     span,
@@ -255,7 +251,7 @@ nav {
 
 .section-title {
   &.big-text {
-    @include reflect(0.35);
+    @include reflect(0.25);
   }
 }
 
@@ -281,7 +277,7 @@ nav {
 
 .code-block {
   width: 75%;
-  box-shadow: 7px 7px 30px 2px rgb($black, 0.27);
+  box-shadow: $dark-shadow;
 }
 
 pre {
@@ -314,6 +310,7 @@ pre {
     min-height: 400px;
     background: linear-gradient(141deg, $dark-grey, rgba($dark, 0.3));
     @include card-border();
+    box-shadow: $dark-shadow;
 
     &-text {
       font-family: $text-font;
@@ -401,6 +398,7 @@ pre {
   &-thumbnail {
     width: 150px;
     height: 150px;
+    box-shadow: $dark-shadow;
   }
 
   .fa-img {
@@ -445,6 +443,7 @@ pre {
   form {
     background: $dark-grey;
     @include card-border();
+    box-shadow: $dark-shadow;
 
     &:hover {
       box-shadow: $card-shadow;

@@ -121,11 +121,9 @@ nav.is-up {
   transform: skew(-5deg, -5deg);
 }
 
-.btn-cta, .btn[type=submit] {
-  letter-spacing: 5px;
-}
 .btn-cta {
   max-width: 400px;
+  letter-spacing: 5px;
   overflow: hidden;
 }
 .btn-cta span,
@@ -247,7 +245,7 @@ nav.is-up {
 }
 
 .section-title.big-text {
-  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(1, 0, 1, 0.35));
+  -webkit-box-reflect: below 1px linear-gradient(transparent, rgba(1, 0, 1, 0.25));
 }
 
 /*=====================
@@ -303,6 +301,7 @@ pre {
   border-left-color: rgba(64, 156, 255, 0.15);
   border-bottom-color: rgba(64, 156, 255, 0.05);
   border-right-color: transparent;
+  box-shadow: 7px 7px 30px 2px rgba(1, 0, 1, 0.27);
 }
 .work .card-text {
   font-family: "Didact Gothic", sans-serif;
@@ -384,6 +383,7 @@ pre {
 .swiper-thumbnail {
   width: 150px;
   height: 150px;
+  box-shadow: 7px 7px 30px 2px rgba(1, 0, 1, 0.27);
 }
 .swiper .fa-img span::before, .swiper .fa-img span:after {
   content: "";
@@ -423,6 +423,7 @@ pre {
   border-left-color: rgba(64, 156, 255, 0.15);
   border-bottom-color: rgba(64, 156, 255, 0.05);
   border-right-color: transparent;
+  box-shadow: 7px 7px 30px 2px rgba(1, 0, 1, 0.27);
 }
 .contact form:hover {
   box-shadow: 0px 3px 6px rgba(72, 173, 156, 0.5), 0px 8px 15px rgba(246, 179, 251, 0.3), 0 0 0 1px rgba(23, 186, 255, 0.3);
