@@ -312,6 +312,7 @@ pre {
 
   .card {
     min-height: 400px;
+    background: linear-gradient(141deg, $dark-grey, rgba($dark, 0.3));
     @include card-border();
 
     &-text {

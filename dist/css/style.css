@@ -297,6 +297,7 @@ pre {
 }
 .work .card {
   min-height: 400px;
+  background: linear-gradient(141deg, #28282b, rgba(23, 23, 26, 0.3));
   border: 2px solid;
   border-top-color: rgba(149, 150, 247, 0.15);
   border-left-color: rgba(64, 156, 255, 0.15);
