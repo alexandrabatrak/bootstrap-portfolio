@@ -128,7 +128,7 @@ nav {
 * HERO
 =====================*/
 .masthead {
-  background: linear-gradient(0deg, $dark, rgba($black, 0.8));
+  background: $dark-to-black;
 
   .big-text-left {
     position: absolute;
@@ -691,7 +691,7 @@ footer nav {
         }
       }
       &-links-wrapper a.btn:hover {
-        box-shadow: 3px 4px 30px rgb(1 0 1 / 45%);
+        box-shadow: 3px 4px 30px rgba($black, 0.45);
       }
     }
   }
