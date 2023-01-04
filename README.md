@@ -4,7 +4,9 @@
 
 Bootcamp week 03: Bootstrap challenge: Build a portfolio page. :black_heart:
 
-~~Recreation~~ New style portfolio utilizing Bootstrap 5.3.0-alpha1, Swiper.js, and Purecounter.
+~~Recreation~~ New style portfolio utilizing Bootstrap (v5.3.0).
+
+### [View Project :star:](https://alexandrabatrak.github.io/bootstrap-portfolio/)
 
 ## Feautres
 
@@ -16,8 +18,6 @@ Bootcamp week 03: Bootstrap challenge: Build a portfolio page. :black_heart:
 - [x] Modal contact form + on-page section for accessibility
 - [x] Auto-turn animations and moving elements off for users on devices with defined preferences
 - [x] Accessible integration of FontAwesome
-
-## [View Project](https://alexandrabatrak.github.io/bootstrap-portfolio/)
 
 ![Screenshot of Bootstrap Portfolio](./dist/images/screenshot.png)
 
@@ -36,7 +36,7 @@ Bootcamp week 03: Bootstrap challenge: Build a portfolio page. :black_heart:
 JS snippets from:
 
 - [On-scroll animations](https://dev.to/miacan2021/fade-in-animation-on-scroll-with-intersectionobserver-vanilla-js-4p27)
-- [Skills list scroll animation](https://codepen.io/tmhrtwg/pen/PvywxY) (// Edited to fix error with negative margin and first element never appending to the last correctly.)
+- [Skills list scroll animation](https://codepen.io/tmhrtwg/pen/PvywxY)[^1]
 
 CSS CTA button inspired by:
 
@@ -45,5 +45,7 @@ CSS CTA button inspired by:
 ## License
 
 Licenced under the [MIT](/LICENSE) license.
+
+[^1]: Edited to fix error with negative margin and first element never appending to the last correctly.
 
 _Copyright © 2023 Alexandra Batrak_
