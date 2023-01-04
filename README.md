@@ -14,7 +14,7 @@ Bootcamp week 03: Bootstrap challenge: Build a portfolio page. :black_heart:
 - [x] Fully Responsive layout
 - [x] Animations: on scroll appearance, marquee, typing effect
 - [x] Modal contact form + on-page section for accessibility
-- [x] Auto-turn animations and moving elements for users on devices with defined preferences
+- [x] Auto-turn animations and moving elements off for users on devices with defined preferences
 - [x] Accessible integration of FontAwesome
 
 ## [View Project](https://alexandrabatrak.github.io/bootstrap-portfolio/)
