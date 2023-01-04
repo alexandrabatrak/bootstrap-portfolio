@@ -18,7 +18,7 @@
     if (reducedMotion) {
       videoPause();
     } else {
-      typedText();
+      typingText();
       animateSkills();
     }
 
@@ -26,7 +26,7 @@
     // This function has an issue with not stopping after the animation is complete.
     // TODO: figure out why
     // function typedText() {
-    //   const typedText = document.getElementById('typed-text');
+    //   const typedText = document.getElementById('typedText');
     //   typedText.parentNode.style.opacity = '0';
     //   let str = typedText.innerHTML;
     //   let i = 0;
@@ -54,31 +54,32 @@
     // }
 
     // setInterval version of typedText
-    function typedText() {
-      const typedText = document.getElementById('typed-text');
+    function typingText() {
+      const typedText = document.getElementById('typedText');
       typedText.parentNode.style.opacity = '0';
       let str = typedText.innerHTML;
       let i = 0;
       typedText.innerHTML = '';
 
-      function typing(interval) {
-        return setInterval(() => {
-          i++;
-          typedText.innerHTML = str.slice(0, i) + '|';
-          typedText.parentNode.style.opacity = '1';
-          if (i == str.length) {
-            clearInterval(typing);
-            typedText.innerHTML = str;
-          }
-        }, interval);
-      }
+      let typing = null;
 
-      // start animation when it's in view
+      // animate when in view
+      // TODO: this doesn't continue animation when it's not in view - but this code eliminates the problem with it continuosly firing after animation is comlete.
+      // 0 interval due to prism.js slowing it down.
       const observerTypedText = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
-          typing(5);
+          typing = setInterval(() => {
+            i++;
+            typedText.innerHTML = str.slice(0, i) + '|';
+            typedText.parentNode.style.opacity = '1';
+            if (i == str.length) {
+              clearInterval(typing);
+              typedText.innerHTML = str;
+              // observerTypedText.unobserve(typedText);
+            }
+          }, 0);
         } else {
-          return;
+          clearInterval(typing);
         }
       });
 
@@ -137,7 +138,7 @@
     const items = document.querySelectorAll('.reveal');
 
     // to keep applying class everytime scrolled into element
-    // const show = (entries) => {
+    // const reveal = (entries) => {
     //   entries.forEach((entry) => {
     //     if (entry.isIntersecting) {
     //       entry.target.classList.add('inview');
