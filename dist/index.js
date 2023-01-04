@@ -134,7 +134,6 @@
     });
 
     // On scroll animation
-    // Source @ https://dev.to/miacan2021/fade-in-animation-on-scroll-with-intersectionobserver-vanilla-js-4p27
     const items = document.querySelectorAll('.reveal');
 
     // to keep applying class everytime scrolled into element
@@ -178,10 +177,6 @@
     });
 
     // animate skill list
-    // Source https://codepen.io/tmhrtwg/pen/PvywxY.
-    // Edited to fix error with negative margin and first element never appending to the last correctly.
-    // Solution for stutter: configure exact value of differenceCheck based on a li size and it's margin.
-
     function animateSkills() {
       let skillsContainer = document.getElementById('skillsContainer');
       let leftSideOfContainer = skillsContainer.getBoundingClientRect().left;
@@ -189,6 +184,7 @@
       const skillsList = document.getElementById('skillsList');
       let currentLeftValue = 0;
 
+      // If changing the skillsList child element dimensions, need to adjust the interval accordingly to avoid stutter
       let animationInterval = window.setInterval(animationLoop, 20);
 
       skillsContainer.addEventListener('mouseenter', () => {
@@ -200,7 +196,6 @@
       });
 
       // Update container edge values when window is resized
-      // TODO still issue when resizing (not eve) - the margin increases expedencially
       window.addEventListener('resize', () => {
         leftSideOfContainer = skillsContainer.getBoundingClientRect().left;
         rightSideOfContainer = skillsContainer.getBoundingClientRect().right;
