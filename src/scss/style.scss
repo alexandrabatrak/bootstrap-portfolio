@@ -1,12 +1,15 @@
-/*
+/*===================== 
 * Bootstrap Portfolio
-*
-*/
+* V 1.0.1
+* @author Alexandra Batrak
+=====================*/
 
 @import 'var/variables.scss';
 @import 'var/mixins.scss';
 
-/* General */
+/*===================== 
+* GENERAL
+=====================*/
 .loader {
   z-index: 1099;
   overflow: hidden;
@@ -17,7 +20,7 @@ body {
   background: $dark;
   font-family: $body-font;
 
-  // Modal opening add weird padding
+  // Modal opening adds weird padding
   &.modal-open,
   &.modal-open nav {
     overflow: hidden !important;
@@ -41,7 +44,6 @@ main .container-fluid {
   max-width: 1920px;
 }
 
-/* https://css-tricks.com/keyboard-only-focus-styles/ */
 .btn-cta:focus-visible,
 .navbar-toggler:focus-visible {
   outline: 1px solid $white !important;
@@ -148,7 +150,6 @@ nav {
   }
 }
 
-/*  Inspired by Carlos Ortega https://codepen.io/Carlos1162/pen/eJdLXa */
 .btn {
   &-cta,
   &[type='submit'] {
@@ -232,8 +233,6 @@ nav {
       }
 
       &:hover {
-        // background: $white;
-        // color: $black;
         color: $white;
       }
 
@@ -290,10 +289,10 @@ pre {
   backdrop-filter: blur(5px);
 }
 
-.code-block code {
-  font: 0.58rem/1 'JetBrains', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-    monospace !important;
-}
+// .code-block code {
+//   font: 0.58rem/1 'JetBrains Mono', Consolas, Monaco, 'Andale Mono',
+//     'Ubuntu Mono', monospace !important;
+// }
 
 /*=====================
 * WORK
@@ -505,7 +504,7 @@ footer nav {
 }
 
 /*=====================
-* ANIMATION
+* REVEAL ANIMATION
 =====================*/
 .reveal {
   opacity: 0;
@@ -585,24 +584,6 @@ footer nav {
   }
 }
 
-@keyframes rotate {
-  to {
-    transform: rotate(-360deg);
-  }
-  from {
-    transform: rotate(0);
-  }
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes borderflash {
   from {
     border-color: $primary;
@@ -623,7 +604,7 @@ footer nav {
   }
 
   .reveal {
-    /* To avoid extending width of the body before scrolling in */
+    /* Switch transform axis to avoid extending width of the body before scrolling in */
     &-from-right {
       transform: translateY(40px);
     }
@@ -636,7 +617,7 @@ footer nav {
 
 @media screen and (max-width: 991.999px) {
   .masthead {
-    padding-top: 100px; /* to place after fixed nav */
+    padding-top: 100px; /* offset for fixed nav height */
 
     .big-text {
       position: fixed;
@@ -684,7 +665,7 @@ footer nav {
 }
 
 @media (any-hover: hover) {
-  /* Styles for work cards gradient to be shown on hover */
+  /* Work cards gradient to be shown on hover */
   .work {
     .card {
       &:hover {
@@ -714,7 +695,7 @@ footer nav {
 }
 
 @media (any-hover: none) {
-  /* Styles for work cards gradient to be shown always */
+  /* Work cards gradient */
   .work {
     .card {
       .hover-gradient {

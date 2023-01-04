@@ -1,9 +1,12 @@
 @charset "UTF-8";
-/*
+/*===================== 
 * Bootstrap Portfolio
-*
-*/
-/* General */
+* V 1.0.1
+* @author Alexandra Batrak
+=====================*/
+/*===================== 
+* GENERAL
+=====================*/
 .loader {
   z-index: 1099;
   overflow: hidden;
@@ -12,7 +15,7 @@
 body {
   color: #fff3ff;
   background: #17171a;
-  font-family: "JetBrains", Consolas, mono;
+  font-family: "JetBrains Mono", Consolas, mono;
 }
 body.modal-open, body.modal-open nav {
   overflow: hidden !important;
@@ -35,7 +38,6 @@ main .container-fluid {
   max-width: 1920px;
 }
 
-/* https://css-tricks.com/keyboard-only-focus-styles/ */
 .btn-cta:focus-visible,
 .navbar-toggler:focus-visible {
   outline: 1px solid #fff3ff !important;
@@ -119,7 +121,6 @@ nav.is-up {
   transform: skew(-5deg, -5deg);
 }
 
-/*  Inspired by Carlos Ortega https://codepen.io/Carlos1162/pen/eJdLXa */
 .btn-cta, .btn[type=submit] {
   letter-spacing: 5px;
 }
@@ -260,7 +261,7 @@ nav.is-up {
   font-size: 1.25rem;
 }
 .about .btn-cta {
-  font-family: "JetBrains", Consolas, mono;
+  font-family: "JetBrains Mono", Consolas, mono;
 }
 
 .code-block-wrapper {
@@ -279,10 +280,6 @@ pre {
   border-bottom-color: rgba(64, 156, 255, 0.05);
   border-right-color: transparent;
   backdrop-filter: blur(5px);
-}
-
-.code-block code {
-  font: 0.58rem/1 "JetBrains", Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace !important;
 }
 
 /*=====================
@@ -430,7 +427,7 @@ pre {
   box-shadow: 0px 3px 6px rgba(72, 173, 156, 0.5), 0px 8px 15px rgba(246, 179, 251, 0.3), 0 0 0 1px rgba(23, 186, 255, 0.3);
 }
 .contact .submit {
-  font-family: "JetBrains", Consolas, mono;
+  font-family: "JetBrains Mono", Consolas, mono;
 }
 
 .modal-content {
@@ -475,7 +472,7 @@ footer nav li a:hover {
 }
 
 /*=====================
-* ANIMATION
+* REVEAL ANIMATION
 =====================*/
 .reveal {
   opacity: 0;
@@ -556,22 +553,6 @@ footer nav li a:hover {
     transform: rotate(0), scale(0.9999);
   }
 }
-@keyframes rotate {
-  to {
-    transform: rotate(-360deg);
-  }
-  from {
-    transform: rotate(0);
-  }
-}
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 @keyframes borderflash {
   from {
     border-color: #17baff;
@@ -589,7 +570,7 @@ footer nav li a:hover {
   }
 
   .reveal {
-    /* To avoid extending width of the body before scrolling in */
+    /* Switch transform axis to avoid extending width of the body before scrolling in */
   }
   .reveal-from-right {
     transform: translateY(40px);
@@ -601,7 +582,7 @@ footer nav li a:hover {
 @media screen and (max-width: 991.999px) {
   .masthead {
     padding-top: 100px;
-    /* to place after fixed nav */
+    /* offset for fixed nav height */
   }
   .masthead .big-text {
     position: fixed;
@@ -641,7 +622,7 @@ footer nav li a:hover {
   }
 }
 @media (any-hover: hover) {
-  /* Styles for work cards gradient to be shown on hover */
+  /* Work cards gradient to be shown on hover */
   .work .card:hover {
     box-shadow: 0px 3px 6px rgba(72, 173, 156, 0.5), 0px 8px 15px rgba(246, 179, 251, 0.3), 0 0 0 1px rgba(23, 186, 255, 0.3);
   }
@@ -661,7 +642,7 @@ footer nav li a:hover {
   }
 }
 @media (any-hover: none) {
-  /* Styles for work cards gradient to be shown always */
+  /* Work cards gradient */
   .work .card .hover-gradient {
     overflow: hidden;
     opacity: 0.5;
