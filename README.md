@@ -46,6 +46,8 @@ CSS CTA button inspired by:
 
 Licenced under the [MIT](/LICENSE) license.
 
+[![Image of https://github.com/alexandrabatrak/github-profile-views-counter](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/svg/profile/badge.svg)](https://github.com/alexandrabatrak/github-profile-views-counter)
+
 [^1]: Edited to fix error with negative margin and first element never appending to the last correctly.
 
 _Copyright © 2023 Alexandra Batrak_
