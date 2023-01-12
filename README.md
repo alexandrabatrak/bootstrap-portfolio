@@ -44,7 +44,7 @@ CSS CTA button inspired by:
 
 ## License
 
-Licenced under the [MIT](/LICENSE) license.
+Licenced under the [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/) license.
 
 [![Image of github-profile-views-counter](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/svg/580090437/badge.svg)](https://github.com/alexandrabatrak/github-profile-views-counter/blob/master/readme/580090437/week.md)
 
