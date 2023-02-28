@@ -2,7 +2,7 @@
 
 ## About
 
-Bootcamp week 03: Bootstrap challenge: Build a portfolio page. :black_heart:
+:black_heart:
 
 ~~Recreation~~ New style portfolio utilizing Bootstrap (v5.3.0).
 
